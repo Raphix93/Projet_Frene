@@ -1,0 +1,37 @@
+# -----------------------------------------------------------
+# Code by: Kelly Christensen
+# YAML script to customize the path to XML-ALTO files and the project's publication information.
+# -----------------------------------------------------------
+
+data:
+  path: "./data"
+
+iiifURI: {}
+
+responsibility:
+
+  text: "Conversion ALTO vers TEI"
+
+  resp:
+  [
+    {
+      "forename":"Raphaël",
+      "surname":"Rollinet"
+    }
+  ]
+
+  publisher: "Projet Frêne"
+
+  authority: "Université de Neuchâtel"
+
+  availability:
+  {
+      "status":"restricted",
+      "n":"research"
+  }
+
+  licence:
+  {
+      "target":
+      "https://creativecommons.org/licenses/by/4.0/"
+  }

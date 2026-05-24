@@ -1,0 +1,30 @@
+schema: https://htr-united.github.io/schema/2022-04-15/schema.json
+title: Données manuscrites du projet Frêne
+description: Corpus d'entraînement HTR issu de documents manuscrits anciens
+url: ""
+authors:
+- name: Rollinet
+  surname: Raphaël
+  roles:
+  - Transcribeur
+project-name: Projet Frêne
+language:
+- fra
+script:
+- iso: Latn
+script-type: only-manuscript
+time:
+  notBefore: '1700'
+  notAfter: '1799'
+format: Alto-XML
+volume:
+- metric: characters
+  count: 
+- metric: files
+  count: 
+- metric: lines
+  count: 
+production-software: eScriptorium + Kraken
+license:
+- name: CC-BY 4.0
+  url: https://creativecommons.org/licenses/by/4.0/
