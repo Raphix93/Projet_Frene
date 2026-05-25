@@ -25,7 +25,7 @@ volume:
   - metric: lines
     count: 0
 hands:
-  count: 1
+  count: "1"
   precision: estimated
 production-software: eScriptorium + Kraken
 license:
