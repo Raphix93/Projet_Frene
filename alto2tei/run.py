@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Script principal pour lancer la conversion ALTO vers TEI.
 # -----------------------------------------------------------
 

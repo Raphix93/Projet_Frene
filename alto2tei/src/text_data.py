@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Classe Python pour extraire et stocker les données textuelles
 # présentes dans le <sourceDoc>.
 # -----------------------------------------------------------

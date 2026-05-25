@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Classe Python pour construire l’architecture par défaut
 # d’un <teiHeader>.
 # -----------------------------------------------------------
@@ -17,7 +16,7 @@ class DefaultTree:
         self.document = document
         self.root = root
 
-        # Métadonnées SRU/IIIF conservées pour compatibilité avec le code original.
+        # Métadonnées SRU/IIIF conservées pour une futur utilisation.
         # Dans le projet Frêne, elles peuvent rester vides.
         self.sru = metadata.get("sru", {})
         self.iiif = metadata.get("iiif", {})

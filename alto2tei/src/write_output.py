@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Classe Python pour générer le fichier XML-TEI final.
 # -----------------------------------------------------------
 

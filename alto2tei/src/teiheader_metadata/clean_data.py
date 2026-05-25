@@ -10,6 +10,7 @@ class Metadata:
             "wikidata": "https://www.wikidata.org/wiki/Q119860",
         },
         "repository": "Office des archives de l'État de Neuchâtel",
+        "pubPlace": "Neuchâtel",
         "fonds_id": "FRENE THEOPHILE-REMY",
         "ark": "https://floraweb.ne.ch/flora/ark:/37964/001136",
         "level": "fonds",
