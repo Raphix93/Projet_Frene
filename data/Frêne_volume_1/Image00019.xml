@@ -44,6 +44,7 @@
                     ></String>
           </TextLine>
           <TextLine ID="eSc_line_e5b57db4"
+                    TAGREFS="LT8"
                     BASELINE="1908 227 1939 227" 
                     HPOS="1907"
                     VPOS="183"
@@ -418,21 +419,13 @@
                     ></String>
           </TextLine>
         </TextBlock>
-        <TextBlock HPOS="0"
-                   VPOS="823"
-                   WIDTH="1"
-                   HEIGHT="2"
-                   ID="eSc_textblock_10d9d11c"
-                   TAGREFS="BT3842">
-          <Shape><Polygon POINTS="0 823 1 823 1 825 0 825"/></Shape>
-        </TextBlock>
         <TextBlock HPOS="1902"
-                   VPOS="190"
+                   VPOS="189"
                    WIDTH="48"
-                   HEIGHT="40"
+                   HEIGHT="41"
                    ID="eSc_textblock_2b314b45"
                    TAGREFS="BT15">
-          <Shape><Polygon POINTS="1902 190 1902 230 1950 230 1950 190"/></Shape>
+          <Shape><Polygon POINTS="1905 189 1902 230 1950 230 1950 190"/></Shape>
         </TextBlock>
       </PrintSpace>
     </Page>

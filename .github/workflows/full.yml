@@ -1,5 +1,5 @@
 # This file has been generated automatically with HTR-United <3 Github Actions form
-name: Gallicorpora full workflow
+name: Projet Frene full workflow
 'on':
   push:
     paths:
