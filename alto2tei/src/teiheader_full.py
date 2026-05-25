@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Classe Python pour insérer les métadonnées du document
 # et du projet dans le <teiHeader> par défaut.
 # -----------------------------------------------------------

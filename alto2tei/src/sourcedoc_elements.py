@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Classe Python pour construire les éléments contenus dans le
 # <sourceDoc> et y mapper les données issues des fichiers ALTO.
 # -----------------------------------------------------------

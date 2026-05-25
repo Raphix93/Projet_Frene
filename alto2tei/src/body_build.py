@@ -1,6 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
-# Adaptation : Raphaël Rollinet
 # Script Python pour construire le <body> d’un fichier TEI
 # à partir du texte des zones principales issues d’un fichier ALTO.
 # -----------------------------------------------------------

@@ -1,5 +1,4 @@
 # -----------------------------------------------------------
-# Code original : Kelly Christensen
 # Script Python pour assembler le <teiHeader> d’un fichier TEI.
 # -----------------------------------------------------------
 
