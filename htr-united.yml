@@ -3,28 +3,31 @@ title: Données manuscrites du projet Frêne
 description: Corpus d'entraînement HTR issu de documents manuscrits anciens
 url: ""
 authors:
-- name: Rollinet
-  surname: Raphaël
-  roles:
-  - Transcribeur
+  - name: Raphaël
+    surname: Rollinet
+    roles:
+      - transcriber
 project-name: Projet Frêne
 language:
-- fra
+  - fra
 script:
-- iso: Latn
+  - iso: Latn
 script-type: only-manuscript
 time:
-  notBefore: '1700'
-  notAfter: '1799'
+  notBefore: "1700"
+  notAfter: "1799"
 format: Alto-XML
 volume:
-- metric: characters
-  count: 
-- metric: files
-  count: 
-- metric: lines
-  count: 
+  - metric: characters
+    count: 0
+  - metric: files
+    count: 5
+  - metric: lines
+    count: 0
+hands:
+  count: 1
+  precision: estimated
 production-software: eScriptorium + Kraken
 license:
-- name: CC-BY 4.0
-  url: https://creativecommons.org/licenses/by/4.0/
+  - name: CC-BY 4.0
+    url: https://creativecommons.org/licenses/by/4.0/

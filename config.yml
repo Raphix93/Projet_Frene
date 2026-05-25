@@ -13,25 +13,16 @@ responsibility:
   text: "Conversion ALTO vers TEI"
 
   resp:
-  [
-    {
-      "forename":"Raphaël",
-      "surname":"Rollinet"
-    }
-  ]
+    - forename: "Raphaël"
+      surname: "Rollinet"
 
   publisher: "Projet Frêne"
 
   authority: "Université de Neuchâtel"
 
   availability:
-  {
-      "status":"restricted",
-      "n":"research"
-  }
+    status: "restricted"
+    n: "research"
 
   licence:
-  {
-      "target":
-      "https://creativecommons.org/licenses/by/4.0/"
-  }
+    target: "https://creativecommons.org/licenses/by/4.0/"
