@@ -1,0 +1,4 @@
+echo "data/Frêne_volume_1/exports/pdf/*.pdf" >> .gitignore
+git add .gitignore
+git commit --amend --no-edit
+git push origin main
