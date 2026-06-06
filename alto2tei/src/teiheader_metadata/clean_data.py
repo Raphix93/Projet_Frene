@@ -1,4 +1,4 @@
-from .flora_data import Flora
+from src.teiheader_metadata.flora_data import Flora
 
 
 class Metadata:
