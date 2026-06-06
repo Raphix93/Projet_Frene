@@ -13,10 +13,6 @@ class FullTree:
     def __init__(self, children, metadata):
         self.children = children
 
-        # Anciennes métadonnées BnF/Gallica conservées pour compatibilité
-        self.sru = metadata.get("sru", {})
-        self.iiif = metadata.get("iiif", {})
-
         # Métadonnées locales du projet Frêne
         self.metadata = metadata
 

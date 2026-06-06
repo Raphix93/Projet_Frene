@@ -91,7 +91,11 @@ jobs:
           git commit -m "[Automatic] Extract text from MainZones" || echo "Nothing to commit"
 
           git push || echo "Nothing to push"
-
+      - uses: rymndhng/release-on-push-action@master
+        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+        with:
+          bump_version_scheme: patch
+          use_github_release_notes: true
 
   HTRUC:
     runs-on: ubuntu-latest

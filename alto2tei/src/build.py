@@ -18,10 +18,7 @@ class TEI:
         self.fp = filepaths
 
         # Métadonnées utilisées pour construire le <teiHeader>
-        self.metadata = {
-            "sru": {},
-            "iiif": {}
-        }
+        self.metadata = {}
 
         # Dictionnaire des balises SegmOnto trouvées dans les fichiers ALTO
         self.tags = {}
@@ -38,26 +35,23 @@ class TEI:
     def build_tree(self):
         """Initialise la racine du document XML-TEI."""
 
-        # Attributs de base de la racine TEI
         tei_root_att = {
             "xmlns": "http://www.tei-c.org/ns/1.0",
             "{http://www.w3.org/XML/1998/namespace}id": f"tei_{self.d}"
         }
 
-        # Création de l’élément racine <TEI>
         self.root = etree.Element("TEI", tei_root_att)
 
     def build_header(self, config, version):
         """Construit le <teiHeader> du document TEI."""
 
-        # Récupération des métadonnées locales
-        # Le second argument reste optionnel pour garder une compatibilité avec l’ancien code
         self.metadata = Metadata(
             self.d,
-            config.get("iiifURI", {})
+            {
+                "ark_url": "https://floraweb.ne.ch/flora/ark:/37964/001136"
+            }
         ).prepare()
 
-        # Construction du <teiHeader>
         self.root, self.segmonto_zones, self.segmonto_lines = teiheader(
             self.metadata,
             self.d,
@@ -86,8 +80,6 @@ class TEI:
     def build_body(self):
         """Construit le <body> à partir du texte extrait du <sourceDoc>."""
 
-        # Extraction des données textuelles depuis l’arbre TEI/sourceDoc
         text = Text(self.root)
 
-        # Construction du <text><body>
         body(self.root, text.data)
