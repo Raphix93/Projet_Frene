@@ -18,8 +18,6 @@
       </titleStmt>
       <extent>
         <measure unit="images" n="6"/>
-        <measure unit="volumes" n="7"/>
-        <measure unit="pages" n="3114"/>
       </extent>
       <publicationStmt>
         <publisher>Projet Frêne</publisher>
@@ -28,7 +26,7 @@
           <p>Consultation libre</p>
           <licence target="https://creativecommons.org/licenses/by/4.0/"/>
         </availability>
-        <date when="2026-05-30"/>
+        <date when="2026-06-06"/>
       </publicationStmt>
       <sourceDesc>
         <bibl>
@@ -53,7 +51,7 @@
           </msIdentifier>
           <physDesc>
             <objectDesc>
-              <p>Journal autobiographique couvrant la période 1741-1804.</p>
+              <p>Ce journal se compose de sept volumes et 3'114 pages. Ecriture serrée, très lisible. L’auteur avait choisi pour sous-titre "Souvenirs d'un pasteur de campagne jurassien au XVIIIe siècle". Il tient ce  journal en partie autobiographique  durant  plus  de  60  ans (1741-1804) la période couverte commence en 1732. Il  n'écrit  pas  de  façon  quotidienne  mais  note des  événements  qui  lui  sont  arrivés  dans  l'intervalle  durant  lequel  il  n'a  pas  écrit.  Il  note  les  événements  tels  que  les  visites  faites  ou  reçues, ses  déplacements,  ses  activités  professionnelles  (prêches,  catéchismes,  discussions  en  colloques,  activité  de  la  classe,...),  les  travaux  agricoles  (vendanges,  ...)  et  les  événements  inhabituels.  Il  note  et  commente  certaines  de  ses  lectures.  Il  consacre  parfois  de  longues  lignes  à  expliquer  les  événements  qui  le  touchent  et  notamment  ses  démarches  pour  obtenir  différentes  affectations  (Courtelary,  Tavannes,  Péry...)  ainsi  que  le  décès  de  son  père.  Il  évoque  également  les  événements  familiaux  tels  que  son  mariage,  la  naissance  de  ses  enfants,  les  décès,...  Mais  aussi  certains  événements  qui  touchent  des  membres  de  sa  parenté  (l'accusation  de  meurtre  à  l'encontre  de  l'un  de  ses  cousins,...).  Il  note  également  de  brefs  commentaires  sur  le  temps  qu'il  a  fait  durant  telle  ou  telle  saison,  évalue  la  qualité  des  récoltes  ainsi  que  de  la  production  du  vin  et  indique  le  prix  des  céréales.    Ces pages d'un esprit éclairé, qui était en relation avec nombre de personnalités de premier plan de son époque sont intéressantes à plus d'un titre. Histoire neuchâteloise, jurassienne, helvétique, littérature, arts, sciences, économie, métrologie, etc. [repris de la description réalisée dans la Base de données suisse d'écrits personnels]</p>
             </objectDesc>
           </physDesc>
         </msDesc>
@@ -78,25 +76,21 @@
             <ptr target="https://github.com/segmonto"/>
           </bibl>
           <category xml:id="SegmOntoZones">
+            <catDesc xml:id="CustomZone">
+              <title>CustomZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/CustomZone/"/>
+            </catDesc>
+            <catDesc xml:id="DamageZone">
+              <title>DamageZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/DamageZone"/>
+            </catDesc>
             <catDesc xml:id="DigitizationArtefactZone">
               <title>DigitizationArtefactZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/DigitizationArtefactZone"/>
             </catDesc>
-            <catDesc xml:id="MusicZone">
-              <title>MusicZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/MusicZone"/>
-            </catDesc>
-            <catDesc xml:id="QuireMarksZone">
-              <title>QuireMarksZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/QuireMarksZone"/>
-            </catDesc>
             <catDesc xml:id="RunningTitleZone">
               <title>RunningTitleZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/RunningTitleZone"/>
-            </catDesc>
-            <catDesc xml:id="CustomZone">
-              <title>CustomZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/CustomZone/"/>
             </catDesc>
             <catDesc xml:id="MainZone">
               <title>MainZone</title>
@@ -106,37 +100,41 @@
               <title>TableZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/TableZone"/>
             </catDesc>
-            <catDesc xml:id="NumberingZone">
-              <title>NumberingZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/NumberingZone"/>
-            </catDesc>
-            <catDesc xml:id="DamageZone">
-              <title>DamageZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/DamageZone"/>
-            </catDesc>
-            <catDesc xml:id="StampZone">
-              <title>StampZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/StampZone"/>
+            <catDesc xml:id="MarginTextZone">
+              <title>MarginTextZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/MarginTextZone"/>
             </catDesc>
             <catDesc xml:id="SealZone">
               <title>SealZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/SealZone"/>
             </catDesc>
-            <catDesc xml:id="TitlePageZone">
-              <title>TitlePageZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/TitlePageZone"/>
+            <catDesc xml:id="NumberingZone">
+              <title>NumberingZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/NumberingZone"/>
             </catDesc>
-            <catDesc xml:id="GraphicZone">
-              <title>GraphicZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/GraphicZone"/>
+            <catDesc xml:id="StampZone">
+              <title>StampZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/StampZone"/>
+            </catDesc>
+            <catDesc xml:id="MusicZone">
+              <title>MusicZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/MusicZone"/>
             </catDesc>
             <catDesc xml:id="DropCapitalZone">
               <title>DropCapitalZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/DropCapitalZone"/>
             </catDesc>
-            <catDesc xml:id="MarginTextZone">
-              <title>MarginTextZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/MarginTextZone"/>
+            <catDesc xml:id="TitlePageZone">
+              <title>TitlePageZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/TitlePageZone"/>
+            </catDesc>
+            <catDesc xml:id="QuireMarksZone">
+              <title>QuireMarksZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/QuireMarksZone"/>
+            </catDesc>
+            <catDesc xml:id="GraphicZone">
+              <title>GraphicZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/GraphicZone"/>
             </catDesc>
           </category>
           <category xml:id="SegmOntoLines">
@@ -148,9 +146,9 @@
               <title>MusicLine</title>
               <ptr target="https://segmonto.github.io/gd/gdL/MusicLine"/>
             </catDesc>
-            <catDesc xml:id="DefaultLine">
-              <title>DefaultLine</title>
-              <ptr target="https://segmonto.github.io/gd/gdL/DefaultLine"/>
+            <catDesc xml:id="DropCapitalLine">
+              <title>DropCapitalLine</title>
+              <ptr target="https://segmonto.github.io/gd/gdL/DropCapitalLine"/>
             </catDesc>
             <catDesc xml:id="InterlinearLine">
               <title>InterlinearLine</title>
@@ -160,9 +158,9 @@
               <title>HeadingLine</title>
               <ptr target="https://segmonto.github.io/gd/gdL/HeadingLine"/>
             </catDesc>
-            <catDesc xml:id="DropCapitalLine">
-              <title>DropCapitalLine</title>
-              <ptr target="https://segmonto.github.io/gd/gdL/DropCapitalLine"/>
+            <catDesc xml:id="DefaultLine">
+              <title>DefaultLine</title>
+              <ptr target="https://segmonto.github.io/gd/gdL/DefaultLine"/>
             </catDesc>
           </category>
         </taxonomy>
