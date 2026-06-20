@@ -1,5 +1,6 @@
 # -----------------------------------------------------------
 # Script principal pour lancer la conversion ALTO vers TEI.
+# doc string documentant les fonctions ajoutés à postériori en utilisant l'IA
 # -----------------------------------------------------------
 
 import argparse
@@ -92,7 +93,7 @@ def get_args():
 
 
 def collect_xml_files(document_dir):
-    """Récupère les fichiers ALTO-XML d’un dossier documentaire.
+    """Récupère les fichiers ALTO-XML.
 
     Le code cherche d’abord dans un sous-dossier XML-Alto.
     Si ce dossier n’existe pas, il cherche directement dans le dossier du document.

@@ -1,6 +1,5 @@
 # -----------------------------------------------------------
-# Code by: Kelly Christensen
-# YAML script to customize the path to XML-ALTO files and the project's publication information.
+# Fichier YAML permettant de personnaliser le chemin d'accès aux fichiers XML-ALTO et aux informations de publication du projet.
 # -----------------------------------------------------------
 
 data:
