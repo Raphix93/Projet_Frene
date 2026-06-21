@@ -81,22 +81,22 @@ jobs:
       - name: Install veraPDF CLI
         shell: bash
         run: |
-          wget -q http://downloads.verapdf.org/rel/verapdf-installer.zip
-          unzip -q verapdf-installer.zip
+            wget -q http://downloads.verapdf.org/rel/verapdf-installer.zip
+            unzip -q verapdf-installer.zip
 
-          VERAPDF_INSTALL_DIR=$(find . -maxdepth 2 -type f -name "verapdf-install" -exec dirname {} \; | head -n 1)
+            VERAPDF_INSTALL_DIR=$(find . -maxdepth 2 -type f -name "verapdf-install" -exec dirname {} \; | head -n 1)
 
-          echo "Installer trouvé dans : $VERAPDF_INSTALL_DIR"
+            echo "Installer trouvé dans : $VERAPDF_INSTALL_DIR"
 
-          cd "$VERAPDF_INSTALL_DIR"
+            cd "$VERAPDF_INSTALL_DIR"
 
-          chmod +x ./verapdf-install
-          printf "1\n${HOME}/verapdf\ny\n" | ./verapdf-install
+            chmod +x ./verapdf-install
+            printf "1\n${HOME}/verapdf\nO\n" | ./verapdf-install
 
-          echo "${HOME}/verapdf" >> "$GITHUB_PATH"
-          echo "${HOME}/verapdf/bin" >> "$GITHUB_PATH"
+            echo "${HOME}/verapdf" >> "$GITHUB_PATH"
+            echo "${HOME}/verapdf/bin" >> "$GITHUB_PATH"
 
-          "${HOME}/verapdf/verapdf" --version || "${HOME}/verapdf/bin/verapdf" --version
+            "${HOME}/verapdf/verapdf" --version || "${HOME}/verapdf/bin/verapdf" --version
 
       - name: Install Python dependencies
         run: |
