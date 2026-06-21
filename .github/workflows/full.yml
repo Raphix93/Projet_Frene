@@ -79,22 +79,33 @@ jobs:
           sudo apt-get install -y wget unzip icc-profiles-free
 
       - name: Install veraPDF CLI
+        shell: bash
         run: |
           wget -q http://downloads.verapdf.org/rel/verapdf-installer.zip
           unzip -q verapdf-installer.zip
-          cd verapdf-*
-          printf "1\n${HOME}/verapdf\ny\n" | ./verapdf-install || true
-          echo "${HOME}/verapdf" >> $GITHUB_PATH
-          echo "${HOME}/verapdf/bin" >> $GITHUB_PATH
+
+          VERAPDF_INSTALL_DIR=$(find . -maxdepth 2 -type f -name "verapdf-install" -exec dirname {} \; | head -n 1)
+
+          echo "Installer trouvé dans : $VERAPDF_INSTALL_DIR"
+
+          cd "$VERAPDF_INSTALL_DIR"
+
+          chmod +x ./verapdf-install
+          printf "1\n${HOME}/verapdf\ny\n" | ./verapdf-install
+
+          echo "${HOME}/verapdf" >> "$GITHUB_PATH"
+          echo "${HOME}/verapdf/bin" >> "$GITHUB_PATH"
+
+          "${HOME}/verapdf/verapdf" --version || "${HOME}/verapdf/bin/verapdf" --version
 
       - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install pillow lxml reportlab pikepdf fonttools
+            python -m pip install --upgrade pip
+            pip install pillow lxml reportlab pikepdf fonttools
 
       - name: Generate PDF/A-2u
         run: |
-          python PDFA2U/pdfa2u_from_alto.py \
+            python PDFA2U/pdfa2u_from_alto.py \
             --data "data/Frêne_volume_1" \
             --font "fonts/Noto_Serif/static/NotoSerif-Regular.ttf" \
             --icc "/usr/share/color/icc/colord/sRGB.icc" \
@@ -104,21 +115,21 @@ jobs:
       - name: Upload PDF/A-2u artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pdfa2u-frene-volume-1
-          path: |
-            data/Frêne_volume_1/exports/pdf/document_pdfa2u.pdf
-            data/Frêne_volume_1/exports/pdf/rapport_verapdf_pdfa2u.xml
+            name: pdfa2u-frene-volume-1
+            path: |
+                  data/Frêne_volume_1/exports/pdf/document_pdfa2u.pdf
+                  data/Frêne_volume_1/exports/pdf/rapport_verapdf_pdfa2u.xml
 
       - name: Commit generated PDF/A-2u report
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git pull
-          git add data/Frêne_volume_1/exports/pdf/rapport_verapdf_pdfa2u.xml
-          git commit -m "[Automatic] Validate PDF/A-2u" || echo "Nothing to commit"
-          git push || echo "Nothing to push"
-              
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git pull
+            git add data/Frêne_volume_1/exports/pdf/rapport_verapdf_pdfa2u.xml
+            git commit -m "[Automatic] Validate PDF/A-2u" || echo "Nothing to commit"
+            git push || echo "Nothing to push"            
+
   MainZone:
     runs-on: ubuntu-latest
 
