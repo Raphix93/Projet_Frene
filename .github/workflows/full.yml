@@ -108,7 +108,7 @@ jobs:
             python PDFA2U/pdfa2u_from_alto.py \
             --data "data/Frêne_volume_1" \
             --font "fonts/Noto_Serif/static/NotoSerif-Regular.ttf" \
-            --icc "/usr/share/color/icc/colord/sRGB.icc" \
+            --icc "data/PROFIL_ICC/sRGB.icc" \
             --verapdf "verapdf" \
             --validate
 
