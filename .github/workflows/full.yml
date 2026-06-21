@@ -91,7 +91,7 @@ jobs:
             cd "$VERAPDF_INSTALL_DIR"
 
             chmod +x ./verapdf-install
-            printf "1\n${HOME}/verapdf\nO\n1\n" | ./verapdf-install
+            printf "1\n${HOME}/verapdf\nO\n1\nN\nY\nN\nN\n1\n" | ./verapdf-install
 
             echo "${HOME}/verapdf" >> "$GITHUB_PATH"
             echo "${HOME}/verapdf/bin" >> "$GITHUB_PATH"
