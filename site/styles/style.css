@@ -1,0 +1,480 @@
+/* Concerne toutes les pages du sites*/
+*
+{
+    margin: 0;
+}
+
+/* Concerne la visionneuse Tify*/
+#tify {
+    height: 95vh;
+}
+
+/* Concerne le logo du site*/
+header.header img {
+    width: 150px;
+}
+/* Concerne les légendes des images*/
+figcaption {
+    text-align: center;
+    font-family: "Roboto-italic", Arial; 
+    font-size: small;
+}
+/* concerne le haut de page*/    
+section.haut-page {
+    background: url("../images/En_tete.png");
+    font-family: Arial, Helvetica, sans-serif, cursive;
+    background-size: cover;
+    height: 75vh;
+    padding: 0px;
+    min-height: 100%; 
+    position: relative;
+    height:100%; 
+    width:100%;
+}
+
+/* Defini le titre principal des pages*/
+.grand-titre {
+    color: rgb(59, 60, 61);
+    font-size: 6vw; /* Utilise des unités relatives à la largeur de la fenêtre */
+    font-family: Arial, Helvetica, sans-serif, cursive;
+    padding: 5vw; /* Utilise des unités relatives à la largeur de la fenêtre */
+    position: absolute;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .grand-titre {
+        font-size: 7vw;
+        padding: 4vw;
+    }
+}
+
+@media (max-width: 992px) {
+    .grand-titre {
+        font-size: 6vw;
+        padding: 3vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .grand-titre {
+        font-size: 5vw;
+        padding: 2vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .grand-titre {
+        font-size: 4vw;
+        padding: 1vw;
+    }
+}
+
+/*mise en forme du bloc qui englobe toute la partie principale et l'encart de côté*/
+#bloc_page {
+    width: 100%;
+    /* limite de % en lageur et s'adapte aux dimensions de l'écran*/
+    display: flex;
+    justify-content: space-around;
+    /*aligner horizontalement les blocs avec des espacements */
+    align-items: flex-start;
+    /* aligner verticalement les blocs en les faisant commencer en haut */
+    margin: 5px 0px 0px 0px;
+
+}
+@font-face {
+    font-family: 'Cursif';
+    src: url('../font/Roboto-Regular.ttf') format('truetype');
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cursif', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/************************** définit l'onglet de navigation **********************/
+
+nav {
+    width: 100%;
+    /* barre qui fait la largeur de la page */
+    text-align: center;
+    /* le texte est centré*/
+    margin-top: 360px;
+    position: sticky; /* Fixe la barre de navigation en haut lors du défilement */
+    top: 0; /* Positionne la barre en haut de la page */
+    z-index: 1000; /* Assure que la barre de navigation est au-dessus des autres éléments */
+}
+
+nav ul {
+    list-style-type: none;
+    /* enlever les puces */
+    padding: 5px;
+    margin: 0;
+    overflow: hidden;
+    /* "hidden" : cache ce qui dépasse */
+    background-color: #393d3f;
+    /* gris */
+}
+
+nav li {
+    display: inline-block;
+    /* afficher les éléments de la liste côte à côte*/
+}
+
+/* mise en forme des étiquettes du menu */
+nav a {
+    display: block;
+    padding: 18px 25px;
+    text-decoration: none;
+    /* ne pas souligner les liens */
+    color: white;
+}
+
+nav li a:hover,
+.dropdown:hover {
+    /* couleur quand on passe sur les onglets principaux */
+    background-color: #575656;
+}
+
+/*** liste déroulante du menu de navigation ***/
+
+.dropdown-content {
+    display: none;
+    /* ne pas afficher le menu déroulant par défaut */
+    position: absolute;
+    /* affiche le menu déroulant en dessous de la barre de navigation */
+    width: 150px;
+    z-index: 1;
+    /* affiche le dropdown content au-dessus du reste */
+}
+
+.dropdown {
+    /* pour que la case fasse la même taille que le dropdown-content */
+    width: 150px;
+}
+
+/* afficher le menu déroulant au survol */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    /* mise en forme des éléments du menu déroulant */
+    color: white;
+    background-color: #5e4b3c;
+}
+
+.dropdown-content a:hover {
+    /* couleur quand on passe sur les sous-onglets du menu déroulant */
+    background-color: #4b4846;
+    color: black;
+}
+
+.menu {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul li {
+    margin: 0 5px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #3a2c1a;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #5e4b3c;
+    color: #f4f1e1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        margin-top: 20px;
+    }
+
+    nav ul {
+        padding: 5px;
+    }
+
+    nav a {
+        padding: 12px 18px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li {
+        margin: 8px 0;
+    }
+
+    .menu ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        padding: 5px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+    }
+
+    .menu ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+.parchment {
+    border: 1px solid #d4d1cc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    color: #3a2c1a;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.parchment h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #5e4b3c;
+}
+
+.parchment p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Style pour la classe de paragraphe justifié */
+.justify {
+    text-align: justify; /* Justifie le texte */
+    text-justify: inter-word; /* Méthode de justification (optionnel, pour une meilleure compatibilité) */
+}
+
+.buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 18px;
+    font-family: 'Cinzel', serif; /* Police de style médiéval */
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none; /* Supprime le soulignement des liens */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttons:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.buttons:active {
+    background-color: #d0d0d0;
+    color: #000;
+}
+
+.buttons:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.buttons a {
+    color: inherit; /* Hérite de la couleur du texte du bouton */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.buttons a:hover {
+    color: inherit; /* Hérite de la couleur du texte du bouton au survol */
+    text-decoration: none; /* Supprime le soulignement des liens au survol */
+}
+
+.image-container {
+    font-size: 0;         /* Supprime l'espace blanc entre les éléments inline-block */
+}
+
+.image {
+    width: 100%;         /* Chaque image prend 100% de la largeur de son conteneur */
+    height: auto;        /* La hauteur s'ajuste automatiquement pour respecter les proportions */
+    object-fit: contain; /* Maintient les proportions sans couper l'image */
+    display: block;      /* Affiche les images en bloc pour qu'elles se suivent directement */
+    margin: 0;           /* Supprime les marges par défaut */
+    padding: 0;          /* Supprime les espacements internes */
+}
+
+
+/* Conteneur de la page Word */
+.word-page {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    width: 80%; /* Par défaut, la largeur est un pourcentage de l'écran */
+    max-width: 21cm; /* Limite la largeur maximale à celle d'une feuille A4 */
+    padding: 2rem; /* Marges internes */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    text-align: justify; /* Aligne le texte justifié */
+    overflow: auto; /* Permet le défilement si nécessaire */
+  }
+  
+  /* Texte */
+  .word-page h1 {
+    font-size: 1.5em;
+    text-align: center; /* Le titre reste centré */
+    margin-bottom: 20px;
+  }
+  
+  .word-page p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1em;
+    text-align: justify; /* Assure que tous les paragraphes soient justifiés */
+  }
+  
+  /* Responsivité */
+  @media (max-width: 1024px) {
+    .word-page {
+      width: 90%; /* Réduit la largeur pour les écrans plus petits */
+      padding: 1.5rem; /* Réduit les marges internes */
+    }
+  
+    .word-page h1 {
+      font-size: 1.3em; /* Ajuste la taille des titres */
+    }
+  
+    .word-page p {
+      font-size: 0.95rem; /* Ajuste la taille du texte */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .word-page {
+      width: 95%; /* S'adapte à presque toute la largeur de l'écran */
+      padding: 1rem; /* Marges internes réduites */
+    }
+  
+    .word-page h1 {
+      font-size: 1.2em; /* Réduction supplémentaire */
+    }
+  
+    .word-page p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .word-page {
+      width: 100%; /* Occupe toute la largeur disponible */
+      height: auto; /* La hauteur s'ajuste automatiquement */
+      padding: 0.8rem; /* Marges internes adaptées */
+    }
+  
+    .word-page h1 {
+      font-size: 1em;
+    }
+  
+    .word-page p {
+      font-size: 0.85rem;
+    }
+  }
+
+.download-button {
+    background-color: #212529;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 14px 28px;
+
+    width: auto;
+    height: auto;
+    line-height: normal;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: all 0.25s ease;
+
+    background-image: none;
+}
+
+.download-button:hover {
+    background-color: #343a40;
+    transform: translateY(-2px);
+}
+
+.download-button:active {
+    transform: translateY(0);
+}
+
+.responsive-iframe {
+    position: relative;
+    width: 100%; /* L'iframe prendra toute la largeur disponible */
+    padding-top: 56.25%; /* Ratio 16:9 (100% / (16/9)) */
+  }
+  
+  .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrer l'iframe */
+  }
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #393d3f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif, cursive;
+    height: 75vh;
+    padding: 20px;
+    height:100%; 
+    width:100%;
+}
+
+a {
+    color: black; /* Change la couleur du texte en noir */
+}

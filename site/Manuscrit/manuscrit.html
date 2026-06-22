@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Mini site pour le rendu d'un travail de transcription et d'encodage de texte en XML-TEI"> 
+        <link rel="icon" type="image/x-icon" href="../images/unine_logo_couleur.png">
+        <meta name="author" content="Raphaël Rollinet"/>
+        <title>TEI - Manuscrit</title>
+        <link rel="stylesheet" href="../styles/style.css "type="text/css" media="screen"> 
+    </head>
+<body>
+        <!-- En-tête -->
+        <section class="haut-page">
+            <header class="header">
+                <a href="../index.html"><img src="../images/unine_logo_couleur.png" alt="Logo"></a>
+                <!-- menu navigateur -->
+                <div class="titre-page">
+                    <h1 class="grand-titre">Projet Frêne</h1>
+                </div>
+                    <nav class="nav">
+                        <ul>
+                            <li><a href="../index.html">Accueil</a></li>
+                            <li><a href="../Manuscrit/manuscrit.html">Manuscrit</a></li>
+                            <li><a href="../Documentation_TEI/documentation.html">Documentation TEI</a></li>
+                            <li><a href="../A-propos/a-propos.html">À propos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+        </section> 
+    <div class="parchment">
+        <h1 id="Manuscrit">Manuscrit</h1>
+        <br>
+        <br>
+
+        <div id="tify"></div>
+
+        <script type="module">
+        import Tify from 'https://cdn.jsdelivr.net/npm/tify@0.35.0/dist/tify.js'
+
+        new Tify({
+        container: '#tify',
+        manifestUrl: '../data/Frêne_volume_1/exports/iiif/manifest_Frene_volume_1.json'
+        })
+        </script>
+        <br>
+
+        <p class="justify">Découvrez l'ensemble des archives de l'Office des archives de l'état de Neuchâtel directement dans leurs <a href="https://www.archivesne.ch/">inventaires</a>.</p>
+        <br>
+    </div>
+    
+    </div>
+    <footer>
+        Raphaël Rollinet - Mémoire de Master, 2026
+    </footer>
+</body>
+</html>
