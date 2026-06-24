@@ -15,6 +15,21 @@
     border: none;
 }
 
+.tify-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+#tify {
+    width: 100%;
+    height: 90vh;
+}
+
+.bloc-titre {
+    width: 100%;
+    text-align: left;
+}
+
 /* Concerne le logo du site*/
 header.header img {
     width: 150px;
