@@ -4,9 +4,12 @@
     margin: 0;
 }
 
-/* Concerne la visionneuse Tify*/
-#tify {
-    height: 95vh;
+.notice-flora iframe {
+    width: 100%;
+    height: 800px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
 }
 
 /* Concerne le logo du site*/
