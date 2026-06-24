@@ -5,14 +5,15 @@
 }
 
 .notice-flora {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: 100%;
 }
 
 .notice-flora iframe {
     width: 100%;
-    height: 800px;
+    height: 1800px;
     border: none;
+    overflow: hidden;
+    display: block;
 }
 
 .tify-container {
