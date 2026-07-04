@@ -3,13 +3,13 @@
 Génération d'un PDF/A-2u à partir d'images et de fichiers ALTO.
 
 Usage local :
-    python scripts/pdfa2u_from_alto.py --data data/Frêne_volume_1 --validate
+    python PDFA2U/pdfa2u_from_alto.py --data data/Frêne_volume_1 --validate
 
 Par défaut, le script lit les JPEG dérivés dans :
     <data>/exports/jpg
 
 Usage GitHub Actions :
-    python scripts/pdfa2u_from_alto.py \
+    python PDFA2U/pdfa2u_from_alto.py \
       --data data/Frêne_volume_1 \
       --font fonts/Noto_Serif/static/NotoSerif-Regular.ttf \
       --icc data/PROFIL_ICC/sRGB.icm \
@@ -29,7 +29,6 @@ from pathlib import Path
 from fontTools.ttLib import TTFont as FontToolsTTFont
 from lxml import etree
 from PIL import Image
-from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
@@ -168,13 +167,6 @@ def trouver_paires_images_alto(dossier_images: Path, dossier_alto: Path) -> list
     return paires
 
 
-def convertir_image_rgb_si_necessaire(image_path: Path) -> Image.Image:
-    """Ouvre une image et la convertit en RGB si nécessaire."""
-    image = Image.open(image_path)
-    if image.mode != "RGB":
-        image = image.convert("RGB")
-    return image
-
 
 def creer_pdf_avec_texte_invisible(
     paires: list[tuple[Path, Path]],
@@ -193,14 +185,19 @@ def creer_pdf_avec_texte_invisible(
     c.setAuthor(auteur)
     c.setSubject(sujet)
     c.setKeywords(mots_cles)
-    c.setCreator("scripts/pdfa2u_from_alto.py")
+    c.setCreator("PDFA2U/pdfa2u_from_alto.py")
 
     suppressions_globales = []
     compteur_suppressions = Counter()
 
     for index, (image_path, alto_path) in enumerate(paires, start=1):
-        image = convertir_image_rgb_si_necessaire(image_path)
-        largeur_img_px, hauteur_img_px = image.size
+        # Important : ne pas passer une image PIL / ImageReader à ReportLab.
+        # En passant directement le chemin du JPEG à drawImage(), ReportLab peut
+        # conserver la compression JPEG existante au lieu de décompresser l’image
+        # en bitmap RGB, ce qui évite des PDF anormalement volumineux.
+        with Image.open(image_path) as image:
+            largeur_img_px, hauteur_img_px = image.size
+
         racine = lire_alto(alto_path)
         largeur_alto_px, hauteur_alto_px = extraire_dimensions_page(racine)
         lignes = extraire_lignes_alto(racine)
@@ -211,7 +208,15 @@ def creer_pdf_avec_texte_invisible(
         facteur_y = hauteur_page_pt / hauteur_alto_px
 
         c.setPageSize((largeur_page_pt, hauteur_page_pt))
-        c.drawImage(ImageReader(image), 0, 0, width=largeur_page_pt, height=hauteur_page_pt, preserveAspectRatio=False, mask="auto")
+        c.drawImage(
+            str(image_path),
+            0,
+            0,
+            width=largeur_page_pt,
+            height=hauteur_page_pt,
+            preserveAspectRatio=False,
+            mask=None,
+        )
 
         for ligne in lignes:
             mots_valides = []
@@ -283,7 +288,7 @@ def ajouter_xmp_pdfa2u(pdf_path: Path, titre: str, auteur: str, sujet: str) -> P
       <dc:description><rdf:Alt><rdf:li xml:lang="x-default">{xml_escape(sujet)}</rdf:li></rdf:Alt></dc:description>
     </rdf:Description>
     <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/">
-      <xmp:CreatorTool>scripts/pdfa2u_from_alto.py</xmp:CreatorTool>
+      <xmp:CreatorTool>PDFA2U/pdfa2u_from_alto.py</xmp:CreatorTool>
       <xmp:CreateDate>{maintenant}</xmp:CreateDate>
       <xmp:ModifyDate>{maintenant}</xmp:ModifyDate>
       <xmp:MetadataDate>{maintenant}</xmp:MetadataDate>
@@ -299,7 +304,7 @@ def ajouter_xmp_pdfa2u(pdf_path: Path, titre: str, auteur: str, sujet: str) -> P
         pdf.docinfo["/Title"] = titre
         pdf.docinfo["/Author"] = auteur
         pdf.docinfo["/Subject"] = sujet
-        pdf.docinfo["/Creator"] = "scripts/pdfa2u_from_alto.py"
+        pdf.docinfo["/Creator"] = "PDFA2U/pdfa2u_from_alto.py"
         pdf.save(pdf_path)
     return pdf_path
 
