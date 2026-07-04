@@ -80,14 +80,6 @@
               <title>QuireMarksZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/QuireMarksZone"/>
             </catDesc>
-            <catDesc xml:id="MarginTextZone">
-              <title>MarginTextZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/MarginTextZone"/>
-            </catDesc>
-            <catDesc xml:id="RunningTitleZone">
-              <title>RunningTitleZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/RunningTitleZone"/>
-            </catDesc>
             <catDesc xml:id="StampZone">
               <title>StampZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/StampZone"/>
@@ -96,9 +88,13 @@
               <title>GraphicZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/GraphicZone"/>
             </catDesc>
-            <catDesc xml:id="DropCapitalZone">
-              <title>DropCapitalZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/DropCapitalZone"/>
+            <catDesc xml:id="MarginTextZone">
+              <title>MarginTextZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/MarginTextZone"/>
+            </catDesc>
+            <catDesc xml:id="CustomZone">
+              <title>CustomZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/CustomZone/"/>
             </catDesc>
             <catDesc xml:id="NumberingZone">
               <title>NumberingZone</title>
@@ -108,22 +104,6 @@
               <title>SealZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/SealZone"/>
             </catDesc>
-            <catDesc xml:id="MusicZone">
-              <title>MusicZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/MusicZone"/>
-            </catDesc>
-            <catDesc xml:id="CustomZone">
-              <title>CustomZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/CustomZone/"/>
-            </catDesc>
-            <catDesc xml:id="DigitizationArtefactZone">
-              <title>DigitizationArtefactZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/DigitizationArtefactZone"/>
-            </catDesc>
-            <catDesc xml:id="DamageZone">
-              <title>DamageZone</title>
-              <ptr target="https://segmonto.github.io/gd/gdZ/DamageZone"/>
-            </catDesc>
             <catDesc xml:id="TitlePageZone">
               <title>TitlePageZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/TitlePageZone"/>
@@ -132,12 +112,44 @@
               <title>MainZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/MainZone"/>
             </catDesc>
+            <catDesc xml:id="RunningTitleZone">
+              <title>RunningTitleZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/RunningTitleZone"/>
+            </catDesc>
+            <catDesc xml:id="MusicZone">
+              <title>MusicZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/MusicZone"/>
+            </catDesc>
+            <catDesc xml:id="DropCapitalZone">
+              <title>DropCapitalZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/DropCapitalZone"/>
+            </catDesc>
             <catDesc xml:id="TableZone">
               <title>TableZone</title>
               <ptr target="https://segmonto.github.io/gd/gdZ/TableZone"/>
             </catDesc>
+            <catDesc xml:id="DamageZone">
+              <title>DamageZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/DamageZone"/>
+            </catDesc>
+            <catDesc xml:id="DigitizationArtefactZone">
+              <title>DigitizationArtefactZone</title>
+              <ptr target="https://segmonto.github.io/gd/gdZ/DigitizationArtefactZone"/>
+            </catDesc>
           </category>
           <category xml:id="SegmOntoLines">
+            <catDesc xml:id="DropCapitalLine">
+              <title>DropCapitalLine</title>
+              <ptr target="https://segmonto.github.io/gd/gdL/DropCapitalLine"/>
+            </catDesc>
+            <catDesc xml:id="InterlinearLine">
+              <title>InterlinearLine</title>
+              <ptr target="https://segmonto.github.io/gd/gdL/InterlinearLine"/>
+            </catDesc>
+            <catDesc xml:id="HeadingLine">
+              <title>HeadingLine</title>
+              <ptr target="https://segmonto.github.io/gd/gdL/HeadingLine"/>
+            </catDesc>
             <catDesc xml:id="DefaultLine">
               <title>DefaultLine</title>
               <ptr target="https://segmonto.github.io/gd/gdL/DefaultLine"/>
@@ -146,21 +158,9 @@
               <title>MusicLine</title>
               <ptr target="https://segmonto.github.io/gd/gdL/MusicLine"/>
             </catDesc>
-            <catDesc xml:id="HeadingLine">
-              <title>HeadingLine</title>
-              <ptr target="https://segmonto.github.io/gd/gdL/HeadingLine"/>
-            </catDesc>
             <catDesc xml:id="CustomLine">
               <title>CustomLine</title>
               <ptr target="https://segmonto.github.io/gd/gdL/CustomLine/"/>
-            </catDesc>
-            <catDesc xml:id="InterlinearLine">
-              <title>InterlinearLine</title>
-              <ptr target="https://segmonto.github.io/gd/gdL/InterlinearLine"/>
-            </catDesc>
-            <catDesc xml:id="DropCapitalLine">
-              <title>DropCapitalLine</title>
-              <ptr target="https://segmonto.github.io/gd/gdL/DropCapitalLine"/>
             </catDesc>
           </category>
         </taxonomy>
