@@ -7,7 +7,7 @@ on:
       - alto2tei/**
       - PDFA2U/**
       - JPG/**
-      - manifest_iiif/**
+      - manifest_IIIF/**
       - metadata/**
       - text-extraction.py
       - config.yml
@@ -21,7 +21,7 @@ on:
       - alto2tei/**
       - PDFA2U/**
       - JPG/**
-      - manifest_iiif/**
+      - manifest_IIIF/**
       - metadata/**
       - text-extraction.py
       - config.yml
@@ -74,9 +74,9 @@ jobs:
 
           git push || echo "Nothing to push"
 
-  IIIF:
+  JPG:
     runs-on: ubuntu-latest
-    needs: ALTO2TEI
+    needs: MainZone
 
     steps:
       - uses: actions/checkout@v4
@@ -99,19 +99,13 @@ jobs:
             --quality 85 \
             --overwrite
 
-      - name: Copy JPEG derivatives to GitHub Pages site
-        run: |
-          mkdir -p "site/images/volume_1"
-          rsync -av --delete "data/Frêne_volume_1/exports/jpg/" "site/images/volume_1/"
+      - name: Upload JPEG derivatives artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jpg-derivatives-frene-volume-1
+          path: data/Frêne_volume_1/exports/jpg
 
-      - name: Generate IIIF manifest for TIFY
-        run: |
-          python manifest_iiif/generate_iiif_manifest.py \
-            --images "data/Frêne_volume_1/exports/jpg" \
-            --output "site/iiif/manifest_Frene_volume_1.json" \
-            --base-url "https://raphix93.github.io/Projet_Frene"
-
-      - name: Commit generated IIIF files and JPEG derivatives
+      - name: Commit generated JPEG derivatives
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           git config user.name github-actions
@@ -120,19 +114,23 @@ jobs:
           git pull
 
           git add data/Frêne_volume_1/exports/jpg
-          git add site/images/volume_1
-          git add site/iiif/manifest_Frene_volume_1.json
 
-          git commit -m "[Automatic] Generate IIIF manifest and JPEG derivatives" || echo "Nothing to commit"
+          git commit -m "[Automatic] Generate JPEG derivatives" || echo "Nothing to commit"
 
           git push || echo "Nothing to push"
 
   PDF_A2U:
     runs-on: ubuntu-latest
-    needs: IIIF
+    needs: JPG
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Download JPEG derivatives artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: jpg-derivatives-frene-volume-1
+          path: data/Frêne_volume_1/exports/jpg
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -169,13 +167,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pillow lxml reportlab pikepdf fonttools
 
-      - name: Generate JPEG derivatives if missing
-        run: |
-          python JPG/generate_jpg.py \
-            --input "data/Frêne_volume_1/Images" \
-            --output "data/Frêne_volume_1/exports/jpg" \
-            --quality 85
-
       - name: Generate PDF/A-2u from JPEG derivatives
         run: |
           python PDFA2U/pdfa2u_from_alto.py \
@@ -205,6 +196,56 @@ jobs:
           git add data/Frêne_volume_1/exports/pdf/rapport_verapdf_pdfa2u.xml
 
           git commit -m "[Automatic] Validate PDF/A-2u" || echo "Nothing to commit"
+
+          git push || echo "Nothing to push"
+
+  IIIF:
+    runs-on: ubuntu-latest
+    needs: JPG
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download JPEG derivatives artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: jpg-derivatives-frene-volume-1
+          path: data/Frêne_volume_1/exports/jpg
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow
+
+      - name: Copy JPEG derivatives to GitHub Pages site
+        run: |
+          mkdir -p "site/images/volume_1"
+          rsync -av --delete "data/Frêne_volume_1/exports/jpg/" "site/images/volume_1/"
+
+      - name: Generate IIIF manifest for TIFY
+        run: |
+          python manifest_IIIF/generate_iiif_manifest.py \
+            --images "data/Frêne_volume_1/exports/jpg" \
+            --output "site/iiif/manifest_Frene_volume_1.json" \
+            --base-url "https://raphix93.github.io/Projet_Frene"
+
+      - name: Commit generated IIIF files
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git pull
+
+          git add site/images/volume_1
+          git add site/iiif/manifest_Frene_volume_1.json
+
+          git commit -m "[Automatic] Generate IIIF manifest" || echo "Nothing to commit"
 
           git push || echo "Nothing to push"
 
@@ -268,9 +309,7 @@ jobs:
 
   HTR_United_Metadata_Generator:
     runs-on: ubuntu-latest
-    needs:
-      - ALTO2TEI
-      - MainZone
+    needs: MainZone
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
