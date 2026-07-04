@@ -364,6 +364,7 @@ jobs:
       - name: Generate IIIF manifest for TIFY
         run: |
           python manifest_IIIF/generate_iiif_manifest.py \
+            --adapter-script metadata/flora_metadata.py \
             --images "${{ env.JPG_DIR }}" \
             --output "${{ env.IIIF_MANIFEST }}" \
             --base-url "${{ env.BASE_URL }}"
