@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Génère les JPEG publiables par GitHub Pages à partir des TIFF du Projet Frêne.
+Génère les JPEG dérivés à partir des TIFF maîtres du Projet Frêne.
 
 Exemple :
     python scripts/generate_jpg.py \
       --input data/Frêne_volume_1/Images \
-      --output site/images/volume_1 \
+      --output data/Frêne_volume_1/exports/jpg \
       --quality 90
 """
 
@@ -68,7 +68,7 @@ def convert_tiff_to_jpg(tiff_file: Path, output_dir: Path, quality: int, overwri
 def build_parser() -> argparse.ArgumentParser:
     root = find_project_root()
     parser = argparse.ArgumentParser(
-        description="Convertit les TIFF du Projet Frêne en JPEG pour IIIF/TIFY."
+        description="Convertit les TIFF maîtres du Projet Frêne en JPEG dérivés."
     )
     parser.add_argument(
         "--input",
@@ -79,8 +79,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         type=Path,
-        default=root / "site" / "images" / "volume_1",
-        help="Dossier de sortie des JPEG publiés par GitHub Pages.",
+        default=root / "data" / "Frêne_volume_1" / "exports" / "jpg",
+        help="Dossier de sortie des JPEG dérivés.",
     )
     parser.add_argument(
         "--quality",

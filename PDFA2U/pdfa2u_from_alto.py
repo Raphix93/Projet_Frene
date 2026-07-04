@@ -5,11 +5,14 @@ Génération d'un PDF/A-2u à partir d'images et de fichiers ALTO.
 Usage local :
     python scripts/pdfa2u_from_alto.py --data data/Frêne_volume_1 --validate
 
+Par défaut, le script lit les JPEG dérivés dans :
+    <data>/exports/jpg
+
 Usage GitHub Actions :
     python scripts/pdfa2u_from_alto.py \
       --data data/Frêne_volume_1 \
       --font fonts/Noto_Serif/static/NotoSerif-Regular.ttf \
-      --icc /usr/share/color/icc/colord/sRGB.icc \
+      --icc data/PROFIL_ICC/sRGB.icm \
       --verapdf verapdf \
       --validate
 """
@@ -44,7 +47,7 @@ def analyser_arguments() -> argparse.Namespace:
         description="Produit un PDF/A-2u à partir d'images et de transcriptions ALTO."
     )
     parseur.add_argument("--data", required=True, type=Path, help="Dossier du volume, ex. data/Frêne_volume_1")
-    parseur.add_argument("--images", type=Path, help="Dossier des images. Par défaut : <data>/Images")
+    parseur.add_argument("--images", type=Path, help="Dossier des JPEG. Par défaut : <data>/exports/jpg")
     parseur.add_argument("--alto", type=Path, help="Dossier des ALTO. Par défaut : <data>")
     parseur.add_argument("--out", type=Path, help="Dossier de sortie. Par défaut : <data>/exports/pdf")
     parseur.add_argument("--font", type=Path, default=Path("fonts/Noto_Serif/static/NotoSerif-Regular.ttf"))
@@ -142,8 +145,11 @@ def extraire_lignes_alto(racine) -> list[list[dict[str, float | str]]]:
 
 def trouver_paires_images_alto(dossier_images: Path, dossier_alto: Path) -> list[tuple[Path, Path]]:
     """Associe les images aux ALTO portant le même nom de base."""
-    extensions = {".tif", ".tiff", ".jpg", ".jpeg", ".png"}
-    images = sorted(p for p in dossier_images.iterdir() if p.is_file() and p.suffix.lower() in extensions)
+    extensions = {".jpg", ".jpeg"}
+    images = sorted(
+        p for p in dossier_images.iterdir()
+        if p.is_file() and p.suffix.lower() in extensions
+    )
     paires = []
     fichiers_manquants = []
 
@@ -352,7 +358,7 @@ def main() -> None:
     """Point d'entrée du script."""
     args = analyser_arguments()
     dossier_data = args.data
-    dossier_images = args.images or dossier_data / "Images"
+    dossier_images = args.images or dossier_data / "exports" / "jpg"
     dossier_alto = args.alto or dossier_data
     dossier_sortie = args.out or dossier_data / "exports" / "pdf"
     dossier_sortie.mkdir(parents=True, exist_ok=True)
@@ -361,7 +367,7 @@ def main() -> None:
     pdf_a2u = dossier_sortie / "document_pdfa2u.pdf"
     rapport_verapdf = dossier_sortie / "rapport_verapdf_pdfa2u.xml"
 
-    verifier_fichier(dossier_images, "Dossier images")
+    verifier_fichier(dossier_images, "Dossier JPEG")
     verifier_fichier(dossier_alto, "Dossier ALTO")
     verifier_fichier(args.font, "Police Unicode")
     verifier_fichier(args.icc, "Profil ICC")
