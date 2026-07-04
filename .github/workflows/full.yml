@@ -401,7 +401,7 @@ jobs:
       - name: Download PDF/A-2u outputs artifact
         uses: actions/download-artifact@v4
         with:
-          name: pdfa2u-outputs-frene-volume-1
+          name: pdfa2u-frene-volume-1
           path: ${{ env.PDF_DIR }}    
 
       - name: Download IIIF site files artifact
