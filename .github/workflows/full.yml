@@ -6,7 +6,9 @@ on:
       - data/**
       - alto2tei/**
       - PDFA2U/**
-      - scripts/**
+      - JPG/**
+      - manifest_iiif/**
+      - metadata/**
       - text-extraction.py
       - config.yml
       - htr-united.yml
@@ -18,7 +20,9 @@ on:
       - data/**
       - alto2tei/**
       - PDFA2U/**
-      - scripts/**
+      - JPG/**
+      - manifest_iiif/**
+      - metadata/**
       - text-extraction.py
       - config.yml
       - htr-united.yml
@@ -89,7 +93,7 @@ jobs:
 
       - name: Generate JPEG derivatives
         run: |
-          python scripts/generate_jpg.py \
+          python JPG/generate_jpg.py \
             --input "data/Frêne_volume_1/Images" \
             --output "data/Frêne_volume_1/exports/jpg" \
             --quality 85 \
@@ -102,7 +106,7 @@ jobs:
 
       - name: Generate IIIF manifest for TIFY
         run: |
-          python scripts/generate_iiif_manifest.py \
+          python manifest_iiif/generate_iiif_manifest.py \
             --images "data/Frêne_volume_1/exports/jpg" \
             --output "site/iiif/manifest_Frene_volume_1.json" \
             --base-url "https://raphix93.github.io/Projet_Frene"
@@ -167,7 +171,7 @@ jobs:
 
       - name: Generate JPEG derivatives if missing
         run: |
-          python scripts/generate_jpg.py \
+          python JPG/generate_jpg.py \
             --input "data/Frêne_volume_1/Images" \
             --output "data/Frêne_volume_1/exports/jpg" \
             --quality 85
