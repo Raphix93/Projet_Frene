@@ -38,6 +38,7 @@ DEFAULT_RIGHTS = "https://creativecommons.org/licenses/by/4.0/"
 DEFAULT_LICENSE_LABEL = "CC-BY 4.0"
 DEFAULT_LANGUAGE = "français"
 DEFAULT_PROVIDER_ID = "https://www.ne.ch/autorites/DJSC/OAEN/"
+DEFAULT_PDF_PATH = "data/Fr%C3%AAne_volume_1/exports/pdf/document_pdfa2u.pdf"
 
 
 def find_project_root(start: Path | None = None) -> Path:
@@ -181,11 +182,13 @@ def build_manifest(
     output_file: Path,
     base_url: str,
     metadata: dict[str, Any],
+    pdf_path: str | None = None,
 ) -> dict[str, Any]:
     base_url = base_url.rstrip("/")
     base_url_images = f"{base_url}/images/volume_1"
     base_url_iiif = f"{base_url}/iiif"
     manifest_id = f"{base_url_iiif}/{output_file.name}"
+    pdf_url = f"{base_url}/{pdf_path.lstrip('/')}" if pdf_path else None
 
     title = metadata["title"]
     description = metadata.get("description") or metadata.get("subtitle") or metadata["title"]
@@ -212,6 +215,14 @@ def build_manifest(
                 "format": "text/html",
             }
         ],
+        "rendering": [
+            {
+                "id": pdf_url,
+                "type": "Text",
+                "label": iiif_lang("Télécharger le PDF/A-2u"),
+                "format": "application/pdf",
+            }
+        ] if pdf_url else [],
         "provider": [
             {
                 "id": DEFAULT_PROVIDER_ID,
@@ -301,6 +312,15 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optionnel : écrit un JSON de contrôle des métadonnées utilisées.",
     )
+    parser.add_argument(
+        "--pdf-path",
+        default=DEFAULT_PDF_PATH,
+        help=(
+            "Chemin public du PDF/A à exposer dans le manifeste IIIF, "
+            "relatif à --base-url. Exemple : "
+            "data/Fr%C3%AAne_volume_1/exports/pdf/document_pdfa2u.pdf"
+        ),
+    )
     return parser
 
 
@@ -329,6 +349,7 @@ def main() -> None:
         output_file=output_file,
         base_url=args.base_url,
         metadata=metadata,
+        pdf_path=args.pdf_path,
     )
     validate_manifest(manifest, expected_base_url=args.base_url)
 
