@@ -4,15 +4,39 @@
   "type": "Manifest",
   "label": {
     "fr": [
-      "Journal de Théophile Rémy Frêne, volume 1"
+      "Journal du pasteur Théophile Frêne"
     ]
   },
   "summary": {
     "fr": [
-      "Journal manuscrit de Théophile Rémy Frêne, pasteur neuchâtelois."
+      "Ce journal se compose de sept volumes et 3'114 pages. Ecriture serrée, très lisible. L’auteur avait choisi pour sous-titre \"Souvenirs d'un pasteur de campagne jurassien au XVIIIe siècle\". Il tient ce  journal en partie autobiographique  durant  plus  de  60  ans (1741-1804) la période couverte commence en 1732. Il  n'écrit  pas  de  façon  quotidienne  mais  note des  événements  qui  lui  sont  arrivés  dans  l'intervalle  durant  lequel  il  n'a  pas  écrit.  Il  note  les  événements  tels  que  les  visites  faites  ou  reçues, ses  déplacements,  ses  activités  professionnelles  (prêches,  catéchismes,  discussions  en  colloques,  activité  de  la  classe,...),  les  travaux  agricoles  (vendanges,  ...)  et  les  événements  inhabituels.  Il  note  et  commente  certaines  de  ses  lectures.  Il  consacre  parfois  de  longues  lignes  à  expliquer  les  événements  qui  le  touchent  et  notamment  ses  démarches  pour  obtenir  différentes  affectations  (Courtelary,  Tavannes,  Péry...)  ainsi  que  le  décès  de  son  père.  Il  évoque  également  les  événements  familiaux  tels  que  son  mariage,  la  naissance  de  ses  enfants,  les  décès,...  Mais  aussi  certains  événements  qui  touchent  des  membres  de  sa  parenté  (l'accusation  de  meurtre  à  l'encontre  de  l'un  de  ses  cousins,...).  Il  note  également  de  brefs  commentaires  sur  le  temps  qu'il  a  fait  durant  telle  ou  telle  saison,  évalue  la  qualité  des  récoltes  ainsi  que  de  la  production  du  vin  et  indique  le  prix  des  céréales.    Ces pages d'un esprit éclairé, qui était en relation avec nombre de personnalités de premier plan de son époque sont intéressantes à plus d'un titre. Histoire neuchâteloise, jurassienne, helvétique, littérature, arts, sciences, économie, métrologie, etc. [repris de la description réalisée dans la Base de données suisse d'écrits personnels]"
     ]
   },
   "metadata": [
+    {
+      "label": {
+        "fr": [
+          "Titre"
+        ]
+      },
+      "value": {
+        "fr": [
+          "Journal du pasteur Théophile Frêne"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Sous-titre"
+        ]
+      },
+      "value": {
+        "fr": [
+          "Souvenirs d'un pasteur de campagne jurassien au XVIIIe siècle"
+        ]
+      }
+    },
     {
       "label": {
         "fr": [
@@ -33,19 +57,31 @@
       },
       "value": {
         "fr": [
-          "1741"
+          "1741-1804"
         ]
       }
     },
     {
       "label": {
         "fr": [
-          "Institution"
+          "Institution de conservation"
         ]
       },
       "value": {
         "fr": [
           "Office des archives de l'État de Neuchâtel"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Lieu"
+        ]
+      },
+      "value": {
+        "fr": [
+          "Neuchâtel"
         ]
       }
     },
@@ -58,6 +94,30 @@
       "value": {
         "fr": [
           "FRENE THEOPHILE-REMY"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Niveau de description"
+        ]
+      },
+      "value": {
+        "fr": [
+          "fonds"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Conditions d'accès"
+        ]
+      },
+      "value": {
+        "fr": [
+          "Consultation libre"
         ]
       }
     },
@@ -96,6 +156,54 @@
           "https://floraweb.ne.ch/flora/ark:/37964/001136"
         ]
       }
+    },
+    {
+      "label": {
+        "fr": [
+          "Identifiant Flora"
+        ]
+      },
+      "value": {
+        "fr": [
+          "archive:ARCH_HOLDINGS:136"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Source des métadonnées"
+        ]
+      },
+      "value": {
+        "fr": [
+          "html"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Auteur — viaf"
+        ]
+      },
+      "value": {
+        "fr": [
+          "https://viaf.org/viaf/24931371"
+        ]
+      }
+    },
+    {
+      "label": {
+        "fr": [
+          "Auteur — wikidata"
+        ]
+      },
+      "value": {
+        "fr": [
+          "https://www.wikidata.org/wiki/Q119860"
+        ]
+      }
     }
   ],
   "rights": "https://creativecommons.org/licenses/by/4.0/",
@@ -107,7 +215,7 @@
     },
     "value": {
       "fr": [
-        "Office des archives de l'État de Neuchâtel / Raphaël Rollinet"
+        "Office des archives de l'État de Neuchâtel"
       ]
     }
   },
@@ -117,7 +225,19 @@
       "type": "Text",
       "label": {
         "fr": [
-          "Notice d'origine"
+          "Notice Flora"
+        ]
+      },
+      "format": "text/html"
+    }
+  ],
+  "provider": [
+    {
+      "id": "https://www.ne.ch/autorites/DJSC/OAEN/",
+      "type": "Agent",
+      "label": {
+        "fr": [
+          "Office des archives de l'État de Neuchâtel"
         ]
       }
     }
