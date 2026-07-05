@@ -4,39 +4,15 @@
   "type": "Manifest",
   "label": {
     "fr": [
-      "Journal du pasteur Théophile Frêne"
+      "Journal de Théophile Rémy Frene, volume 1"
     ]
   },
   "summary": {
     "fr": [
-      "Ce journal se compose de sept volumes et 3'114 pages. Ecriture serrée, très lisible. L’auteur avait choisi pour sous-titre \"Souvenirs d'un pasteur de campagne jurassien au XVIIIe siècle\". Il tient ce  journal en partie autobiographique  durant  plus  de  60  ans (1741-1804) la période couverte commence en 1732. Il  n'écrit  pas  de  façon  quotidienne  mais  note des  événements  qui  lui  sont  arrivés  dans  l'intervalle  durant  lequel  il  n'a  pas  écrit.  Il  note  les  événements  tels  que  les  visites  faites  ou  reçues, ses  déplacements,  ses  activités  professionnelles  (prêches,  catéchismes,  discussions  en  colloques,  activité  de  la  classe,...),  les  travaux  agricoles  (vendanges,  ...)  et  les  événements  inhabituels.  Il  note  et  commente  certaines  de  ses  lectures.  Il  consacre  parfois  de  longues  lignes  à  expliquer  les  événements  qui  le  touchent  et  notamment  ses  démarches  pour  obtenir  différentes  affectations  (Courtelary,  Tavannes,  Péry...)  ainsi  que  le  décès  de  son  père.  Il  évoque  également  les  événements  familiaux  tels  que  son  mariage,  la  naissance  de  ses  enfants,  les  décès,...  Mais  aussi  certains  événements  qui  touchent  des  membres  de  sa  parenté  (l'accusation  de  meurtre  à  l'encontre  de  l'un  de  ses  cousins,...).  Il  note  également  de  brefs  commentaires  sur  le  temps  qu'il  a  fait  durant  telle  ou  telle  saison,  évalue  la  qualité  des  récoltes  ainsi  que  de  la  production  du  vin  et  indique  le  prix  des  céréales.    Ces pages d'un esprit éclairé, qui était en relation avec nombre de personnalités de premier plan de son époque sont intéressantes à plus d'un titre. Histoire neuchâteloise, jurassienne, helvétique, littérature, arts, sciences, économie, métrologie, etc. [repris de la description réalisée dans la Base de données suisse d'écrits personnels]"
+      "Journal manuscrit de Théophile Rémy Frêne, pasteur neuchâtelois."
     ]
   },
   "metadata": [
-    {
-      "label": {
-        "fr": [
-          "Titre"
-        ]
-      },
-      "value": {
-        "fr": [
-          "Journal du pasteur Théophile Frêne"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Sous-titre"
-        ]
-      },
-      "value": {
-        "fr": [
-          "Souvenirs d'un pasteur de campagne jurassien au XVIIIe siècle"
-        ]
-      }
-    },
     {
       "label": {
         "fr": [
@@ -45,7 +21,7 @@
       },
       "value": {
         "fr": [
-          "Théophile Rémy Frêne"
+          "Théophile Rémy Frene"
         ]
       }
     },
@@ -57,31 +33,19 @@
       },
       "value": {
         "fr": [
-          "1741-1804"
+          "1741"
         ]
       }
     },
     {
       "label": {
         "fr": [
-          "Institution de conservation"
+          "Institution"
         ]
       },
       "value": {
         "fr": [
           "Office des archives de l'État de Neuchâtel"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Lieu"
-        ]
-      },
-      "value": {
-        "fr": [
-          "Neuchâtel"
         ]
       }
     },
@@ -94,30 +58,6 @@
       "value": {
         "fr": [
           "FRENE THEOPHILE-REMY"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Niveau de description"
-        ]
-      },
-      "value": {
-        "fr": [
-          "fonds"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Conditions d'accès"
-        ]
-      },
-      "value": {
-        "fr": [
-          "Consultation libre"
         ]
       }
     },
@@ -156,54 +96,6 @@
           "https://floraweb.ne.ch/flora/ark:/37964/001136"
         ]
       }
-    },
-    {
-      "label": {
-        "fr": [
-          "Identifiant Flora"
-        ]
-      },
-      "value": {
-        "fr": [
-          "archive:ARCH_HOLDINGS:136"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Source des métadonnées"
-        ]
-      },
-      "value": {
-        "fr": [
-          "html"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Auteur — viaf"
-        ]
-      },
-      "value": {
-        "fr": [
-          "https://viaf.org/viaf/24931371"
-        ]
-      }
-    },
-    {
-      "label": {
-        "fr": [
-          "Auteur — wikidata"
-        ]
-      },
-      "value": {
-        "fr": [
-          "https://www.wikidata.org/wiki/Q119860"
-        ]
-      }
     }
   ],
   "rights": "https://creativecommons.org/licenses/by/4.0/",
@@ -215,7 +107,7 @@
     },
     "value": {
       "fr": [
-        "Office des archives de l'État de Neuchâtel"
+        "Office des archives de l'État de Neuchâtel / Raphaël Rollinet"
       ]
     }
   },
@@ -225,19 +117,7 @@
       "type": "Text",
       "label": {
         "fr": [
-          "Notice Flora"
-        ]
-      },
-      "format": "text/html"
-    }
-  ],
-  "provider": [
-    {
-      "id": "https://www.ne.ch/autorites/DJSC/OAEN/",
-      "type": "Agent",
-      "label": {
-        "fr": [
-          "Office des archives de l'État de Neuchâtel"
+          "Notice d'origine"
         ]
       }
     }
@@ -263,9 +143,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00001.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00001.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3370,
                 "width": 2353
               },
@@ -295,9 +175,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00002.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00002.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3151,
                 "width": 2122
               },
@@ -327,9 +207,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00003.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00003.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3325,
                 "width": 2275
               },
@@ -359,9 +239,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00004.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00004.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3102,
                 "width": 2179
               },
@@ -391,9 +271,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00005.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00005.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3203,
                 "width": 2211
               },
@@ -423,9 +303,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00006.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00006.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3138,
                 "width": 2135
               },
@@ -455,9 +335,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00007.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00007.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3285,
                 "width": 2315
               },
@@ -487,9 +367,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00008.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00008.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3115,
                 "width": 2197
               },
@@ -519,9 +399,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00009.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00009.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3203,
                 "width": 2283
               },
@@ -551,9 +431,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00010.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00010.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3069,
                 "width": 2186
               },
@@ -583,9 +463,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00011.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00011.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3114,
                 "width": 2320
               },
@@ -615,9 +495,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00012.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00012.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3103,
                 "width": 2205
               },
@@ -647,9 +527,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00013.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00013.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3264,
                 "width": 2222
               },
@@ -679,9 +559,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00014.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00014.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3081,
                 "width": 2198
               },
@@ -711,9 +591,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00015.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00015.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3231,
                 "width": 2295
               },
@@ -743,9 +623,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00016.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00016.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3131,
                 "width": 2205
               },
@@ -775,9 +655,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00017.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00017.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3195,
                 "width": 2223
               },
@@ -807,9 +687,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00018.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00018.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3105,
                 "width": 2191
               },
@@ -839,9 +719,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00019.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00019.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3194,
                 "width": 2283
               },
@@ -871,9 +751,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00020.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00020.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3121,
                 "width": 2215
               },
@@ -903,9 +783,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00021.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00021.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3253,
                 "width": 2114
               },
@@ -935,9 +815,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00022.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00022.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3140,
                 "width": 2191
               },
@@ -967,9 +847,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00023.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00023.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3134,
                 "width": 2170
               },
@@ -999,9 +879,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00024.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00024.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3143,
                 "width": 2205
               },
@@ -1031,9 +911,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00025.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00025.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3123,
                 "width": 2208
               },
@@ -1063,9 +943,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00026.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00026.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3112,
                 "width": 2203
               },
@@ -1095,9 +975,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00027.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00027.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3109,
                 "width": 2246
               },
@@ -1127,9 +1007,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00028.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00028.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3092,
                 "width": 2216
               },
@@ -1159,9 +1039,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00029.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00029.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3151,
                 "width": 2210
               },
@@ -1191,9 +1071,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00030.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00030.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3104,
                 "width": 2241
               },
@@ -1223,9 +1103,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00031.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00031.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3113,
                 "width": 2264
               },
@@ -1255,9 +1135,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00032.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00032.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3079,
                 "width": 2192
               },
@@ -1287,9 +1167,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00033.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00033.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3091,
                 "width": 2286
               },
@@ -1319,9 +1199,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00034.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00034.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3121,
                 "width": 2219
               },
@@ -1351,9 +1231,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00035.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00035.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3104,
                 "width": 2149
               },
@@ -1383,9 +1263,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00036.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00036.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3105,
                 "width": 2209
               },
@@ -1415,9 +1295,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00037.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00037.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3104,
                 "width": 2155
               },
@@ -1447,9 +1327,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00038.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00038.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3138,
                 "width": 2411
               },
@@ -1479,9 +1359,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00039.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00039.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3117,
                 "width": 2215
               },
@@ -1511,9 +1391,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00040.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00040.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3081,
                 "width": 2232
               },
@@ -1543,9 +1423,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00041.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00041.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3148,
                 "width": 2183
               },
@@ -1575,9 +1455,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00042.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00042.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3083,
                 "width": 2226
               },
@@ -1607,9 +1487,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00043.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00043.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3094,
                 "width": 2207
               },
@@ -1639,9 +1519,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00044.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00044.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3070,
                 "width": 2178
               },
@@ -1671,9 +1551,9 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://raphix93.github.io/Projet_Frene/images/volume_1/Image00045.jpg",
+                "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/Images/Image00045.tif",
                 "type": "Image",
-                "format": "image/jpeg",
+                "format": "image/tiff",
                 "height": 3075,
                 "width": 2225
               },
