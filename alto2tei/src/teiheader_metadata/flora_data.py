@@ -204,7 +204,7 @@ class Flora:
         data["title"] = find_text(r"<[^>]*(?:INTITULE|TITLE|TITRE)[^>]*>(.*?)</[^>]+>")
         data["date"] = find_text(r"<[^>]*(?:DATE|ANNEE)[^>]*>(.*?)</[^>]+>")
         data["level"] = find_text(r"<[^>]*(?:NIVEAU|LEVEL)[^>]*>(.*?)</[^>]+>")
-        data["abstract"] = find_text(r"<[^>]*(?:CONTENU|PRESENTATION|ABSTRACT|SCOPE)[^>]*>(.*?)</[^>]+>")
+        data["abstract"] = find_text(r"<CONTENT>\s*<SUMMARY[^>]*>(.*?)</SUMMARY>\s*</CONTENT>")
         data["access"] = find_text(r"<[^>]*(?:ACCES|ACCESS|STATUT)[^>]*>(.*?)</[^>]+>")
 
         return data

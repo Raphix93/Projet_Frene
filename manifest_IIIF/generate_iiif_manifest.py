@@ -6,7 +6,7 @@ Génère un manifeste IIIF Presentation API 3.0 compatible TIFY.
 
 Important : ce script ne contient pas de DEFAULT_METADATA.
 Les métadonnées descriptives viennent de :
-    alto2tei/src/metadata/flora_metadata.py
+     metadata/flora_metadata.py
 qui réutilise :
     alto2tei/src/teiheader_metadata/flora_data.py
 
@@ -50,7 +50,7 @@ def find_project_root(start: Path | None = None) -> Path:
 
 def load_metadata_adapter(project_root: Path, adapter_script: Path | None = None):
     adapter_file = adapter_script or (
-        project_root / "alto2tei" / "src" / "metadata" / "flora_metadata.py"
+        project_root / "metadata" / "flora_metadata.py"
     )
 
     if not adapter_file.exists():
@@ -64,7 +64,9 @@ def load_metadata_adapter(project_root: Path, adapter_script: Path | None = None
     spec.loader.exec_module(module)
 
     if not hasattr(module, "get_flora_metadata"):
-        raise AttributeError(f"Fonction get_flora_metadata absente de : {adapter_file}")
+        raise AttributeError(
+            f"Fonction get_flora_metadata absente de : {adapter_file}"
+        )
 
     return module.get_flora_metadata
 
@@ -276,7 +278,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--adapter-script",
         type=Path,
         default=None,
-        help="Chemin optionnel vers alto2tei/src/metadata/flora_metadata.py.",
+        help="Chemin optionnel vers metadata/flora_metadata.py.",
     )
     parser.add_argument(
         "--rights",
