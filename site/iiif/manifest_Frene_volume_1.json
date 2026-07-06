@@ -231,6 +231,18 @@
       "format": "text/html"
     }
   ],
+  "rendering": [
+    {
+      "id": "https://raphix93.github.io/Projet_Frene/data/Fr%C3%AAne_volume_1/exports/pdf/document_pdfa2u.pdf",
+      "type": "Text",
+      "label": {
+        "fr": [
+          "Télécharger le PDF/A-2u"
+        ]
+      },
+      "format": "application/pdf"
+    }
+  ],
   "provider": [
     {
       "id": "https://www.ne.ch/autorites/DJSC/OAEN/",
