@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Génère un manifeste IIIF Presentation API 3.0 compatible TIFY.
+Génère un manifeste IIIF API 3.0 .
 
 Important : ce script ne contient pas de DEFAULT_METADATA.
 Les métadonnées descriptives viennent de :
