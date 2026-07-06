@@ -1,0 +1,169 @@
+[
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_f93609b4-lineCount1-text",
+    "numero": 1,
+    "texte": "Chevres, pendant que mon Pere et",
+    "entites": [
+      {
+        "entity_id": "ent_000001",
+        "surface": "Chevres",
+        "type": "persName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 0,
+        "end": 7,
+        "status": "validee"
+      },
+      {
+        "entity_id": "ent_000002",
+        "surface": "Pere",
+        "type": "roleName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 25,
+        "end": 29,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_9d0b4f9b-lineCount2-text",
+    "numero": 2,
+    "texte": "ma M: [etoit] etoient re[s]sté a tra¬",
+    "entites": []
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_260ea0ad-lineCount3-text",
+    "numero": 3,
+    "texte": "¬melan. il me semble que ns avions le Me¬",
+    "entites": [
+      {
+        "entity_id": "ent_000003",
+        "surface": "Me",
+        "type": "roleName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 38,
+        "end": 40,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_b0835013-lineCount4-text",
+    "numero": 4,
+    "texte": "je me souvien quand nous ache¬※",
+    "entites": []
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_30cb9e7c-lineCount5-text",
+    "numero": 5,
+    "texte": "¬nusier de Vauffelin car ns coucheions [...]",
+    "entites": [
+      {
+        "entity_id": "ent_000004",
+        "surface": "Vauffelin",
+        "type": "placeName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 11,
+        "end": 20,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_92f9ae1b-lineCount6-text",
+    "numero": 6,
+    "texte": "⁊ la marie Magd: dans le cabinet",
+    "entites": [
+      {
+        "entity_id": "ent_000005",
+        "surface": "Magd",
+        "type": "persName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 11,
+        "end": 15,
+        "status": "validee"
+      },
+      {
+        "entity_id": "ent_000006",
+        "surface": "cabinet",
+        "type": "placeName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 25,
+        "end": 32,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_12169d3c-lineCount7-text",
+    "numero": 7,
+    "texte": "¬tames la serrure de l'Armoir de",
+    "entites": []
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_072c510c-lineCount8-text",
+    "numero": 8,
+    "texte": "la cuisine cetoit au mois de ꝯbre",
+    "entites": [
+      {
+        "entity_id": "ent_000007",
+        "surface": "mois de ꝯbre",
+        "type": "date",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 21,
+        "end": 33,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_695fe15e-lineCount9-text",
+    "numero": 9,
+    "texte": "Pendant l'Hiver entre 1732 et 33.",
+    "entites": [
+      {
+        "entity_id": "ent_000008",
+        "surface": "1732",
+        "type": "date",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 22,
+        "end": 26,
+        "status": "validee"
+      },
+      {
+        "entity_id": "ent_000009",
+        "surface": "33",
+        "type": "date",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 30,
+        "end": 32,
+        "status": "validee"
+      }
+    ]
+  },
+  {
+    "xml_id": "f8-eSc_textblock_2873aa2a-eSc_line_9c1a6e39-lineCount10-text",
+    "numero": 10,
+    "texte": "la contagion regnoit a Pery et",
+    "entites": [
+      {
+        "entity_id": "ent_000010",
+        "surface": "Pery",
+        "type": "placeName",
+        "confidence": "probable",
+        "commentaire": "",
+        "start": 23,
+        "end": 27,
+        "status": "validee"
+      }
+    ]
+  }
+]
