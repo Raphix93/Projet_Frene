@@ -6,8 +6,8 @@ Génère les JPEG dérivés à partir des TIFF maîtres du Projet Frêne.
 
 Exemple :
     python scripts/generate_jpg.py \
-      --input data/Frêne_volume_1/Images \
-      --output data/Frêne_volume_1/exports/jpg \
+      --input data/Frene_volume_1/Images \
+      --output data/Frene_volume_1/exports/jpg \
       --quality 90
 """
 
@@ -73,13 +73,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--input",
         type=Path,
-        default=root / "data" / "Frêne_volume_1" / "Images",
+        default=root / "data" / "Frene_volume_1" / "Images",
         help="Dossier source contenant les TIFF.",
     )
     parser.add_argument(
         "--output",
         type=Path,
-        default=root / "data" / "Frêne_volume_1" / "exports" / "jpg",
+        default=root / "data" / "Frene_volume_1" / "exports" / "jpg",
         help="Dossier de sortie des JPEG dérivés.",
     )
     parser.add_argument(
