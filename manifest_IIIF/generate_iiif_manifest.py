@@ -38,7 +38,7 @@ DEFAULT_RIGHTS = "https://creativecommons.org/licenses/by/4.0/"
 DEFAULT_LICENSE_LABEL = "CC-BY 4.0"
 DEFAULT_LANGUAGE = "français"
 DEFAULT_PROVIDER_ID = "https://www.ne.ch/autorites/DJSC/OAEN/"
-DEFAULT_PDF_PATH = "data/Fr%C3%AAne_volume_1/exports/pdf/document_pdfa2u.pdf"
+DEFAULT_PDF_PATH = "data/Fr%C3%AAne_volume_1/exports/pdf/Frene_volume1_pdfa2u.pdf"
 
 
 def find_project_root(start: Path | None = None) -> Path:
@@ -318,7 +318,7 @@ def build_parser() -> argparse.ArgumentParser:
         help=(
             "Chemin public du PDF/A à exposer dans le manifeste IIIF, "
             "relatif à --base-url. Exemple : "
-            "data/Fr%C3%AAne_volume_1/exports/pdf/document_pdfa2u.pdf"
+            "data/Fr%C3%AAne_volume_1/exports/pdf/Frene_volume1_pdfa2u.pdf"
         ),
     )
     return parser

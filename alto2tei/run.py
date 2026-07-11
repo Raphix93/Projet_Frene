@@ -14,6 +14,8 @@ from time import perf_counter
 from src.build import TEI
 from src.write_output import Write
 
+import shutil
+
 
 def file_path(string):
     """Vérifie que l’argument --config correspond bien à un fichier existant.
@@ -230,6 +232,20 @@ def main():
         ).write()
 
 
+        # Copie du fichier TEI dans le dossier des exports
+        src = Path(f"./data/{d.doc_name}.xml")
+        dst = Path(f"./data/{d.doc_name}/exports/TEI/{d.doc_name}.xml")
+
+        if not src.exists():
+            raise FileNotFoundError(
+                f"Le fichier TEI généré est introuvable : {src}"
+            )
+
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+
+        print(f"Copie TEI effectuée : {dst}")
+        
 if __name__ == "__main__":
     main()
     
