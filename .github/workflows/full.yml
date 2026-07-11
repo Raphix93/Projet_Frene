@@ -43,10 +43,10 @@ concurrency:
 env:
   PYTHON_VERSION: "3.11"
   PYTHON_VERSION_HTR: "3.9"
-  VOLUME_DIR: data/Frêne_volume_1
-  IMAGES_DIR: data/Frêne_volume_1/Images
-  JPG_DIR: data/Frêne_volume_1/exports/jpg
-  PDF_DIR: data/Frêne_volume_1/exports/pdf
+  VOLUME_DIR: data/Frene_volume_1
+  IMAGES_DIR: data/Frene_volume_1/Images
+  JPG_DIR: data/Frene_volume_1/exports/jpg
+  PDF_DIR: data/Frene_volume_1/exports/pdf
   SITE_JPG_DIR: site/images/volume_1
   IIIF_MANIFEST: site/iiif/manifest_Frene_volume_1.json
   BASE_URL: https://raphix93.github.io/Projet_Frene
