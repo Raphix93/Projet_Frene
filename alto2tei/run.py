@@ -245,7 +245,7 @@ def main():
         shutil.copy2(src, dst)
 
         print(f"Copie TEI effectuée : {dst}")
-        
+
 if __name__ == "__main__":
     main()
     

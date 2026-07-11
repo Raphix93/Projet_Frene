@@ -5,6 +5,8 @@
 
 from lxml import etree, html
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import re
 
 
@@ -23,12 +25,54 @@ class Flora:
         self.base_url = base_url.rstrip("/") + "/"
 
     def request_html(self):
-        """Récupère la page HTML publique Flora."""
+        """Récupère la page HTML publique Flora avec plusieurs tentatives."""
         if not self.ark_url:
-            raise ValueError("Une URL ARK est nécessaire pour récupérer le HTML.")
+            raise ValueError(
+                "Une URL ARK est nécessaire pour récupérer le HTML."
+            )
 
-        response = requests.get(self.ark_url, timeout=30)
-        response.raise_for_status()
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/126.0 Safari/537.36"
+            ),
+            "Accept": (
+                "text/html,application/xhtml+xml,application/xml;"
+                "q=0.9,*/*;q=0.8"
+            ),
+            "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+        }
+
+        retry_strategy = Retry(
+            total=4,
+            connect=4,
+            read=4,
+            status=4,
+            backoff_factor=2,
+            status_forcelist=[404, 429, 500, 502, 503, 504],
+            allowed_methods=frozenset(["GET"]),
+            raise_on_status=False,
+        )
+
+        session = requests.Session()
+        session.headers.update(headers)
+        session.mount("https://", HTTPAdapter(max_retries=retry_strategy))
+
+        response = session.get(
+            self.ark_url,
+            timeout=30,
+            allow_redirects=True,
+        )
+
+        if response.status_code != 200:
+            raise RuntimeError(
+                "Impossible de récupérer la notice Flora. "
+                f"URL : {self.ark_url} — "
+                f"statut HTTP : {response.status_code} — "
+                f"URL finale : {response.url}"
+            )
+
         return response.text
 
     def find_record_id_from_html(self, html_text):
