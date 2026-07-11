@@ -45,7 +45,7 @@ def analyser_arguments() -> argparse.Namespace:
     parseur = argparse.ArgumentParser(
         description="Produit un PDF/A-2u à partir d'images et de transcriptions ALTO."
     )
-    parseur.add_argument("--data", required=True, type=Path, help="Dossier du volume, ex. data/Frêne_volume_1")
+    parseur.add_argument("--data", required=True, type=Path, help="Dossier du volume, ex. data/Frene_volume_1")
     parseur.add_argument("--images", type=Path, help="Dossier des JPEG. Par défaut : <data>/exports/jpg")
     parseur.add_argument("--alto", type=Path, help="Dossier des ALTO. Par défaut : <data>")
     parseur.add_argument("--out", type=Path, help="Dossier de sortie. Par défaut : <data>/exports/pdf")
