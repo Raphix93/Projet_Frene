@@ -369,7 +369,7 @@ def main() -> None:
     dossier_sortie.mkdir(parents=True, exist_ok=True)
 
     pdf_intermediaire = dossier_sortie / "document_image_texte_unicode.pdf"
-    pdf_a2u = dossier_sortie / "document_pdfa2u.pdf"
+    pdf_a2u = dossier_sortie / "Frene_volume1_pdfa2u.pdf"
     rapport_verapdf = dossier_sortie / "rapport_verapdf_pdfa2u.xml"
 
     verifier_fichier(dossier_images, "Dossier JPEG")

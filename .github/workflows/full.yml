@@ -315,7 +315,7 @@ jobs:
         with:
           name: pdfa2u-frene-volume-1
           path: |
-            ${{ env.PDF_DIR }}/document_pdfa2u.pdf
+            ${{ env.PDF_DIR }}/Frene_volume1_pdfa2u.pdf
             ${{ env.PDF_DIR }}/rapport_verapdf_pdfa2u.xml
 
       - name: Upload PDF/A-2u validation report artifact
@@ -419,7 +419,7 @@ jobs:
 
           git add "${{ env.JPG_DIR }}"
           git add "${{ env.SITE_JPG_DIR }}" "${{ env.IIIF_MANIFEST }}"
-          git add "${{ env.PDF_DIR }}/document_pdfa2u.pdf" || true
+          git add "${{ env.PDF_DIR }}/Frene_volume1_pdfa2u.pdf" || true
           git add "${{ env.PDF_DIR }}/rapport_verapdf_pdfa2u.xml" || true
 
           git commit -m "[Automatic] Generate JPG, IIIF and PDF validation outputs" || echo "No changes to commit"
