@@ -417,12 +417,15 @@ jobs:
 
           git pull --rebase --autostash origin main
 
-          git add "${{ env.JPG_DIR }}"
-          git add "${{ env.SITE_JPG_DIR }}" "${{ env.IIIF_MANIFEST }}"
-          git add "${{ env.PDF_DIR }}/Frene_volume1_pdfa2u.pdf" || true
-          git add "${{ env.PDF_DIR }}/rapport_verapdf_pdfa2u.xml" || true
+          # Copier tout le dossier data vers site/data
+          mkdir -p site/data
+          rsync -a --delete data/ site/data/
 
-          git commit -m "[Automatic] Generate JPG, IIIF and PDF validation outputs" || echo "No changes to commit"
+          # Ajouter les modifications
+          git add data
+          git add site/data
+
+          git commit -m "[Automatic] Synchronize data to site/data" || echo "No changes to commit"
           git push || echo "Nothing to push"
 
   HTRUC:
