@@ -46,10 +46,10 @@ DEFAULT_PROVIDER_ID = "https://www.ne.ch/autorites/DJSC/OAEN/"
 # Chemins publics relatifs à DEFAULT_BASE_URL.
 # Ils supposent que data/ est synchronisé vers site/data/.
 DEFAULT_PDF_PATH = (
-    "data/Frêne_volume_1/exports/pdf/Frene_volume1_pdfa2u.pdf"
+    "data/Frene_volume_1/exports/pdf/Frene_volume1_pdfa2u.pdf"
 )
-DEFAULT_TEI_PATH = "data/Frêne_volume_1.xml"
-DEFAULT_TIFF_DIR = "data/Frêne_volume_1/Images"
+DEFAULT_TEI_PATH = "data/Frene_volume_1.xml"
+DEFAULT_TIFF_DIR = "data/Frene_volume_1/Images"
 
 
 def find_project_root(start: Path | None = None) -> Path:
@@ -112,7 +112,7 @@ def iiif_lang(
 def public_url(base_url: str, relative_path: str) -> str:
     """
     Construit une URL publique en encodant correctement les caractères
-    spéciaux de chaque segment, notamment le ê de Frêne.
+    spéciaux de chaque segment.
     """
     encoded_path = quote(
         relative_path.replace("\\", "/").lstrip("/"),
@@ -610,7 +610,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--tiff-source-dir",
         type=Path,
-        default=root / "data" / "Frêne_volume_1" / "Images",
+        default=root / "data" / "Frene_volume_1" / "Images",
         help=(
             "Dossier local des TIFF. Il sert à détecter automatiquement "
             "si l'extension réelle est .tif ou .tiff."
