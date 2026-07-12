@@ -74,7 +74,7 @@
 
         <li class="justify">
             <article>
-                <h3>1. Entrée</h3>
+                <h3>Entrée</h3>
                 <p>
                     L’archiviste sélectionne le document à numériser et réalise un premier
                     dépoussiérage afin de retirer les éléments susceptibles d’endommager le
@@ -87,7 +87,7 @@
 
         <li class="justify">
             <article>
-                <h3>2. Numérisation</h3>
+                <h3>Numérisation</h3>
                 <p>
                     Le document est numérisé à l’aide d’un scanner ou d’un appareil
                     photographique, selon ses caractéristiques physiques. Les images
@@ -99,7 +99,7 @@
 
         <li class="justify">
             <article>
-                <h3>3. Contrôle qualité</h3>
+                <h3>Contrôle qualité</h3>
                 <p>
                     Chaque image est vérifiée afin de contrôler sa netteté, son cadrage,
                     son exposition, sa complétude et la cohérence du nommage des fichiers.
@@ -110,19 +110,21 @@
 
         <li class="justify">
             <article>
-                <h3>4. Extraction du texte par OCR</h3>
+                <h3>Extraction du texte par OCR</h3>
                 <p>
                     Pour les documents imprimés, une reconnaissance optique de caractères
                     peut être réalisée avec eScriptorium et Kraken. Le texte reconnu peut
                     ensuite être associé aux images dans un document PDF doté d’une couche
-                    de texte interrogeable.
+                    de texte interrogeable. Notre document de démonstration étant manuscrit, 
+                    cette partie n'a pas été développé dans le workflow, elle est intégré 
+                    dans la modélisation comme perspective logique.
                 </p>
             </article>
         </li>
 
         <li class="justify">
             <article>
-                <h3>5. Extraction du texte par HTR</h3>
+                <h3>Extraction du texte par HTR</h3>
                 <p>
                     Pour les documents manuscrits, les images sont d’abord segmentées afin
                     d’identifier les zones et les lignes de texte. La reconnaissance de
@@ -134,19 +136,19 @@
 
         <li class="justify">
             <article>
-                <h3>6. Entraînement du modèle</h3>
+                <h3>Entraînement du modèle</h3>
                 <p>
                     Lorsque la qualité de la transcription est insuffisante, un modèle HTR
                     est entraîné à partir de pages transcrites et corrigées manuellement.
                     Le modèle est ensuite testé avant d’être réutilisé pour améliorer la
-                    reconnaissance du reste du corpus.
+                    reconnaissance du reste du corpus. Il s'agit de la partie la plus chronophage.
                 </p>
             </article>
         </li>
 
         <li class="justify">
             <article>
-                <h3>7. Migration du XML-ALTO vers le XML-TEI</h3>
+                <h3>Migration du XML-ALTO vers le XML-TEI</h3>
                 <p>
                     Les fichiers XML-ALTO sont convertis automatiquement en XML-TEI à l’aide
                     du programme Alto2TEI. Cette transformation permet de produire une
@@ -158,7 +160,7 @@
 
         <li class="justify">
             <article>
-                <h3>8. Intégration des métadonnées</h3>
+                <h3>Intégration des métadonnées</h3>
                 <p>
                     Les métadonnées descriptives sont récupérées depuis Flora au moyen de
                     scripts Python. Elles sont ensuite réutilisées pour enrichir les fichiers
@@ -169,7 +171,7 @@
 
         <li class="justify">
             <article>
-                <h3>9. Création du PDF/A-2u</h3>
+                <h3>Création du PDF/A-2u</h3>
                 <p>
                     Un document PDF/A-2u est généré à partir des images dérivées, du texte
                     reconnu et d’un profil colorimétrique ICC. Le fichier obtenu associe les
@@ -181,7 +183,7 @@
 
         <li class="justify">
             <article>
-                <h3>10. Reconnaissance des entités nommées</h3>
+                <h3>Reconnaissance des entités nommées</h3>
                 <p>
                     Le fichier XML-TEI est enrichi par une étape de reconnaissance automatique
                     des entités nommées réalisée avec un modèle exécuté localement au moyen
@@ -194,12 +196,21 @@
 
         <li class="justify">
             <article>
-                <h3>11. Système d’information et diffusion</h3>
+                <h3>Manifest iiif</h3>
                 <p>
-                    Le XML-TEI enrichi peut être transformé en HTML au moyen d’une feuille
-                    XSLT, tandis qu’un manifeste IIIF est produit pour la consultation des
-                    images. Les fichiers TEI, PDF/A-2u, IIIF, JPEG et les métadonnées sont
-                    finalement publiés sur le portail d’accès au manuscrit.
+                    Les dérivées documentaires obtenues par ce workflow sont intégrées à un manifeste IIIF produit pour la consultation des
+                    images. Les fichiers TEI, PDF/A-2u, IIIF, JPEG et les métadonnées sont automatiquement intégré au caneva iiif.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>Système d’information et diffusion</h3>
+                <p>
+                    Par l'intermédiaire d'un portail contenant la notice d'origine et une visionneuse iiif. Les fichiers TEI, PDF/A-2u, IIIF, JPEG et les métadonnées sont
+                    finalement publiés sur le portail d’accès au manuscrit permettant de démontrer par l'usage de technologies et de la numrisation des documents d'archives, 
+                    la création automatique de dérivées et données structurées automatiquement disponible pour le chercheur.
                 </p>
             </article>
         </li>
