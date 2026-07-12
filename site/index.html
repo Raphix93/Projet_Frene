@@ -34,13 +34,41 @@
         <h1>Bienvenue</h1>
 
         <p class="justify">
-            [En cours de rédaction]
+            Le projet Frêne est un proof of concept de méthode favorisant la diffusion des archives à l'aide de méthodologie provenant des humanités numériques. 
+            Ce projet fait partie d'un travail plus large de mon mémoire de Master en patrimoine régional et humanités numériques.
         </p>
 
         <br>
 
         <p class="justify">
-        [En cours de rédaction]
+        Le workflow du projet <em>Frêne</em> repose sur une chaîne de traitement
+        automatisée combinant des technologies issues de la numérisation
+        patrimoniale, des humanités numériques et de l'intelligence artificielle.
+        L'ensemble du processus est orchestré par des scripts <strong>Python</strong>
+        exécutés automatiquement grâce à <strong>GitHub Actions</strong>, assurant
+        la reproductibilité des traitements et la publication continue des résultats.
+    </p>
+
+    <p class="justify">
+        La reconnaissance de texte est réalisée avec <strong>eScriptorium</strong>
+        et le moteur <strong>Kraken</strong>, utilisés pour l'OCR des documents
+        imprimés ainsi que pour la reconnaissance d'écriture manuscrite (HTR).
+        Les transcriptions sont converties du format <strong>XML-ALTO</strong>
+        vers <strong>XML-TEI</strong> grâce au projet <strong>Alto2TEI</strong>,
+        puis enrichies automatiquement par une reconnaissance d'entités nommées
+        exécutée localement avec <strong>Ollama</strong> et un grand modèle de langage.
+    </p>
+
+    <p class="justify">
+        Les métadonnées descriptives sont récupérées automatiquement depuis
+        <strong>Flora</strong>, tandis que les images maîtres au format
+        <strong>TIFF</strong> sont converties en dérivés <strong>JPEG</strong>,
+        en documents <strong>PDF/A-2u</strong> conformes aux exigences de
+        préservation numérique et en manifestes <strong>IIIF</strong> permettant
+        leur diffusion sur le Web. Les résultats sont finalement publiés
+        automatiquement sur <strong>GitHub Pages</strong>, offrant un accès
+        aux différentes ressources produites.
+    </p>
         </p>
             <h2>Workflow de traitement du corpus</h2>
             <br>
