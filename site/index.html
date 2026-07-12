@@ -57,9 +57,154 @@
 
         <h2>Méthodologie</h2>
 
-        <p class="justify">
-        [En cours de rédaction]
+        
+        <h2 id="justify">
+            Processus de numérisation, de traitement et de diffusion
+        </h2>
+
+        <p>
+            Le processus présenté ci-dessous décrit les principales étapes du traitement
+            du Journal de Théophile Rémy Frêne, depuis la sélection du document original
+            jusqu’à sa diffusion numérique.
         </p>
+    </header>
+
+    <ol class="justify">
+
+        <li class="justify">
+            <article>
+                <h3>1. Entrée</h3>
+                <p>
+                    L’archiviste sélectionne le document à numériser et réalise un premier
+                    dépoussiérage afin de retirer les éléments susceptibles d’endommager le
+                    document ou de gêner sa reproduction. Une évaluation détermine ensuite
+                    si le document peut être numérisé ou s’il nécessite une préparation
+                    complémentaire.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>2. Numérisation</h3>
+                <p>
+                    Le document est numérisé à l’aide d’un scanner ou d’un appareil
+                    photographique, selon ses caractéristiques physiques. Les images
+                    maîtres sont produites au format TIFF afin de préserver une image
+                    de haute qualité.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>3. Contrôle qualité</h3>
+                <p>
+                    Chaque image est vérifiée afin de contrôler sa netteté, son cadrage,
+                    son exposition, sa complétude et la cohérence du nommage des fichiers.
+                    Les images non conformes sont renvoyées vers une nouvelle numérisation.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>4. Extraction du texte par OCR</h3>
+                <p>
+                    Pour les documents imprimés, une reconnaissance optique de caractères
+                    peut être réalisée avec eScriptorium et Kraken. Le texte reconnu peut
+                    ensuite être associé aux images dans un document PDF doté d’une couche
+                    de texte interrogeable.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>5. Extraction du texte par HTR</h3>
+                <p>
+                    Pour les documents manuscrits, les images sont d’abord segmentées afin
+                    d’identifier les zones et les lignes de texte. La reconnaissance de
+                    l’écriture manuscrite est ensuite effectuée avec eScriptorium et Kraken,
+                    puis exportée sous la forme de fichiers XML-ALTO.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>6. Entraînement du modèle</h3>
+                <p>
+                    Lorsque la qualité de la transcription est insuffisante, un modèle HTR
+                    est entraîné à partir de pages transcrites et corrigées manuellement.
+                    Le modèle est ensuite testé avant d’être réutilisé pour améliorer la
+                    reconnaissance du reste du corpus.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>7. Migration du XML-ALTO vers le XML-TEI</h3>
+                <p>
+                    Les fichiers XML-ALTO sont convertis automatiquement en XML-TEI à l’aide
+                    du programme Alto2TEI. Cette transformation permet de produire une
+                    transcription structurée tout en conservant les informations relatives
+                    à l’organisation du document.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>8. Intégration des métadonnées</h3>
+                <p>
+                    Les métadonnées descriptives sont récupérées depuis Flora au moyen de
+                    scripts Python. Elles sont ensuite réutilisées pour enrichir les fichiers
+                    XML-TEI, les manifestes IIIF et les autres produits dérivés du projet.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>9. Création du PDF/A-2u</h3>
+                <p>
+                    Un document PDF/A-2u est généré à partir des images dérivées, du texte
+                    reconnu et d’un profil colorimétrique ICC. Le fichier obtenu associe les
+                    images du manuscrit à une couche de texte consultable et répond aux
+                    exigences du format PDF/A-2u.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>10. Reconnaissance des entités nommées</h3>
+                <p>
+                    Le fichier XML-TEI est enrichi par une étape de reconnaissance automatique
+                    des entités nommées réalisée avec un modèle exécuté localement au moyen
+                    d’Ollama. Les personnes, lieux, organisations, dates et fonctions détectés
+                    sont réintégrés dans le texte sous la forme de balises TEI. Il s'agit ici, 
+                    d'un protoype qui n'a pas vocation à etre utilisé en l'état.
+                </p>
+            </article>
+        </li>
+
+        <li class="justify">
+            <article>
+                <h3>11. Système d’information et diffusion</h3>
+                <p>
+                    Le XML-TEI enrichi peut être transformé en HTML au moyen d’une feuille
+                    XSLT, tandis qu’un manifeste IIIF est produit pour la consultation des
+                    images. Les fichiers TEI, PDF/A-2u, IIIF, JPEG et les métadonnées sont
+                    finalement publiés sur le portail d’accès au manuscrit.
+                </p>
+            </article>
+        </li>
+
+    </ol>
+</section>
 
         <br>
 
