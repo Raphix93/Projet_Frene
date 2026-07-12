@@ -7,19 +7,19 @@
   </buildInformation>
   <jobs>
     <job>
-      <item size="7732395">
-        <name>/home/runner/work/Projet_Frene/Projet_Frene/data/Frêne_volume_1/exports/pdf/document_pdfa2u.pdf</name>
+      <item size="7732394">
+        <name>/home/runner/work/Projet_Frene/Projet_Frene/data/Frene_volume_1/exports/pdf/Frene_volume1_pdfa2u.pdf</name>
       </item>
       <validationReport jobEndStatus="normal" profileName="PDF/A-2u validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
         <details passedRules="146" failedRules="0" passedChecks="5238" failedChecks="0"></details>
       </validationReport>
-      <duration start="1783357246744" finish="1783357247330">00:00:00.586</duration>
+      <duration start="1783856313497" finish="1783856314068">00:00:00.571</duration>
     </job>
   </jobs>
   <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
     <validationReports compliant="1" nonCompliant="0" failedJobs="0">1</validationReports>
     <featureReports failedJobs="0">0</featureReports>
     <repairReports failedJobs="0">0</repairReports>
-    <duration start="1783357246691" finish="1783357247348">00:00:00.657</duration>
+    <duration start="1783856313450" finish="1783856314085">00:00:00.635</duration>
   </batchSummary>
 </report>
