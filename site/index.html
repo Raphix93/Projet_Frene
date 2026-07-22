@@ -46,15 +46,14 @@
         patrimoniale, des humanités numériques et de l'intelligence artificielle.
         L'ensemble du processus est orchestré par des scripts <strong>Python</strong>
         exécutés automatiquement grâce à <strong>GitHub Actions</strong>, assurant
-        la reproductibilité des traitements et la publication continue des résultats.
+        la reproductibilité des traitements.
     </p>
 
     <p class="justify">
         La reconnaissance de texte est réalisée avec <strong>eScriptorium</strong>
-        et le moteur <strong>Kraken</strong>, utilisés pour l'OCR des documents
-        imprimés ainsi que pour la reconnaissance d'écriture manuscrite (HTR).
+        et le moteur <strong>Kraken</strong>, utilisés pour la reconnaissance d'écriture manuscrite (HTR).
         Les transcriptions sont converties du format <strong>XML-ALTO</strong>
-        vers <strong>XML-TEI</strong> grâce au projet <strong>Alto2TEI</strong>,
+        vers <strong>XML-TEI</strong> grâce aux scriptes du module <strong>Alto2TEI</strong>,
         puis enrichies automatiquement par une reconnaissance d'entités nommées
         exécutée localement avec <strong>Ollama</strong> et un grand modèle de langage.
     </p>
@@ -67,7 +66,8 @@
         préservation numérique et en manifestes <strong>IIIF</strong> permettant
         leur diffusion sur le Web. Les résultats sont finalement publiés
         automatiquement sur <strong>GitHub Pages</strong>, offrant un accès
-        aux différentes ressources produites.
+        aux différentes ressources produites et illustrant de ce fait la diffusion des archives 
+        avec des méthodes adaptées à l'ère numérique que nous connaissons actuellement.
     </p>
         </p>
             <h2>Workflow de traitement du corpus</h2>
@@ -179,9 +179,8 @@
                 <h3>Migration du XML-ALTO vers le XML-TEI</h3>
                 <p>
                     Les fichiers XML-ALTO sont convertis automatiquement en XML-TEI à l’aide
-                    du programme Alto2TEI. Cette transformation permet de produire une
-                    transcription structurée tout en conservant les informations relatives
-                    à l’organisation du document.
+                    du des sciptes liés à Alto2TEI. Cette transformation permet de produire une
+                    transcription structurée.
                 </p>
             </article>
         </li>
@@ -201,7 +200,7 @@
             <article>
                 <h3>Création du PDF/A-2u</h3>
                 <p>
-                    Un document PDF/A-2u est généré à partir des images dérivées, du texte
+                    Un document PDF/A-2u est généré à partir des images JPEG dérivées, du texte
                     reconnu et d’un profil colorimétrique ICC. Le fichier obtenu associe les
                     images du manuscrit à une couche de texte consultable et répond aux
                     exigences du format PDF/A-2u.
@@ -217,7 +216,7 @@
                     des entités nommées réalisée avec un modèle exécuté localement au moyen
                     d’Ollama. Les personnes, lieux, organisations, dates et fonctions détectés
                     sont réintégrés dans le texte sous la forme de balises TEI. Il s'agit ici, 
-                    d'un protoype qui n'a pas vocation à etre utilisé en l'état.
+                    d'un protoype qui n'a pas vocation à etre utilisé en l'état de manière industrielle.
                 </p>
             </article>
         </li>
@@ -236,9 +235,9 @@
             <article>
                 <h3>Système d’information et diffusion</h3>
                 <p>
-                    Par l'intermédiaire d'un portail contenant la notice d'origine et une visionneuse iiif. Les fichiers TEI, PDF/A-2u, IIIF, JPEG et les métadonnées sont
+                    Par l'intermédiaire d'un portail contenant la notice d'origine et une visionneuse iiif "Tify". Les fichiers TEI, PDF/A-2u, manifest IIIF, JPEG et les métadonnées sont
                     finalement publiés sur le portail d’accès au manuscrit permettant de démontrer par l'usage de technologies et de la numrisation des documents d'archives, 
-                    la création automatique de dérivées et données structurées automatiquement disponible pour le chercheur.
+                    la création de dérivées et données structurées automatiquement et ensuite mis à disposition du chercheur.
                 </p>
             </article>
         </li>
