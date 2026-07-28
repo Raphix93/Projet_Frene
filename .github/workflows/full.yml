@@ -1,36 +1,6 @@
 name: Projet Frene full workflow
 
 on:
-  push:
-    paths:
-      - .github/workflows/**
-      - data/**
-      - alto2tei/**
-      - PDFA2U/**
-      - JPG/**
-      - manifest_IIIF/**
-      - metadata/**
-      - text-extraction.py
-      - config.yml
-      - htr-united.yml
-      - fonts/**
-      - site/**
-
-  pull_request:
-    paths:
-      - .github/workflows/**
-      - data/**
-      - alto2tei/**
-      - PDFA2U/**
-      - JPG/**
-      - manifest_IIIF/**
-      - metadata/**
-      - text-extraction.py
-      - config.yml
-      - htr-united.yml
-      - fonts/**
-      - site/**
-
   workflow_dispatch:
 
 permissions:
