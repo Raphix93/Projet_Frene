@@ -5,10 +5,12 @@ const state = {
   bodyText: ''
 };
 
-export function setDocumentState(values) {
-  Object.assign(state, values);
+export function setDocumentState(nextState) {
+  Object.assign(state, nextState);
 }
 
 export function getDocumentState() {
-  return { ...state };
+  return {
+    ...state
+  };
 }

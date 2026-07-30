@@ -26,159 +26,105 @@ let activeTextActionType = null;
 export function initAnnotator() {
   const transcription = document.querySelector('#transcription');
   const contextMenu = document.querySelector('#context-menu');
-  const uriButton = document.querySelector(
-    '#add-uri'
-  );
-  const deleteButton = document.querySelector(
-    '#delete-annotation'
-  );
+  const deleteButton = document.querySelector('#delete-annotation');
 
-  if (
-    !transcription ||
-    !contextMenu ||
-    !uriButton ||
-    !deleteButton
-  ) {
-    console.error(
-      'Impossible d’initialiser l’interface d’annotation.'
-    );
-
-    return;
+  if (!transcription || !contextMenu || !deleteButton) {
+    console.error('Éléments requis absents.', {
+      transcription: Boolean(transcription),
+      contextMenu: Boolean(contextMenu),
+      deleteButton: Boolean(deleteButton)
+    });
+    return null;
   }
 
-  annotator = createTextAnnotator(transcription, {
-    style: getAnnotationStyle
-  });
+  if (!transcription.textContent.trim()) {
+    console.error('Le body TEI rendu est vide.');
+    return null;
+  }
 
-  /*
-   * Mémorise la position du clic afin de placer le menu
-   * près d’une annotation existante.
-   */
+  try {
+    annotator = createTextAnnotator(transcription, {
+      style: getAnnotationStyle
+    });
+  } catch (error) {
+    console.error('Erreur Recogito :', error);
+    throw new Error(`Recogito : ${error.message}`);
+  }
+
+  if (!annotator) {
+    console.error('createTextAnnotator n’a retourné aucune instance.');
+    return null;
+  }
+
   transcription.addEventListener('pointerdown', event => {
-    lastPointerPosition = {
-      x: event.clientX,
-      y: event.clientY
-    };
+    lastPointerPosition = { x: event.clientX, y: event.clientY };
   });
 
-  /*
-   * Une nouvelle sélection vient de créer une annotation.
-   */
   annotator.on('createAnnotation', annotation => {
     activeAnnotation = annotation;
     isNewAnnotation = true;
 
-    const selectionRectangle = getSelectionRectangle();
+    const rectangle = getSelectionRectangle();
 
-    if (!selectionRectangle) {
+    if (!rectangle) {
       removeAbandonedNewAnnotation();
       return;
     }
 
-    openContextMenu(selectionRectangle);
+    openContextMenu(rectangle);
   });
 
-  /*
-   * L’utilisateur clique sur une annotation existante.
-   */
   annotator.on('selectionChanged', annotations => {
     if (!Array.isArray(annotations) || annotations.length === 0) {
       if (!isNewAnnotation) {
         activeAnnotation = null;
         closeContextMenu();
       }
-
       return;
     }
 
-    const selectedAnnotation = annotations[0];
+    const selected = annotations[0];
 
-    /*
-     * Empêche cet événement de remplacer immédiatement
-     * l’état d’une annotation qui vient d’être créée.
-     */
-    if (
-      isNewAnnotation &&
-      activeAnnotation?.id === selectedAnnotation.id
-    ) {
+    if (isNewAnnotation && activeAnnotation?.id === selected.id) {
       return;
     }
 
-    activeAnnotation = selectedAnnotation;
+    activeAnnotation = selected;
     isNewAnnotation = false;
-
     openContextMenu(getPointerRectangle());
   });
 
   annotator.on('updateAnnotation', updateCounters);
   annotator.on('deleteAnnotation', updateCounters);
 
-  contextMenu.addEventListener(
-    'click',
-    handleContextMenuClick
-  );
-
-  uriButton.addEventListener(
-    'click',
-    openUriDialog
-  );
-
-  deleteButton.addEventListener(
-    'click',
-    deleteActiveAnnotation
-  );
-
-  document.addEventListener(
-    'pointerdown',
-    handleDocumentPointerDown
-  );
-
-  document.addEventListener(
-    'keydown',
-    handleKeyboardNavigation
-  );
-
+  contextMenu.addEventListener('click', handleContextMenuClick);
+  deleteButton.addEventListener('click', deleteActiveAnnotation);
+  document.addEventListener('pointerdown', handleDocumentPointerDown);
+  document.addEventListener('keydown', handleKeyboardNavigation);
   window.addEventListener('resize', closeContextMenu);
-
-  window.addEventListener(
-    'scroll',
-    closeContextMenu,
-    { passive: true }
-  );
+  window.addEventListener('scroll', closeContextMenu, { passive: true });
 
   setupCorrectionDialog();
-  setupUriDialog();
   updateCounters();
-
-  console.log('Frêne Annotator initialisé');
 
   return {
     getAnnotations() {
-        return makeAnnotationsSerializable(
-            annotator.getAnnotations()
-         );
+      return makeAnnotationsSerializable(annotator.getAnnotations());
     },
 
     setAnnotations(annotations) {
-        annotator.setAnnotations(
-            JSON.parse(JSON.stringify(annotations)),
-            true
-        );
-
-        activeAnnotation = null;
-        isNewAnnotation = false;
-
-        closeContextMenu();
-        clearBrowserSelection();
-        updateCounters();
+      annotator.setAnnotations(JSON.parse(JSON.stringify(annotations)), true);
+      activeAnnotation = null;
+      isNewAnnotation = false;
+      closeContextMenu();
+      clearBrowserSelection();
+      updateCounters();
     },
 
     clearAnnotations() {
       annotator.clearAnnotations();
-
       activeAnnotation = null;
       isNewAnnotation = false;
-
       closeContextMenu();
       clearBrowserSelection();
       updateCounters();
@@ -187,62 +133,12 @@ export function initAnnotator() {
 }
 
 function getAnnotationType(annotation) {
-  const typeBody = annotation?.bodies?.find(
-    body => body.purpose === 'tagging'
-  );
-
-  return typeBody?.value ?? null;
+  return annotation?.bodies?.find(body => body.purpose === 'tagging')?.value ?? null;
 }
 
 function getReplacementText(annotation, type) {
-  const purpose =
-    type === 'normalization'
-      ? 'normalizing'
-      : 'correcting';
-
-  const replacementBody = annotation?.bodies?.find(
-    body => body.purpose === purpose
-  );
-
-  return replacementBody?.value ?? '';
-}
-
-function getAnnotationUri(annotation) {
-  const uriBody = annotation?.bodies?.find(
-    body => body.purpose === 'linking'
-  );
-
-  return uriBody?.value ?? '';
-}
-
-function isUriCompatibleType(type) {
-  return type === 'person' || type === 'place';
-}
-
-function normalizeWikidataUri(value) {
-  const trimmedValue = value.trim();
-
-  if (/^Q\d+$/i.test(trimmedValue)) {
-    return (
-      'https://www.wikidata.org/entity/' +
-      trimmedValue.toUpperCase()
-    );
-  }
-
-  return trimmedValue;
-}
-
-function isValidUri(value) {
-  try {
-    const uri = new URL(value);
-
-    return (
-      uri.protocol === 'https:' ||
-      uri.protocol === 'http:'
-    );
-  } catch {
-    return false;
-  }
+  const purpose = type === 'normalization' ? 'normalizing' : 'correcting';
+  return annotation?.bodies?.find(body => body.purpose === purpose)?.value ?? '';
 }
 
 function getAnnotationStyle(annotation, state = {}) {
@@ -250,34 +146,20 @@ function getAnnotationStyle(annotation, state = {}) {
 
   return {
     fill: COLORS[type] ?? '#DDE7F0',
-    fillOpacity:
-      state.hovered || state.selected
-        ? 0.95
-        : 0.75,
+    fillOpacity: state.hovered || state.selected ? 0.95 : 0.75,
     underlineColor: 'transparent',
     underlineThickness: 0
   };
 }
 
 function handleContextMenuClick(event) {
-  const typeButton = event.target.closest(
-    'button[data-type]'
-  );
-
-  if (!typeButton || !activeAnnotation) {
-    return;
-  }
+  const typeButton = event.target.closest('button[data-type]');
+  if (!typeButton || !activeAnnotation) return;
 
   const type = typeButton.dataset.type;
+  if (!Object.hasOwn(LABELS, type)) return;
 
-  if (!Object.hasOwn(LABELS, type)) {
-    return;
-  }
-
-  if (
-    type === 'normalization' ||
-    type === 'correction'
-  ) {
+  if (type === 'normalization' || type === 'correction') {
     activeTextActionType = type;
     closeContextMenu();
     openCorrectionDialog(type);
@@ -288,19 +170,13 @@ function handleContextMenuClick(event) {
 }
 
 function saveAnnotationType(type, replacementText = '') {
-  if (!activeAnnotation || !annotator) {
-    return;
-  }
+  if (!activeAnnotation || !annotator) return;
 
-  const preservedBodies = (
-    activeAnnotation.bodies ?? []
-  ).filter(body => {
-    return (
-      body.purpose !== 'tagging' &&
-      body.purpose !== 'normalizing' &&
-      body.purpose !== 'correcting'
-    );
-  });
+  const preservedBodies = (activeAnnotation.bodies ?? []).filter(body =>
+    body.purpose !== 'tagging' &&
+    body.purpose !== 'normalizing' &&
+    body.purpose !== 'correcting'
+  );
 
   const newBodies = [
     ...preservedBodies,
@@ -330,64 +206,19 @@ function saveAnnotationType(type, replacementText = '') {
     });
   }
 
-  const updatedAnnotation = {
-    ...activeAnnotation,
-    bodies: newBodies
-  };
-
-  annotator.updateAnnotation(updatedAnnotation);
-
+  annotator.updateAnnotation({ ...activeAnnotation, bodies: newBodies });
   activeTextActionType = null;
   finishCurrentAction();
 }
 
-function saveAnnotationUri(uri) {
-  if (!activeAnnotation || !annotator) {
-    return;
-  }
-
-  const currentType =
-    getAnnotationType(activeAnnotation);
-
-  if (!isUriCompatibleType(currentType)) {
-    return;
-  }
-
-  const preservedBodies = (
-    activeAnnotation.bodies ?? []
-  ).filter(body => body.purpose !== 'linking');
-
-  const updatedAnnotation = {
-    ...activeAnnotation,
-    bodies: [
-      ...preservedBodies,
-      {
-        id: crypto.randomUUID(),
-        annotation: activeAnnotation.id,
-        purpose: 'linking',
-        value: uri
-      }
-    ]
-  };
-
-  annotator.updateAnnotation(updatedAnnotation);
-  finishCurrentAction();
-}
-
 function deleteActiveAnnotation() {
-  if (!activeAnnotation || !annotator) {
-    return;
-  }
+  if (!activeAnnotation || !annotator) return;
 
   const annotationId = activeAnnotation.id;
-
   activeAnnotation = null;
   isNewAnnotation = false;
-
   closeContextMenu();
-
   annotator.removeAnnotation(annotationId);
-
   clearBrowserSelection();
   updateCounters();
 }
@@ -395,7 +226,6 @@ function deleteActiveAnnotation() {
 function finishCurrentAction() {
   activeAnnotation = null;
   isNewAnnotation = false;
-
   closeContextMenu();
   clearBrowserSelection();
   updateCounters();
@@ -404,188 +234,60 @@ function finishCurrentAction() {
 function openContextMenu(anchorRectangle) {
   const menu = document.querySelector('#context-menu');
   const title = document.querySelector('#context-menu-title');
-  const uriButton = document.querySelector(
-    '#add-uri'
-  );
-  const deleteButton = document.querySelector(
-    '#delete-annotation'
-  );
-  const separator = document.querySelector(
-    '#context-menu-separator'
-  );
+  const deleteButton = document.querySelector('#delete-annotation');
+  const separator = document.querySelector('#context-menu-separator');
 
-  if (
-    !menu ||
-    !title ||
-    !uriButton ||
-    !deleteButton ||
-    !separator ||
-    !activeAnnotation
-  ) {
-    return;
-  }
+  if (!menu || !title || !deleteButton || !separator || !activeAnnotation) return;
 
   const currentType = getAnnotationType(activeAnnotation);
-  const isExistingAnnotation =
-    !isNewAnnotation && Boolean(currentType);
+  const existing = !isNewAnnotation && Boolean(currentType);
 
-  if (isExistingAnnotation) {
-    title.textContent =
-      `Annotation : ${LABELS[currentType] ?? 'Type inconnu'}`;
+  title.textContent = existing
+    ? `Annotation : ${LABELS[currentType] ?? 'Type inconnu'}`
+    : 'Annoter comme';
 
-    const canAddUri =
-      isUriCompatibleType(currentType);
+  deleteButton.hidden = !existing;
+  separator.hidden = !existing;
 
-    const existingUri =
-      getAnnotationUri(activeAnnotation);
+  menu.querySelectorAll('button[data-type]').forEach(button => {
+    const current = button.dataset.type === currentType;
+    button.classList.toggle('current-type', current);
+    button.setAttribute('aria-checked', String(current));
+  });
 
-    uriButton.hidden = !canAddUri;
-    uriButton.textContent = existingUri
-      ? 'Modifier l’URI'
-      : 'Ajouter un URI';
-
-    deleteButton.hidden = false;
-    separator.hidden = false;
-  } else {
-    title.textContent = 'Annoter comme';
-
-    uriButton.hidden = true;
-    deleteButton.hidden = true;
-    separator.hidden = true;
-  }
-
-  menu
-    .querySelectorAll('button[data-type]')
-    .forEach(button => {
-      const isCurrentType =
-        button.dataset.type === currentType;
-
-      button.classList.toggle(
-        'current-type',
-        isCurrentType
-      );
-
-      button.setAttribute(
-        'aria-checked',
-        String(isCurrentType)
-      );
-    });
-
-  positionMenuInsideApplication(
-    menu,
-    anchorRectangle
-  );
+  positionMenuInsideApplication(menu, anchorRectangle);
 }
 
 function closeContextMenu() {
   const menu = document.querySelector('#context-menu');
-
-  if (menu) {
-    menu.hidden = true;
-  }
+  if (menu) menu.hidden = true;
 }
 
-function positionMenuInsideApplication(
-  menu,
-  anchorRectangle
-) {
-  const application = document.querySelector(
-    '.app-container'
-  );
+function positionMenuInsideApplication(menu, anchor) {
+  const application = document.querySelector('.app-container');
+  if (!application || !anchor) return;
 
-  if (!application || !anchorRectangle) {
-    return;
-  }
-
-  const applicationRectangle =
-    application.getBoundingClientRect();
-
+  const appRect = application.getBoundingClientRect();
   const padding = 12;
   const gap = 10;
-
-  /*
-   * Limites correspondant à la partie visible
-   * de l’application.
-   */
-  const visibleLeft = Math.max(
-    applicationRectangle.left,
-    0
-  );
-
-  const visibleRight = Math.min(
-    applicationRectangle.right,
-    window.innerWidth
-  );
-
-  const visibleTop = Math.max(
-    applicationRectangle.top,
-    0
-  );
-
-  const visibleBottom = Math.min(
-    applicationRectangle.bottom,
-    window.innerHeight
-  );
+  const visibleLeft = Math.max(appRect.left, 0);
+  const visibleRight = Math.min(appRect.right, window.innerWidth);
+  const visibleTop = Math.max(appRect.top, 0);
+  const visibleBottom = Math.min(appRect.bottom, window.innerHeight);
 
   menu.hidden = false;
 
-  /*
-   * Il faut rendre le menu visible avant de mesurer
-   * sa largeur et sa hauteur.
-   */
-  const menuRectangle = menu.getBoundingClientRect();
-  const menuWidth = menuRectangle.width;
-  const menuHeight = menuRectangle.height;
+  const menuRect = menu.getBoundingClientRect();
+  let left = anchor.left + anchor.width / 2 - menuRect.width / 2;
+  let top = anchor.bottom + gap;
 
-  let left =
-    anchorRectangle.left +
-    anchorRectangle.width / 2 -
-    menuWidth / 2;
+  left = clamp(left, visibleLeft + padding, Math.max(visibleLeft + padding, visibleRight - menuRect.width - padding));
 
-  const minimumLeft = visibleLeft + padding;
-  const maximumLeft =
-    visibleRight - menuWidth - padding;
-
-  if (maximumLeft >= minimumLeft) {
-    left = clamp(
-      left,
-      minimumLeft,
-      maximumLeft
-    );
-  } else {
-    left = Math.max(padding, minimumLeft);
+  if (top + menuRect.height > visibleBottom - padding) {
+    top = anchor.top - menuRect.height - gap;
   }
 
-  let top = anchorRectangle.bottom + gap;
-
-  const minimumTop = visibleTop + padding;
-  const maximumTop =
-    visibleBottom - menuHeight - padding;
-
-  /*
-   * En cas de manque de place sous la sélection,
-   * le menu est placé au-dessus.
-   */
-  if (top > maximumTop) {
-    top =
-      anchorRectangle.top -
-      menuHeight -
-      gap;
-  }
-
-  if (maximumTop >= minimumTop) {
-    top = clamp(
-      top,
-      minimumTop,
-      maximumTop
-    );
-  } else {
-    /*
-     * Cas d’une fenêtre très petite :
-     * le menu reste au moins visible en haut.
-     */
-    top = Math.max(padding, visibleTop + padding);
-  }
+  top = clamp(top, visibleTop + padding, Math.max(visibleTop + padding, visibleBottom - menuRect.height - padding));
 
   menu.style.left = `${Math.round(left)}px`;
   menu.style.top = `${Math.round(top)}px`;
@@ -594,112 +296,59 @@ function positionMenuInsideApplication(
 function getSelectionRectangle() {
   const selection = window.getSelection();
 
-  if (
-    !selection ||
-    selection.rangeCount === 0 ||
-    selection.isCollapsed
-  ) {
+  if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
     return null;
   }
 
-  const rectangle = selection
-    .getRangeAt(0)
-    .getBoundingClientRect();
+  const rectangle = selection.getRangeAt(0).getBoundingClientRect();
 
-  if (rectangle.width === 0 && rectangle.height === 0) {
-    return null;
-  }
-
-  return rectangle;
+  return rectangle.width === 0 && rectangle.height === 0 ? null : rectangle;
 }
 
 function getPointerRectangle() {
   if (lastPointerPosition) {
-    return createPointRectangle(
-      lastPointerPosition.x,
-      lastPointerPosition.y
-    );
+    return createPointRectangle(lastPointerPosition.x, lastPointerPosition.y);
   }
 
-  const application = document.querySelector(
-    '.app-container'
-  );
+  const application = document.querySelector('.app-container');
+  const rectangle = application?.getBoundingClientRect();
 
-  if (!application) {
-    return createPointRectangle(
-      window.innerWidth / 2,
-      100
-    );
-  }
-
-  const rectangle = application.getBoundingClientRect();
-
-  return createPointRectangle(
-    rectangle.left + rectangle.width / 2,
-    Math.max(rectangle.top + 100, 100)
-  );
+  return rectangle
+    ? createPointRectangle(rectangle.left + rectangle.width / 2, Math.max(rectangle.top + 100, 100))
+    : createPointRectangle(window.innerWidth / 2, 100);
 }
 
 function createPointRectangle(x, y) {
-  return {
-    left: x,
-    right: x,
-    top: y,
-    bottom: y,
-    width: 0,
-    height: 0
-  };
+  return { left: x, right: x, top: y, bottom: y, width: 0, height: 0 };
 }
 
 function setupCorrectionDialog() {
-  const dialog = document.querySelector(
-    '#correction-dialog'
-  );
-  const form = document.querySelector(
-    '#correction-form'
-  );
-  const cancelButton = document.querySelector(
-    '#cancel-correction'
-  );
+  const dialog = document.querySelector('#correction-dialog');
+  const form = document.querySelector('#correction-form');
+  const cancelButton = document.querySelector('#cancel-correction');
 
   if (!dialog || !form || !cancelButton) {
-    console.error(
-      'La fenêtre de saisie est introuvable.'
-    );
+    console.error('La fenêtre de saisie est introuvable.');
     return;
   }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
 
-    const correctedInput = document.querySelector(
-      '#corrected-text'
-    );
+    const input = document.querySelector('#corrected-text');
+    if (!input || !activeTextActionType) return;
 
-    if (!correctedInput || !activeTextActionType) {
-      return;
-    }
-
-    const replacementText =
-      correctedInput.value.trim();
-
+    const replacementText = input.value.trim();
     if (!replacementText) {
-      correctedInput.focus();
+      input.focus();
       return;
     }
 
     dialog.close();
-
-    saveAnnotationType(
-      activeTextActionType,
-      replacementText
-    );
+    saveAnnotationType(activeTextActionType, replacementText);
   });
 
-  cancelButton.addEventListener(
-    'click',
-    cancelCorrection
-  );
+  cancelButton.addEventListener('click', cancelCorrection);
 
   dialog.addEventListener('cancel', event => {
     event.preventDefault();
@@ -708,73 +357,34 @@ function setupCorrectionDialog() {
 }
 
 function openCorrectionDialog(type) {
-  const dialog = document.querySelector(
-    '#correction-dialog'
-  );
-  const dialogTitle = document.querySelector(
-    '#correction-dialog-title'
-  );
-  const fieldLabel = document.querySelector(
-    '#replacement-text-label'
-  );
-  const originalText = document.querySelector(
-    '#original-text'
-  );
-  const correctedInput = document.querySelector(
-    '#corrected-text'
-  );
+  const dialog = document.querySelector('#correction-dialog');
+  const title = document.querySelector('#correction-dialog-title');
+  const label = document.querySelector('#replacement-text-label');
+  const original = document.querySelector('#original-text');
+  const input = document.querySelector('#corrected-text');
 
-  if (
-    !dialog ||
-    !dialogTitle ||
-    !fieldLabel ||
-    !originalText ||
-    !correctedInput ||
-    !activeAnnotation
-  ) {
-    return;
-  }
+  if (!dialog || !title || !label || !original || !input || !activeAnnotation) return;
 
-  const isNormalization =
-    type === 'normalization';
+  const normalization = type === 'normalization';
 
-  dialogTitle.textContent = isNormalization
-    ? 'Normaliser le texte'
-    : 'Corriger librement le texte';
-
-  fieldLabel.textContent = isNormalization
-    ? 'Forme normalisée'
-    : 'Texte corrigé';
-
-  originalText.textContent =
-    getSelectedAnnotationText(activeAnnotation);
-
-  correctedInput.value =
-    getReplacementText(activeAnnotation, type);
+  title.textContent = normalization ? 'Normaliser le texte' : 'Corriger librement le texte';
+  label.textContent = normalization ? 'Forme normalisée' : 'Texte corrigé';
+  original.textContent = getSelectedAnnotationText(activeAnnotation);
+  input.value = getReplacementText(activeAnnotation, type);
 
   dialog.showModal();
-
   requestAnimationFrame(() => {
-    correctedInput.focus();
-    correctedInput.select();
+    input.focus();
+    input.select();
   });
 }
 
 function cancelCorrection() {
-  const dialog = document.querySelector(
-    '#correction-dialog'
-  );
-
-  if (dialog?.open) {
-    dialog.close();
-  }
+  const dialog = document.querySelector('#correction-dialog');
+  if (dialog?.open) dialog.close();
 
   activeTextActionType = null;
 
-  /*
-   * Une nouvelle annotation sans type ne doit pas
-   * rester dans la transcription après une annulation.
-   */
   if (isNewAnnotation && activeAnnotation) {
     removeAbandonedNewAnnotation();
     return;
@@ -787,215 +397,24 @@ function getSelectedAnnotationText(annotation) {
   const selectors = annotation?.target?.selector;
 
   if (Array.isArray(selectors)) {
-    const quoteSelector = selectors.find(selector => {
-      return (
-        typeof selector?.quote === 'string' ||
-        typeof selector?.exact === 'string' ||
-        selector?.type === 'TextQuoteSelector'
-      );
-    });
-
-    return (
-      quoteSelector?.quote ??
-      quoteSelector?.exact ??
-      ''
-    );
-  }
-
-  return (
-    selectors?.quote ??
-    selectors?.exact ??
-    ''
-  );
-}
-
-function setupUriDialog() {
-  const dialog = document.querySelector(
-    '#uri-dialog'
-  );
-  const form = document.querySelector(
-    '#uri-form'
-  );
-  const cancelButton = document.querySelector(
-    '#cancel-uri'
-  );
-  const removeButton = document.querySelector(
-    '#remove-uri'
-  );
-
-  if (
-    !dialog ||
-    !form ||
-    !cancelButton ||
-    !removeButton
-  ) {
-    console.error(
-      'La fenêtre de saisie de l’URI est introuvable.'
-    );
-    return;
-  }
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-
-    const uriInput = document.querySelector(
-      '#annotation-uri'
-    );
-    const errorMessage = document.querySelector(
-      '#uri-error'
+    const selector = selectors.find(item =>
+      typeof item?.quote === 'string' ||
+      typeof item?.exact === 'string' ||
+      item?.type === 'TextQuoteSelector'
     );
 
-    if (!uriInput || !errorMessage) {
-      return;
-    }
-
-    const uri = normalizeWikidataUri(
-      uriInput.value
-    );
-
-    if (!isValidUri(uri)) {
-      errorMessage.textContent =
-        'Saisissez une URI valide ou un identifiant Wikidata, par exemple Q39.';
-      errorMessage.hidden = false;
-      uriInput.focus();
-      return;
-    }
-
-    errorMessage.hidden = true;
-    dialog.close();
-    saveAnnotationUri(uri);
-  });
-
-  cancelButton.addEventListener(
-    'click',
-    cancelUriDialog
-  );
-
-  removeButton.addEventListener('click', () => {
-    removeAnnotationUri();
-  });
-
-  dialog.addEventListener('cancel', event => {
-    event.preventDefault();
-    cancelUriDialog();
-  });
-}
-
-function openUriDialog() {
-  const dialog = document.querySelector(
-    '#uri-dialog'
-  );
-  const uriInput = document.querySelector(
-    '#annotation-uri'
-  );
-  const removeButton = document.querySelector(
-    '#remove-uri'
-  );
-  const errorMessage = document.querySelector(
-    '#uri-error'
-  );
-
-  if (
-    !dialog ||
-    !uriInput ||
-    !removeButton ||
-    !errorMessage ||
-    !activeAnnotation
-  ) {
-    return;
+    return selector?.quote ?? selector?.exact ?? '';
   }
 
-  const currentType =
-    getAnnotationType(activeAnnotation);
-
-  if (!isUriCompatibleType(currentType)) {
-    return;
-  }
-
-  const existingUri =
-    getAnnotationUri(activeAnnotation);
-
-  closeContextMenu();
-
-  uriInput.value = existingUri;
-  removeButton.hidden = !existingUri;
-  errorMessage.hidden = true;
-  errorMessage.textContent = '';
-
-  dialog.showModal();
-
-  requestAnimationFrame(() => {
-    uriInput.focus();
-    uriInput.select();
-  });
-}
-
-function cancelUriDialog() {
-  const dialog = document.querySelector(
-    '#uri-dialog'
-  );
-
-  if (dialog?.open) {
-    dialog.close();
-  }
-
-  finishCurrentAction();
-}
-
-function removeAnnotationUri() {
-  if (!activeAnnotation || !annotator) {
-    return;
-  }
-
-  const dialog = document.querySelector(
-    '#uri-dialog'
-  );
-
-  const updatedAnnotation = {
-    ...activeAnnotation,
-    bodies: (
-      activeAnnotation.bodies ?? []
-    ).filter(body => body.purpose !== 'linking')
-  };
-
-  if (dialog?.open) {
-    dialog.close();
-  }
-
-  annotator.updateAnnotation(updatedAnnotation);
-  finishCurrentAction();
+  return selectors?.quote ?? selectors?.exact ?? '';
 }
 
 function handleDocumentPointerDown(event) {
   const menu = document.querySelector('#context-menu');
-  const correctionDialog = document.querySelector(
-    '#correction-dialog'
-  );
-  const uriDialog = document.querySelector(
-    '#uri-dialog'
-  );
+  const dialog = document.querySelector('#correction-dialog');
 
-  if (
-    !menu ||
-    menu.hidden ||
-    correctionDialog?.open ||
-    uriDialog?.open
-  ) {
-    return;
-  }
+  if (!menu || menu.hidden || dialog?.open || menu.contains(event.target)) return;
 
-  /*
-   * Un clic dans le menu ne doit pas le fermer
-   * avant l’exécution du bouton.
-   */
-  if (menu.contains(event.target)) {
-    return;
-  }
-
-  /*
-   * Un clic ailleurs ferme le menu.
-   * Une nouvelle annotation encore non typée est retirée.
-   */
   if (isNewAnnotation && activeAnnotation) {
     removeAbandonedNewAnnotation();
     return;
@@ -1003,33 +422,16 @@ function handleDocumentPointerDown(event) {
 
   activeAnnotation = null;
   isNewAnnotation = false;
-
   closeContextMenu();
 }
 
 function handleKeyboardNavigation(event) {
-  if (event.key !== 'Escape') {
-    return;
-  }
+  if (event.key !== 'Escape') return;
 
-  const correctionDialog = document.querySelector(
-    '#correction-dialog'
-  );
-  const uriDialog = document.querySelector(
-    '#uri-dialog'
-  );
+  const dialog = document.querySelector('#correction-dialog');
   const menu = document.querySelector('#context-menu');
 
-  if (
-    correctionDialog?.open ||
-    uriDialog?.open
-  ) {
-    return;
-  }
-
-  if (!menu || menu.hidden) {
-    return;
-  }
+  if (dialog?.open || !menu || menu.hidden) return;
 
   if (isNewAnnotation && activeAnnotation) {
     removeAbandonedNewAnnotation();
@@ -1046,14 +448,10 @@ function removeAbandonedNewAnnotation() {
   }
 
   const annotationId = activeAnnotation.id;
-
   activeAnnotation = null;
   isNewAnnotation = false;
-
   closeContextMenu();
-
   annotator.removeAnnotation(annotationId);
-
   clearBrowserSelection();
   updateCounters();
 }
@@ -1063,9 +461,7 @@ function clearBrowserSelection() {
 }
 
 function updateCounters() {
-  if (!annotator) {
-    return;
-  }
+  if (!annotator) return;
 
   const counts = {
     person: 0,
@@ -1077,70 +473,38 @@ function updateCounters() {
 
   annotator.getAnnotations().forEach(annotation => {
     const type = getAnnotationType(annotation);
-
-    if (type && Object.hasOwn(counts, type)) {
-      counts[type] += 1;
-    }
+    if (type && Object.hasOwn(counts, type)) counts[type] += 1;
   });
 
-  setCounterValue('person-count', counts.person);
-  setCounterValue('place-count', counts.place);
-  setCounterValue('date-count', counts.date);
-  setCounterValue(
-    'normalization-count',
-    counts.normalization
-  );
-  setCounterValue(
-    'correction-count',
-    counts.correction
-  );
-}
-
-function setCounterValue(elementId, value) {
-  const element = document.querySelector(
-    `#${elementId}`
-  );
-
-  if (element) {
-    element.textContent = String(value);
-  }
+  Object.entries(counts).forEach(([type, value]) => {
+    const element = document.querySelector(`#${type}-count`);
+    if (element) element.textContent = String(value);
+  });
 }
 
 function clamp(value, minimum, maximum) {
-  return Math.min(
-    Math.max(value, minimum),
-    maximum
-  );
+  return Math.min(Math.max(value, minimum), maximum);
 }
 
 function makeAnnotationsSerializable(annotations) {
   return annotations.map(annotation => ({
     id: annotation.id,
-
-    bodies: (annotation.bodies ?? []).map(body => ({
-      ...body
-    })),
-
+    bodies: (annotation.bodies ?? []).map(body => ({ ...body })),
     target: {
       ...copyTargetMetadata(annotation.target),
-
-      selector: (annotation.target?.selector ?? []).map(
-        selector => ({
-          quote: selector.quote ?? '',
-          start: selector.start,
-          end: selector.end
-        })
-      )
+      selector: (annotation.target?.selector ?? []).map(selector => ({
+        quote: selector.quote ?? selector.exact ?? '',
+        exact: selector.exact ?? selector.quote ?? '',
+        prefix: selector.prefix ?? '',
+        suffix: selector.suffix ?? '',
+        start: selector.start,
+        end: selector.end
+      }))
     }
   }));
 }
 
 function copyTargetMetadata(target = {}) {
-  const {
-    selector,
-    range,
-    ...metadata
-  } = target;
-
+  const { selector, range, ...metadata } = target;
   return metadata;
 }

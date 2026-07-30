@@ -1,249 +1,120 @@
-import {
-  getDocumentState
-} from './document-state.js';
+import { getDocumentState } from './document-state.js';
 
-export function initAnnotationsIO(annotatorApi) {
-  if (!annotatorApi) {
-    throw new Error(
-      "L'API de l'annotateur est indisponible."
-    );
-  }
+export function initAnnotationsIO(api) {
+  const importButton = required('import-annotations');
+  const exportButton = required('export-annotations');
+  const clearButton = required('clear-annotations');
+  const input = required('annotations-file-input');
+  const menuButton = required('app-menu-button');
+  const menu = required('app-menu');
 
-  const importButton = getElement(
-    'import-annotations'
-  );
-  const exportButton = getElement(
-    'export-annotations'
-  );
-  const clearButton = getElement(
-    'clear-annotations'
-  );
-  const fileInput = getElement(
-    'annotations-file-input'
-  );
-
-  importButton.addEventListener('click', () => {
-    fileInput.click();
+  menuButton.addEventListener('click', event => {
+    event.stopPropagation();
+    menu.hidden = !menu.hidden;
+    menuButton.setAttribute('aria-expanded', String(!menu.hidden));
   });
 
-  exportButton.addEventListener('click', () => {
-    exportAnnotations(annotatorApi);
+  document.addEventListener('click', event => {
+    if (!menu.hidden && !menu.contains(event.target) && event.target !== menuButton) {
+      menu.hidden = true;
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
   });
 
+  importButton.addEventListener('click', () => input.click());
+  exportButton.addEventListener('click', () => exportAnnotations(api));
   clearButton.addEventListener('click', () => {
-    const confirmed = window.confirm(
-      'Effacer toutes les annotations ?'
-    );
-
-    if (confirmed) {
-      annotatorApi.clearAnnotations();
-      showMessage(
-        'Toutes les annotations ont été effacées.'
-      );
+    if (window.confirm('Effacer toutes les annotations ?')) {
+      api.clearAnnotations();
+      message('Toutes les annotations ont été effacées.');
     }
   });
 
-  fileInput.addEventListener(
-    'change',
-    async event => {
-      const [file] = event.target.files ?? [];
+  input.addEventListener('change', async event => {
+    const file = event.target.files?.[0];
+    if (!file) return;
 
-      if (!file) {
-        return;
+    try {
+      const payload = JSON.parse(await file.text());
+      validatePayload(payload);
+
+      const state = getDocumentState();
+      const expected = `sha256:${state.sha256}`;
+
+      if (payload.document.sha256 && payload.document.sha256 !== expected) {
+        throw new Error('Ce JSON correspond à une autre version de la TEI.');
       }
 
-      try {
-        await importAnnotations(
-          file,
-          annotatorApi
-        );
-      } catch (error) {
-        showMessage(error.message, true);
-      } finally {
-        fileInput.value = '';
-      }
+      api.setAnnotations(payload.annotations);
+      message(`${payload.annotations.length} annotation(s) importée(s).`);
+    } catch (error) {
+      message(error.message, true);
+    } finally {
+      input.value = '';
     }
-  );
-
-  setupMenu();
+  });
 }
 
-function exportAnnotations(annotatorApi) {
-  const documentState = getDocumentState();
-  const config = documentState.config;
-  const annotations =
-    annotatorApi.getAnnotations();
-
-  if (!config || !documentState.sha256) {
-    throw new Error(
-      'La TEI doit être chargée avant l’export.'
-    );
-  }
+function exportAnnotations(api) {
+  const state = getDocumentState();
+  const config = state.config;
+  const annotations = api.getAnnotations();
 
   const payload = {
     format: 'frene-annotations',
     version: '2.0',
     generator: {
-      application:
-        config.application?.name ??
-        'annotation-app',
-      version:
-        config.application?.version ??
-        '2.0.0'
+      application: config.application?.name ?? 'annotation-app',
+      version: config.application?.version ?? '2.0.0'
     },
     document: {
       id: config.document.id,
       title: config.document.title,
-      file:
-        config.document.file ??
-        fileNameFromUrl(config.document.url),
+      file: config.document.file ?? config.document.url.split('/').pop(),
       url: config.document.url,
       scope: 'text/body',
-      sha256: `sha256:${documentState.sha256}`,
-      textLength: documentState.bodyText.length
+      sha256: `sha256:${state.sha256}`,
+      textLength: state.bodyText.length
     },
     exportedAt: new Date().toISOString(),
     annotationCount: annotations.length,
     annotations
   };
 
-  const blob = new Blob(
-    [JSON.stringify(payload, null, 2)],
-    {
-      type: 'application/json;charset=utf-8'
-    }
-  );
-
-  const fileName =
-    `${config.document.id}.annotations.json`;
-
-  downloadBlob(blob, fileName);
-
-  showMessage(
-    `${annotations.length} annotation(s) exportée(s).`
-  );
-}
-
-async function importAnnotations(
-  file,
-  annotatorApi
-) {
-  const raw = await file.text();
-  const payload = JSON.parse(raw);
-
-  validateImport(payload);
-
-  const documentState = getDocumentState();
-  const expectedHash =
-    `sha256:${documentState.sha256}`;
-
-  if (
-    payload.document.sha256 &&
-    payload.document.sha256 !== expectedHash
-  ) {
-    throw new Error(
-      'Le JSON correspond à une autre version de la TEI. ' +
-      'Import annulé pour éviter des annotations décalées.'
-    );
-  }
-
-  if (payload.document.scope !== 'text/body') {
-    throw new Error(
-      'Le JSON ne cible pas la portée text/body.'
-    );
-  }
-
-  annotatorApi.setAnnotations(
-    payload.annotations
-  );
-
-  showMessage(
-    `${payload.annotations.length} annotation(s) importée(s).`
-  );
-}
-
-function validateImport(payload) {
-  if (
-    payload?.format !== 'frene-annotations' ||
-    !Array.isArray(payload?.annotations) ||
-    !payload?.document
-  ) {
-    throw new Error(
-      'Le fichier ne respecte pas le format attendu.'
-    );
-  }
-}
-
-function setupMenu() {
-  const button = getElement('app-menu-button');
-  const menu = getElement('app-menu');
-
-  button.addEventListener('click', event => {
-    event.stopPropagation();
-    const isOpen = !menu.hidden;
-
-    menu.hidden = isOpen;
-    button.setAttribute(
-      'aria-expanded',
-      String(!isOpen)
-    );
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {
+    type: 'application/json;charset=utf-8'
   });
 
-  document.addEventListener('click', event => {
-    if (
-      !menu.hidden &&
-      !menu.contains(event.target) &&
-      event.target !== button
-    ) {
-      menu.hidden = true;
-      button.setAttribute(
-        'aria-expanded',
-        'false'
-      );
-    }
-  });
-}
-
-function downloadBlob(blob, fileName) {
-  const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
 
   link.href = url;
-  link.download = fileName;
+  link.download = `${config.document.id}.annotations.json`;
   link.click();
 
   URL.revokeObjectURL(url);
+  message(`${annotations.length} annotation(s) exportée(s).`);
 }
 
-function showMessage(message, isError = false) {
-  const element = getElement(
-    'application-message'
-  );
-
-  element.textContent = message;
-  element.hidden = false;
-  element.classList.toggle(
-    'error',
-    isError
-  );
-
-  window.setTimeout(() => {
-    element.hidden = true;
-  }, 5000);
-}
-
-function fileNameFromUrl(url) {
-  return url.split('/').pop() || 'document.xml';
-}
-
-function getElement(id) {
-  const element = document.getElementById(id);
-
-  if (!element) {
-    throw new Error(
-      `Élément #${id} introuvable.`
-    );
+function validatePayload(payload) {
+  if (
+    payload?.format !== 'frene-annotations' ||
+    payload?.document?.scope !== 'text/body' ||
+    !Array.isArray(payload?.annotations)
+  ) {
+    throw new Error('Format JSON non reconnu.');
   }
+}
 
+function required(id) {
+  const element = document.getElementById(id);
+  if (!element) throw new Error(`Élément #${id} introuvable.`);
   return element;
+}
+
+function message(text, error = false) {
+  const element = required('application-message');
+  element.textContent = text;
+  element.hidden = false;
+  element.classList.toggle('error', error);
 }
