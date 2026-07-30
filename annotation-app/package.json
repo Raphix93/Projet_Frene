@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@recogito/text-annotator": "^1.8.1"
+    "@recogito/text-annotator": "^4.2.5"
   },
   "devDependencies": {
     "vite": "^7.0.0"
