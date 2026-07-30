@@ -1,76 +1,67 @@
-# Projet Frêne — moteur d’enrichissement TEI
+# Mise à jour immédiate d'annotation-app
 
-Version initiale `0.4.0`.
+Cette archive remplace uniquement les fichiers nécessaires pour charger
+la véritable TEI. Elle conserve le prototype d'annotation existant
+(`src/annotator.js` et `src/style.css`).
 
-Cette première version pose l’architecture du moteur indépendant de l’interface web.
+## Fichiers à copier
 
-## Fonctionnalités présentes
-
-- lecture d’une TEI avec `lxml` ;
-- lecture d’un export JSON contenant soit une liste brute d’annotations, soit un manifeste ;
-- conversion des annotations Recogito en objets Python ;
-- reconnaissance des types :
-  - `person`
-  - `place`
-  - `date`
-  - `normalization`
-  - `correction`
-- lecture des URI Wikidata ;
-- lecture des textes de normalisation et de correction ;
-- validation structurelle de base ;
-- vérification facultative du SHA-256 du texte ;
-- génération d’un rapport JSON ;
-- interface en ligne de commande.
-
-L’injection dans le corps de la TEI et la création des listes d’autorités seront ajoutées dans les versions suivantes.
-
-## Installation
-
-Depuis la racine du dépôt `Projet_Frene` :
-
-```powershell
-python -m pip install -r annotation_engine_requirements.txt
-```
-
-Copier ensuite le dossier :
+Depuis cette archive vers `Projet_Frene/annotation-app/` :
 
 ```text
-alto2tei/annotation_engine/
+public/config.json
+public/data/README.md
+src/main.js
+src/tei-loader.js
+src/document-state.js
+src/annotations-io.js
+src/tei-loader.css
 ```
 
-dans le dossier `alto2tei/` du projet.
+## Copier la vraie TEI
 
-## Utilisation
+Depuis la racine du dépôt, dans PowerShell :
 
 ```powershell
-python -m alto2tei.annotation_engine `
-  --tei data/Frene_volume_1.xml `
-  --annotations annotations/Frene_volume_1.annotations.json `
-  --report exports/annotations/Frene_volume_1.validation.json
+Copy-Item `
+  "data/Frene_volume_1.xml" `
+  "annotation-app/public/data/Frene_volume_1.xml" `
+  -Force
 ```
 
-Pour activer la vérification du hash déclaré dans le manifeste :
+Cette copie est volontaire pour obtenir rapidement un résultat visible
+avec Vite. On pourra automatiser cette synchronisation plus tard dans
+GitHub Actions.
+
+## Lancer l'application
 
 ```powershell
-python -m alto2tei.annotation_engine `
-  --tei data/Frene_volume_1.xml `
-  --annotations annotations/Frene_volume_1.annotations.json `
-  --report exports/annotations/Frene_volume_1.validation.json `
-  --verify-hash
+cd "C:\Users\rroll\Documents\GitHub\Projet_Frene\annotation-app"
+npm install
+npm run dev
 ```
 
-## Format de manifeste recommandé
+## Résultat attendu
 
-```json
-{
-  "format": "projet-frene-annotations",
-  "version": "1.0",
-  "project": "Projet Frêne",
-  "document": "Frene_volume_1",
-  "source": {
-    "tei": "Frene_volume_1.xml",
-    "sha256": "..."
-  },
-  "annotations": []
-}
-```
+- chargement du fichier TEI complet ;
+- calcul de son SHA-256 ;
+- affichage exclusif de `<text><body>` ;
+- `<teiHeader>` et `<sourceDoc>` non affichés ;
+- annotation du véritable texte ;
+- export JSON version 2.0 avec :
+  - fichier ;
+  - portée `text/body` ;
+  - SHA-256 de la TEI ;
+  - nombre d'annotations ;
+- refus d'importer un JSON lié à une autre version de la TEI.
+
+## Important
+
+Le fichier `src/annotator.js` existant n'est pas remplacé. Il conserve
+les types déjà réalisés :
+
+- Personne ;
+- Lieu ;
+- Date ;
+- Normalisation ;
+- Correction libre.

@@ -1,0 +1,13 @@
+{
+  "application": {
+    "name": "Projet Frêne",
+    "version": "2.0.0"
+  },
+  "document": {
+    "id": "Frene_volume_1",
+    "title": "Journal de Théophile-Rémy Frêne — volume 1",
+    "url": "./data/Frene_volume_1.xml",
+    "file": "Frene_volume_1.xml",
+    "scope": "text/body"
+  }
+}
