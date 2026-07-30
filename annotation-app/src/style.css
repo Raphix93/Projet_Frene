@@ -1,0 +1,617 @@
+:root {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color: #1f2937;
+  background: #f4f5f7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgb(59 130 246 / 35%);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------
+   Conteneur principal
+------------------------------------------------- */
+
+.app-container {
+  position: relative;
+  width: min(900px, calc(100% - 32px));
+  margin: 40px auto;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  box-shadow:
+    0 1px 3px rgb(0 0 0 / 4%),
+    0 8px 24px rgb(0 0 0 / 4%);
+}
+
+/* -------------------------------------------------
+   En-tête
+------------------------------------------------- */
+
+.site-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header h1 {
+  margin: 0 0 5px;
+
+  color: #111827;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.site-header p {
+  margin: 0;
+
+  color: #6b7280;
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------------
+   Transcription
+------------------------------------------------- */
+
+.transcription {
+  min-height: 340px;
+  padding: 38px 44px;
+
+  color: #1f2937;
+  font-size: 1.25rem;
+  line-height: 2;
+
+  cursor: text;
+}
+
+.transcription p {
+  margin: 0 0 1.5rem;
+}
+
+.transcription p:last-child {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------
+   Compteurs
+------------------------------------------------- */
+
+.annotation-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+
+  padding: 16px 32px;
+
+  background: #fafafa;
+  border-top: 1px solid #e5e7eb;
+
+  color: #374151;
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 0.9rem;
+}
+
+.annotation-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.annotation-count strong {
+  min-width: 1ch;
+  color: #111827;
+}
+
+/* -------------------------------------------------
+   Couleurs des annotations
+------------------------------------------------- */
+
+.legend-color,
+.menu-dot {
+  display: inline-block;
+  flex: 0 0 auto;
+
+  width: 12px;
+  height: 12px;
+
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 3px;
+}
+
+.person-color {
+  background: #dbeafe;
+}
+
+.place-color {
+  background: #dcfce7;
+}
+
+.date-color {
+  background: #fef3c7;
+}
+
+.correction-color {
+  background: #fee2e2;
+}
+
+/* -------------------------------------------------
+   Menu contextuel unique
+------------------------------------------------- */
+
+.context-menu {
+  position: fixed;
+  z-index: 1000;
+
+  width: 190px;
+  padding: 6px;
+
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  box-shadow:
+    0 8px 22px rgb(0 0 0 / 14%);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+.context-menu[hidden] {
+  display: none;
+}
+
+.context-menu-title {
+  padding: 7px 10px;
+
+  overflow: hidden;
+
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.context-menu button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  width: 100%;
+  padding: 9px 10px;
+
+  color: #1f2937;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.context-menu button:hover {
+  background: #f3f4f6;
+}
+
+.context-menu button.current-type {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.context-menu button.current-type::after {
+  margin-left: auto;
+
+  color: #4b5563;
+  content: "✓";
+}
+
+.context-menu-separator {
+  height: 1px;
+  margin: 6px 4px;
+
+  background: #e5e7eb;
+}
+
+.context-menu-separator[hidden],
+.context-menu button[hidden] {
+  display: none;
+}
+
+.context-menu .delete-annotation {
+  color: #991b1b;
+}
+
+.context-menu .delete-annotation:hover {
+  background: #fee2e2;
+}
+
+/* -------------------------------------------------
+   Fenêtre de correction
+------------------------------------------------- */
+
+.correction-dialog {
+  width: min(440px, calc(100% - 32px));
+  padding: 0;
+
+  color: #1f2937;
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  box-shadow:
+    0 18px 50px rgb(0 0 0 / 22%);
+}
+
+.correction-dialog::backdrop {
+  background: rgb(17 24 39 / 38%);
+}
+
+.correction-dialog form {
+  padding: 24px;
+}
+
+.correction-dialog h2 {
+  margin: 0 0 18px;
+
+  color: #111827;
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 1.2rem;
+}
+
+.selected-text {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+
+  color: #4b5563;
+  background: #f9fafb;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+
+  line-height: 1.5;
+}
+
+.selected-text strong {
+  color: #111827;
+}
+
+.correction-dialog label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #374151;
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.correction-dialog input {
+  width: 100%;
+  padding: 10px 11px;
+
+  color: #111827;
+  background: #ffffff;
+
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+}
+
+.correction-dialog input:focus {
+  border-color: #4b5563;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.dialog-actions button {
+  padding: 8px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.secondary-button {
+  color: #374151;
+  background: #ffffff;
+}
+
+.secondary-button:hover {
+  background: #f3f4f6;
+}
+
+.primary-button {
+  color: #ffffff;
+  background: #374151;
+  border-color: #374151;
+}
+
+.primary-button:hover {
+  background: #1f2937;
+}
+
+/* -------------------------------------------------
+   Écrans étroits
+------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .app-container {
+    width: calc(100% - 16px);
+    margin: 8px auto;
+    border-radius: 7px;
+  }
+
+  .site-header {
+    padding: 20px;
+  }
+
+  .site-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .transcription {
+    min-height: 300px;
+    padding: 28px 20px;
+
+    font-size: 1.1rem;
+    line-height: 1.85;
+  }
+
+  .annotation-counts {
+    gap: 12px 20px;
+    padding: 15px 20px;
+  }
+
+  .context-menu {
+    width: 180px;
+  }
+
+  .correction-dialog form {
+    padding: 20px;
+  }
+
+  .dialog-actions {
+    flex-direction: column-reverse;
+  }
+
+  .dialog-actions button {
+    width: 100%;
+  }
+}
+
+/* -------------------------------------------------
+   En-tête et menu principal
+------------------------------------------------- */
+
+.site-header {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title {
+  min-width: 0;
+}
+
+.app-menu-container {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.app-menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  color: #374151;
+  background: transparent;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.app-menu-button:hover,
+.app-menu-button[aria-expanded="true"] {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.app-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  z-index: 1100;
+
+  width: 250px;
+  padding: 6px;
+
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  box-shadow:
+    0 10px 28px rgb(0 0 0 / 16%);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+.app-menu[hidden] {
+  display: none;
+}
+
+.app-menu button {
+  display: block;
+
+  width: 100%;
+  padding: 10px 11px;
+
+  color: #1f2937;
+  background: transparent;
+
+  border: 0;
+  border-radius: 5px;
+
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.app-menu button:hover {
+  background: #f3f4f6;
+}
+
+.app-menu-separator {
+  height: 1px;
+  margin: 6px 4px;
+
+  background: #e5e7eb;
+}
+
+.app-menu .danger-menu-button {
+  color: #991b1b;
+}
+
+.app-menu .danger-menu-button:hover {
+  background: #fee2e2;
+}
+
+/* -------------------------------------------------
+   Messages d'information
+------------------------------------------------- */
+
+.application-message {
+  margin: 16px 32px 0;
+  padding: 10px 13px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.application-message[hidden] {
+  display: none;
+}
+
+.application-message[data-type="success"] {
+  color: #166534;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.application-message[data-type="error"] {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.application-message[data-type="info"] {
+  color: #1e3a8a;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  .app-menu {
+    position: fixed;
+    top: 68px;
+    right: 16px;
+
+    width: min(
+      250px,
+      calc(100vw - 32px)
+    );
+  }
+
+  .application-message {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
