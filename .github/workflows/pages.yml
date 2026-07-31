@@ -5,7 +5,10 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "annotation-app/**"
+      - "data/Frene_volume_1/exports/TEI/Frene_volume_1.xml"
       - ".github/workflows/pages.yml"
+      - "data/Frene_volume_1/exports/TEI/**"
   workflow_dispatch:
 
 permissions:
@@ -14,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -30,6 +33,58 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
+      ##########################################################
+      # Construction de l'application d'annotation
+      ##########################################################
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: annotation-app/package-lock.json
+
+      - name: Copier la TEI dans l'application
+        shell: bash
+        run: |
+          mkdir -p annotation-app/public/data
+
+          cp \
+            data/Frene_volume_1/exports/TEI/Frene_volume_1.xml \
+            annotation-app/public/data/Frene_volume_1.xml
+
+      - name: Installer les dépendances
+        working-directory: annotation-app
+        run: npm ci
+
+      - name: Construire l'application
+        working-directory: annotation-app
+        run: npm run build
+
+      - name: Copier l'application dans le site
+        shell: bash
+        run: |
+          rm -rf site/Annotation_TEI/app
+          mkdir -p site/Annotation_TEI/app
+
+          cp -R annotation-app/dist/. site/Annotation_TEI/app/
+
+      ##########################################################
+      # Vérification
+      ##########################################################
+
+      - name: Vérifier les fichiers
+        shell: bash
+        run: |
+          test -f site/index.html
+          test -f site/Annotation_TEI/annotation.html
+          test -f site/Annotation_TEI/app/index.html
+          test -f site/Annotation_TEI/app/data/Frene_volume_1.xml
+
+      ##########################################################
+      # Déploiement
+      ##########################################################
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3

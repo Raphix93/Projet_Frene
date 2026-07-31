@@ -500,3 +500,62 @@ footer {
 a {
     color: black; /* Change la couleur du texte en noir */
 }
+
+/* =========================================================
+   Page d’annotation TEI
+   ========================================================= */
+
+.annotation-section {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.annotation-introduction {
+  width: min(100% - 2rem, 1200px);
+  margin: 0 auto 1.5rem;
+}
+
+.annotation-introduction h1 {
+  margin-bottom: 0.75rem;
+}
+
+.annotation-introduction p {
+  max-width: 75ch;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.annotation-app-frame {
+  width: 100%;
+  min-width: 0;
+  background: #ffffff;
+  border-top: 1px solid #d8dee8;
+  border-bottom: 1px solid #d8dee8;
+}
+
+.annotation-app-frame iframe {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 720px;
+  border: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .annotation-app-frame iframe {
+    height: 85vh;
+    min-height: 640px;
+  }
+}
+
+@media (max-width: 600px) {
+  .annotation-introduction {
+    width: min(100% - 1.25rem, 1200px);
+  }
+
+  .annotation-app-frame iframe {
+    height: 90vh;
+    min-height: 600px;
+  }
+}
