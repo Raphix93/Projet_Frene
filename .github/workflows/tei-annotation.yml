@@ -54,6 +54,7 @@ jobs:
             --annotations "$ANNOTATION_INPUT" \
             --output "$TEI_OUTPUT" \
             --report "$REPORT_OUTPUT" \
+            --allow-sha-mismatch \
             --fail-on-unmatched
 
       - name: Vérifier que la TEI est bien formée

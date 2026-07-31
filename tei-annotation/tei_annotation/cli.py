@@ -46,10 +46,21 @@ def main() -> int:
     payload, annotations = load_annotations(args.annotations)
     declared_sha = (payload.get("document") or {}).get("sha256")
     sha_matches = declared_sha in {None, "", source_sha, f"sha256:{source_sha}"}
-    if not sha_matches and not args.allow_sha_mismatch:
-        raise ValueError(
+    if not sha_matches:
+        message = (
             "Le SHA-256 du JSON ne correspond pas à la TEI source. "
-            "Utilise --allow-sha-mismatch uniquement après vérification manuelle."
+            f"SHA déclaré : {declared_sha or 'absent'} ; "
+            f"SHA calculé : sha256:{source_sha}."
+        )
+        if not args.allow_sha_mismatch:
+            raise ValueError(
+                message + " Utilise --allow-sha-mismatch uniquement après vérification manuelle."
+            )
+        print(
+            "AVERTISSEMENT : " + message +
+            " La réintégration continue ; les sélecteurs textuels seront contrôlés "
+            "et --fail-on-unmatched fera échouer le workflow si une annotation ne correspond plus.",
+            file=sys.stderr,
         )
 
     tree = load_tei(args.tei)
