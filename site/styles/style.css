@@ -593,3 +593,54 @@ a {
     background: #EDE9FE;
     color: #1F2937;
 }
+
+.annotation-page .workspace-section {
+    width: min(1600px, 96%);
+    margin: 3rem auto;
+}
+
+.annotation-page .workspace-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.annotation-page .workspace-panel {
+    min-width: 0;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #d6dce1;
+    border-radius: 0.75rem;
+}
+
+.annotation-page #tify {
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+}
+
+.annotation-page .annotation-app-frame {
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+}
+
+.annotation-page .annotation-app-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .annotation-page .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .annotation-page #tify,
+    .annotation-page .annotation-app-frame {
+        height: 70vh;
+        min-height: 550px;
+    }
+}

@@ -1,73 +1,304 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="Mini site pour le rendu d'un travail de mémoire sur la transformation numérique de la diffusion en archive"> 
-        <link rel="icon" type="image/png" href="../images/unine_logo_couleur.png">
-        <meta name="author" content="Raphaël Rollinet"/>
-        <title>Frene - Manuscrit</title>
-        <link rel="stylesheet" href="../styles/style.css "type="text/css" media="screen"> 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.35.0/dist/tify.css">
-    </head>
-<body>
-        <!-- En-tête -->
-        <section class="haut-page">
-            <header class="header">
-                <a href="../index.html"><img src="../images/unine_logo_couleur.png" alt="Logo"></a>
-                <!-- menu navigateur -->
-                <div class="titre-page">
-                    <h1 class="grand-titre">Projet Frêne</h1>
-                </div>
-                    <nav class="nav">
-                        <ul>
-                            <li><a href="../index.html">Accueil</a></li>
-                            <li><a href="../Manuscrit/manuscrit.html">Manuscrit</a></li>
-                            <li><a href="../Annotation_TEI/annotation.html">Annotation</a></li>
-                            <li><a href="../A-propos/a-propos.html">À propos</a></li>
-                        </ul>
-                    </nav>
-                </div>
-        </section> 
-        <div class="bloc-titre">
-    <br>
-    <h1 id="Manuscrit">Manuscrit</h1>
-        </div>
+<head>
+    <meta charset="UTF-8">
 
-        <div id="tify"></div>
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
 
-        <script type="module">
-        import Tify from 'https://cdn.jsdelivr.net/npm/tify@0.35.0/dist/tify.js'
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Application d’annotation collaborative de la transcription du journal de Théophile-Rémy Frêne"
+    >
+
+    <meta
+        name="author"
+        content="Raphaël Rollinet"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/unine_logo_couleur.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../styles/style.css"
+        type="text/css"
+        media="screen"
+    >
+
+    <title>Projet Frêne – Annotation</title>
+</head>
+
+<body class="annotation-page">
+
+    <!-- En-tête -->
+    <section class="haut-page">
+        <header class="header">
+
+            <a href="../index.html">
+                <img
+                    src="../images/unine_logo_couleur.png"
+                    alt="Logo de l’Université de Neuchâtel"
+                >
+            </a>
+
+            <div class="titre-page">
+                <h1 class="grand-titre">
+                    Projet Frêne
+                </h1>
+            </div>
+
+            <nav
+                class="nav"
+                aria-label="Navigation principale"
+            >
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../Manuscrit/manuscrit.html">
+                            Manuscrit
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            aria-current="page"
+                        >
+                            Annotation
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../A-propos/a-propos.html">
+                            À propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+    </section>
+
+    <main>
+
+        <!-- Espace de consultation et d’annotation -->
+        <section
+            class="workspace-section"
+            aria-labelledby="workspace-title"
+        >
+
+            <!-- Introduction -->
+            <div class="workspace-introduction">
+
+                <h2 id="workspace-title">
+                    Consulter et annoter le manuscrit
+                </h2>
+
+                <p>
+                    Consultez l’image originale du journal de
+                    Théophile-Rémy Frêne dans la visionneuse IIIF,
+                    puis sélectionnez un passage de sa transcription
+                    pour l’annoter.
+                </p>
+
+                <nav
+                    class="workspace-navigation"
+                    aria-label="Navigation entre les outils"
+                >
+                    <a href="#viewer-panel">
+                        Voir le manuscrit
+                    </a>
+
+                    <a href="#annotation-panel">
+                        Annoter la transcription
+                    </a>
+                </nav>
+
+            </div>
+
+            <!-- Instructions -->
+            <div class="annotation-introduction">
+
+                <h2 id="annotation-instructions-title">
+                    Instructions d’annotation
+                </h2>
+
+                <p>
+                    Cette application, conçue pour une utilisation sur
+                    ordinateur, permet d’annoter la transcription du
+                    journal de Théophile-Rémy Frêne afin d’enrichir les
+                    données archivistiques et de faciliter leur recherche,
+                    leur analyse et leur valorisation. Chaque contribution
+                    participe à l’amélioration de l’édition numérique du
+                    manuscrit.
+                </p>
+
+                <ol class="annotation-instructions">
+                    <li>
+                        Consultez la page du manuscrit dans la visionneuse.
+                    </li>
+
+                    <li>
+                        Sélectionnez un passage de la transcription avec
+                        la souris.
+                    </li>
+
+                    <li>
+                        Choisissez le type d’annotation souhaité
+                        (<span class="annotation-type person">Personne</span>,
+                        <span class="annotation-type place">Lieu</span>,
+                        <span class="annotation-type date">Date</span>,
+                        <span class="annotation-type normalization">
+                            Normalisation
+                        </span>
+                        ou
+                        <span class="annotation-type correction">
+                            Correction libre
+                        </span>).
+                    </li>
+
+                    <li>
+                        Complétez les informations demandées, puis validez
+                        l’annotation.
+                    </li>
+
+                    <li>
+                        Répétez l’opération autant de fois que nécessaire.
+                    </li>
+
+                    <li>
+                        Lorsque votre travail est terminé, utilisez le menu
+                        <strong>☰</strong> pour exporter vos annotations au
+                        format JSON.
+                    </li>
+                </ol>
+
+                <p class="annotation-note">
+                    Le fichier JSON peut être utilisé dans le cadre de vos
+                    propres recherches ou nous être transmis afin que vos
+                    annotations soient intégrées à la transcription TEI et
+                    contribuent à l’enrichissement collaboratif du projet
+                    Frêne.
+                </p>
+
+            </div>
+
+            <!-- Deux panneaux -->
+            <div class="workspace-grid">
+
+                <!-- Visionneuse IIIF -->
+                <section
+                    id="viewer-panel"
+                    class="workspace-panel viewer-panel"
+                    aria-labelledby="viewer-title"
+                >
+
+                    <header class="workspace-panel-header">
+
+                        <p class="workspace-step">
+                            Étape 1
+                        </p>
+
+                        <h3 id="viewer-title">
+                            Manuscrit numérisé
+                        </h3>
+
+                        <p>
+                            Consultez les pages originales du journal dans
+                            la visionneuse IIIF.
+                        </p>
+
+                    </header>
+
+                    <div id="tify"></div>
+
+                </section>
+
+                <!-- Application d’annotation -->
+                <section
+                    id="annotation-panel"
+                    class="workspace-panel annotation-panel"
+                    aria-labelledby="annotation-title"
+                >
+
+                    <header class="workspace-panel-header">
+
+                        <p class="workspace-step">
+                            Étape 2
+                        </p>
+
+                        <h3 id="annotation-title">
+                            Transcription à annoter
+                        </h3>
+
+                        <p>
+                            Sélectionnez un passage de la transcription et
+                            ajoutez les informations correspondantes.
+                        </p>
+
+                    </header>
+
+                    <div class="annotation-app-frame">
+                        <iframe
+                            src="./app/"
+                            title="Application d’annotation du Projet Frêne"
+                            loading="eager"
+                            allow="clipboard-write"
+                        ></iframe>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <noscript>
+                <div class="annotation-noscript">
+                    <p>
+                        JavaScript doit être activé pour utiliser la
+                        visionneuse et l’application d’annotation.
+                    </p>
+                </div>
+            </noscript>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Raphaël Rollinet – Mémoire de Master
+    </footer>
+
+    <!-- Chargement de TIFY -->
+    <script type="module">
+        import Tify from
+            'https://cdn.jsdelivr.net/npm/tify@0.35.0/dist/tify.js';
 
         new Tify({
             container: '#tify',
             language: 'fr',
             manifestUrl: '../iiif/manifest_Frene_volume_1.json',
-            colorMode: 'light',
-        })
-        </script>
-        
-        <br>
+            colorMode: 'light'
+        });
+    </script>
 
-        <p class="justify">Découvrez l'ensemble des archives de l'Office des archives de l'état de Neuchâtel directement dans leurs <a href="https://www.archivesne.ch/">inventaires</a>.</p>
-        <br>
-    </div>
-
-    <br>
-
-<section class="notice-flora">
-  <h2>Notice archivistique</h2>
-  <iframe
-    src="https://floraweb.ne.ch/flora/ark:/37964/001136"
-    title="Notice Flora — Journal du pasteur Théophile Frêne"
-    loading="lazy">
-  </iframe>
-</section>
-
-
-    <footer>
-        Raphaël Rollinet - Mémoire de Master, 2026
-    </footer>
 </body>
 </html>
+```
+
