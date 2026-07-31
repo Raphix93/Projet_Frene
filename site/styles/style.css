@@ -559,3 +559,37 @@ a {
     min-height: 600px;
   }
 }
+
+.annotation-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,.12);
+}
+
+.annotation-type.person {
+    background: #DBEAFE;
+    color: #1F2937;
+}
+
+.annotation-type.place {
+    background: #DCFCE7;
+    color: #1F2937;
+}
+
+.annotation-type.date {
+    background: #FEF3C7;
+    color: #1F2937;
+}
+
+.annotation-type.normalization {
+    background: #E4CBCB;
+    color: #1F2937;
+}
+
+.annotation-type.correction {
+    background: #EDE9FE;
+    color: #1F2937;
+}

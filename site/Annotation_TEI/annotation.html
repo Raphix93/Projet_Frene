@@ -30,6 +30,19 @@
                 </div>
         </section> 
 
+         <div id="tify"></div>
+
+        <script type="module">
+        import Tify from 'https://cdn.jsdelivr.net/npm/tify@0.35.0/dist/tify.js'
+
+        new Tify({
+            container: '#tify',
+            language: 'fr',
+            manifestUrl: '../iiif/manifest_Frene_volume_1.json',
+            colorMode: 'light',
+        })
+        </script>
+
     <section
   class="annotation-section"
   aria-labelledby="annotation-title"
@@ -38,12 +51,35 @@
     <h1 id="annotation-title">
       Annotation de la transcription TEI
     </h1>
-
+<br>
     <p>
-      Cette application permet d’annoter la transcription du
-      journal de Théophile-Rémy Frêne et d’exporter les annotations
-      sous la forme d’un fichier JSON.
-    </p>
+  Cette application, conçue pour une utilisation sur ordinateur, permet
+  d'annoter la transcription du journal de Théophile-Rémy Frêne afin
+  d'enrichir les données archivistiques et de faciliter leur recherche,
+  leur analyse et leur valorisation. Chaque contribution participe à
+  l'amélioration de l'édition numérique du manuscrit.
+</p>
+<br>
+<ol class="annotation-instructions">
+  <li>Sélectionnez un passage du texte avec la souris.</li>
+  <li>
+  Choisissez le type d'annotation souhaité
+  (<span class="annotation-type person">Personne</span>,
+  <span class="annotation-type place">Lieu</span>,
+  <span class="annotation-type date">Date</span>,
+  <span class="annotation-type normalization">Normalisation</span> ou
+  <span class="annotation-type correction">Correction libre</span>).
+</li>
+  <li>Complétez les informations demandées, puis validez l'annotation.</li>
+  <li>Répétez l'opération autant de fois que nécessaire.</li>
+  <li>Lorsque votre travail est terminé, utilisez le menu <strong>☰</strong> pour exporter vos annotations au format JSON.</li>
+</ol>
+<br>
+<p class="annotation-note">
+  Le fichier JSON peut être utilisé dans le cadre de vos propres recherches ou
+  nous être transmis afin que vos annotations soient intégrées à la transcription
+  TEI et contribuent à l'enrichissement collaboratif du projet Frêne.
+</p>
   </div>
 
   <div class="annotation-app-frame">
