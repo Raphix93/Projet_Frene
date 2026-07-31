@@ -1,67 +1,73 @@
-# Mise à jour immédiate d'annotation-app
+# Réintégration des annotations dans la TEI — Projet Frêne
 
-Cette archive remplace uniquement les fichiers nécessaires pour charger
-la véritable TEI. Elle conserve le prototype d'annotation existant
-(`src/annotator.js` et `src/style.css`).
+Ce module lit :
 
-## Fichiers à copier
+- la TEI source : `data/Frene_volume_1/exports/TEI/Frene_volume_1.xml` ;
+- le JSON exporté par Annotation App dans :
+  `data/Frene_volume_1/exports/Annotation/`.
 
-Depuis cette archive vers `Projet_Frene/annotation-app/` :
+Il produit :
+
+- `data/Frene_volume_1/exports/TEI/Frene_volume_1_annotated.xml` ;
+- `data/Frene_volume_1/exports/Annotation/Frene_volume_1.integration-report.json`.
+
+Seul le contenu de `<text><body>` est enrichi. Le `<teiHeader>` et le
+`<sourceDoc>` sont conservés, à l'exception d'une entrée de provenance ajoutée
+au `teiHeader`.
+
+## Correspondance JSON → TEI
+
+| Annotation | Sortie TEI |
+|---|---|
+| `person` | `<persName>` |
+| `place` | `<placeName>` |
+| `date` | `<date>` |
+| `normalization` | `<choice><orig>…</orig><reg>…</reg></choice>` |
+| `correction` | remplacement direct du texte |
+| URI Wikidata | attribut `ref` de `<persName>` ou `<placeName>` |
+
+Les éléments de mise en page, notamment `<lb/>`, sont conservés. Une entité qui
+traverse un saut de ligne peut donc contenir un `<lb/>`.
+
+## Installation dans le dépôt
+
+Copier :
 
 ```text
-public/config.json
-public/data/README.md
-src/main.js
-src/tei-loader.js
-src/document-state.js
-src/annotations-io.js
-src/tei-loader.css
+tei-annotation/
+.github/workflows/tei-annotation.yml
 ```
 
-## Copier la vraie TEI
+à la racine du dépôt `Projet_Frene`.
 
-Depuis la racine du dépôt, dans PowerShell :
+## Exécution locale
 
-```powershell
-Copy-Item `
-  "data/Frene_volume_1.xml" `
-  "annotation-app/public/data/Frene_volume_1.xml" `
-  -Force
+Depuis la racine du dépôt :
+
+```bash
+python -m venv .venv
+source .venv/bin/activate       # Linux/macOS
+# .venv\Scripts\Activate.ps1    # Windows PowerShell
+pip install -r tei-annotation/requirements.txt
+
+python tei-annotation/run.py \
+  --tei data/Frene_volume_1/exports/TEI/Frene_volume_1.xml \
+  --annotations data/Frene_volume_1/exports/Annotation/Frene_volume_1.annotations.json \
+  --output data/Frene_volume_1/exports/TEI/Frene_volume_1_annotated.xml \
+  --report data/Frene_volume_1/exports/Annotation/Frene_volume_1.integration-report.json \
+  --fail-on-unmatched
 ```
 
-Cette copie est volontaire pour obtenir rapidement un résultat visible
-avec Vite. On pourra automatiser cette synchronisation plus tard dans
-GitHub Actions.
+Sous PowerShell, remplacer les `\` de continuation par des accents graves
+(backticks) ou placer la commande sur une seule ligne.
 
-## Lancer l'application
+## Sécurité de l'appariement
 
-```powershell
-cd "C:\Users\rroll\Documents\GitHub\Projet_Frene\annotation-app"
-npm install
-npm run dev
-```
+Le SHA-256 contenu dans le JSON doit correspondre à celui de la TEI. Les
+positions `start/end` servent de guide, mais chaque annotation est validée avec
+son texte `exact`. Cela tolère les différences de séparateurs introduites par
+le rendu HTML tout en évitant une injection au mauvais endroit.
 
-## Résultat attendu
-
-- chargement du fichier TEI complet ;
-- calcul de son SHA-256 ;
-- affichage exclusif de `<text><body>` ;
-- `<teiHeader>` et `<sourceDoc>` non affichés ;
-- annotation du véritable texte ;
-- export JSON version 2.0 avec :
-  - fichier ;
-  - portée `text/body` ;
-  - SHA-256 de la TEI ;
-  - nombre d'annotations ;
-- refus d'importer un JSON lié à une autre version de la TEI.
-
-## Important
-
-Le fichier `src/annotator.js` existant n'est pas remplacé. Il conserve
-les types déjà réalisés :
-
-- Personne ;
-- Lieu ;
-- Date ;
-- Normalisation ;
-- Correction libre.
+Le workflow utilise le fichier `Frene_volume_1.annotations.json` placé dans le
+dossier Annotation. Il échoue si une annotation est introuvable, traverse deux
+éléments `<ab>` ou chevauche une autre annotation.

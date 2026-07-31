@@ -1,0 +1,1923 @@
+{
+  "format": "frene-annotations",
+  "version": "2.0",
+  "generator": {
+    "application": "Projet Frêne",
+    "version": "2.0.0"
+  },
+  "document": {
+    "id": "Frene_volume_1",
+    "title": "Journal de Théophile-Rémy Frêne — volume 1",
+    "file": "Frene_volume_1.xml",
+    "url": "./data/Frene_volume_1.xml",
+    "scope": "text/body",
+    "sha256": "sha256:cca87d985ce057db034a3f8e6c55034598dd689ae02c357ea634df983595576e",
+    "textLength": 5273
+  },
+  "exportedAt": "2026-07-31T11:12:06.800Z",
+  "annotationCount": 62,
+  "annotations": [
+    {
+      "id": "2ed41db1-d26d-419c-b96c-a7c1df312100",
+      "bodies": [
+        {
+          "id": "be6bde6c-f766-417d-ad47-e410af21811b",
+          "annotation": "2ed41db1-d26d-419c-b96c-a7c1df312100",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "2ed41db1-d26d-419c-b96c-a7c1df312100",
+        "created": "2026-07-31T10:53:34.846Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:53:35.261Z",
+        "selector": [
+          {
+            "quote": "marie Magd:",
+            "exact": "marie Magd:",
+            "prefix": "",
+            "suffix": "",
+            "start": 223,
+            "end": 234
+          }
+        ]
+      }
+    },
+    {
+      "id": "40644025-f122-4009-a48d-07c8ae1ceb19",
+      "bodies": [
+        {
+          "id": "137a3ee4-580a-4617-9f39-b5a9c53e56a6",
+          "annotation": "40644025-f122-4009-a48d-07c8ae1ceb19",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "40644025-f122-4009-a48d-07c8ae1ceb19",
+        "created": "2026-07-31T10:53:40.808Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:53:41.581Z",
+        "selector": [
+          {
+            "quote": "1732 et 33",
+            "exact": "1732 et 33",
+            "prefix": "",
+            "suffix": "",
+            "start": 337,
+            "end": 347
+          }
+        ]
+      }
+    },
+    {
+      "id": "f96c3e8c-e171-4980-ab34-40adf98a857e",
+      "bodies": [
+        {
+          "id": "fb08788b-4b18-4278-b939-786b427eb980",
+          "annotation": "f96c3e8c-e171-4980-ab34-40adf98a857e",
+          "purpose": "tagging",
+          "value": "place"
+        },
+        {
+          "id": "4137a83c-a1b8-4b81-91b8-618db48943f7",
+          "annotation": "f96c3e8c-e171-4980-ab34-40adf98a857e",
+          "purpose": "linking",
+          "value": "https://www.wikidata.org/wiki/Q22517251"
+        }
+      ],
+      "target": {
+        "annotation": "f96c3e8c-e171-4980-ab34-40adf98a857e",
+        "created": "2026-07-31T10:53:46.410Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:53:46.761Z",
+        "selector": [
+          {
+            "quote": "Pery",
+            "exact": "Pery",
+            "prefix": "",
+            "suffix": "",
+            "start": 371,
+            "end": 375
+          }
+        ]
+      }
+    },
+    {
+      "id": "72f62d84-a6cc-4d12-ba31-62482561ede6",
+      "bodies": [
+        {
+          "id": "b420e044-50f2-4deb-94f0-704804f106a5",
+          "annotation": "72f62d84-a6cc-4d12-ba31-62482561ede6",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "72f62d84-a6cc-4d12-ba31-62482561ede6",
+        "created": "2026-07-31T10:53:53.556Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:53:54.068Z",
+        "selector": [
+          {
+            "quote": "1732",
+            "exact": "1732",
+            "prefix": "",
+            "suffix": "",
+            "start": 454,
+            "end": 458
+          }
+        ]
+      }
+    },
+    {
+      "id": "f309d2d8-7a13-43bc-92d7-708f28bb752e",
+      "bodies": [
+        {
+          "id": "ef5e4c74-2295-4180-8f73-83aa49704c64",
+          "annotation": "f309d2d8-7a13-43bc-92d7-708f28bb752e",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "f309d2d8-7a13-43bc-92d7-708f28bb752e",
+        "created": "2026-07-31T10:54:03.721Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:54:03.866Z",
+        "selector": [
+          {
+            "quote": "1733",
+            "exact": "1733",
+            "prefix": "",
+            "suffix": "",
+            "start": 551,
+            "end": 555
+          }
+        ]
+      }
+    },
+    {
+      "id": "96095d82-0079-461e-af43-69b024956e6f",
+      "bodies": [
+        {
+          "id": "389fd322-a66d-4331-b948-c41ee10429cc",
+          "annotation": "96095d82-0079-461e-af43-69b024956e6f",
+          "purpose": "tagging",
+          "value": "correction"
+        },
+        {
+          "id": "839e7021-043f-49b7-9149-6cd90488f4a3",
+          "annotation": "96095d82-0079-461e-af43-69b024956e6f",
+          "purpose": "correcting",
+          "value": "fevrier"
+        }
+      ],
+      "target": {
+        "annotation": "96095d82-0079-461e-af43-69b024956e6f",
+        "created": "2026-07-31T10:54:07.635Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:54:08.093Z",
+        "selector": [
+          {
+            "quote": "Fevrier",
+            "exact": "Fevrier",
+            "prefix": "",
+            "suffix": "",
+            "start": 571,
+            "end": 578
+          }
+        ]
+      }
+    },
+    {
+      "id": "44c40a0a-9e27-47c3-b34b-f374da0d96de",
+      "bodies": [
+        {
+          "id": "05d39179-3283-4cec-91d7-44e74928be58",
+          "annotation": "44c40a0a-9e27-47c3-b34b-f374da0d96de",
+          "purpose": "tagging",
+          "value": "place"
+        },
+        {
+          "id": "99db9a7d-c1a8-454d-952e-276fcd44c56a",
+          "annotation": "44c40a0a-9e27-47c3-b34b-f374da0d96de",
+          "purpose": "linking",
+          "value": "https://www.wikidata.org/wiki/Q70"
+        }
+      ],
+      "target": {
+        "annotation": "44c40a0a-9e27-47c3-b34b-f374da0d96de",
+        "created": "2026-07-31T10:54:35.303Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:54:36.269Z",
+        "selector": [
+          {
+            "quote": "Berne",
+            "exact": "Berne",
+            "prefix": "",
+            "suffix": "",
+            "start": 819,
+            "end": 824
+          }
+        ]
+      }
+    },
+    {
+      "id": "f057eb1d-4182-4b18-a3b5-405586e0e8af",
+      "bodies": [
+        {
+          "id": "5c9f6890-4151-4464-bd73-44da58c47dd3",
+          "annotation": "f057eb1d-4182-4b18-a3b5-405586e0e8af",
+          "purpose": "tagging",
+          "value": "normalization"
+        },
+        {
+          "id": "e06a3c83-e704-49c9-a9c7-f479751c4ceb",
+          "annotation": "f057eb1d-4182-4b18-a3b5-405586e0e8af",
+          "purpose": "normalizing",
+          "value": "Tavanne"
+        }
+      ],
+      "target": {
+        "annotation": "f057eb1d-4182-4b18-a3b5-405586e0e8af",
+        "created": "2026-07-31T10:54:44.065Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:54:44.778Z",
+        "selector": [
+          {
+            "quote": "Tavañe",
+            "exact": "Tavañe",
+            "prefix": "",
+            "suffix": "",
+            "start": 934,
+            "end": 940
+          }
+        ]
+      }
+    },
+    {
+      "id": "8f280288-9334-4fa8-abcf-e19777966f85",
+      "bodies": [
+        {
+          "id": "6a0fd825-10dc-4e69-ba0b-7cd9930f80e6",
+          "annotation": "8f280288-9334-4fa8-abcf-e19777966f85",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "8f280288-9334-4fa8-abcf-e19777966f85",
+        "created": "2026-07-31T10:55:16.542Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:55:17.497Z",
+        "selector": [
+          {
+            "quote": "Marie Magdele",
+            "exact": "Marie Magdele",
+            "prefix": "",
+            "suffix": "",
+            "start": 1004,
+            "end": 1017
+          }
+        ]
+      }
+    },
+    {
+      "id": "b645432c-a178-4b63-9c7f-6e8d350f78ba",
+      "bodies": [
+        {
+          "id": "b92713aa-854b-4615-aac4-0a5a4d2a9083",
+          "annotation": "b645432c-a178-4b63-9c7f-6e8d350f78ba",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "b645432c-a178-4b63-9c7f-6e8d350f78ba",
+        "created": "2026-07-31T10:55:24.276Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:55:30.795Z",
+        "selector": [
+          {
+            "quote": "Lovis",
+            "exact": "Lovis",
+            "prefix": "",
+            "suffix": "",
+            "start": 981,
+            "end": 986
+          }
+        ]
+      }
+    },
+    {
+      "id": "68a1c1f1-6511-4dd8-a91b-de67a09c0fcc",
+      "bodies": [
+        {
+          "id": "70db3132-460c-495b-9aa6-ee9647141b7e",
+          "annotation": "68a1c1f1-6511-4dd8-a91b-de67a09c0fcc",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "68a1c1f1-6511-4dd8-a91b-de67a09c0fcc",
+        "created": "2026-07-31T10:55:41.480Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:55:41.733Z",
+        "selector": [
+          {
+            "quote": "Jacob",
+            "exact": "Jacob",
+            "prefix": "",
+            "suffix": "",
+            "start": 1247,
+            "end": 1252
+          }
+        ]
+      }
+    },
+    {
+      "id": "ee9b814c-4d3e-4327-afde-6c2caad3dbb3",
+      "bodies": [
+        {
+          "id": "4c2fb987-a1e5-482f-8d40-3b6a649ef9cf",
+          "annotation": "ee9b814c-4d3e-4327-afde-6c2caad3dbb3",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "ee9b814c-4d3e-4327-afde-6c2caad3dbb3",
+        "created": "2026-07-31T10:55:45.461Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:55:47.374Z",
+        "selector": [
+          {
+            "quote": "Jacod Bes¬¬sir",
+            "exact": "Jacod Bes¬¬sir",
+            "prefix": "",
+            "suffix": "",
+            "start": 1321,
+            "end": 1335
+          }
+        ]
+      }
+    },
+    {
+      "id": "fc06c8a2-607b-4180-9c85-de61be995160",
+      "bodies": [
+        {
+          "id": "b145aedc-e10e-43c4-acba-0183f4228ba1",
+          "annotation": "fc06c8a2-607b-4180-9c85-de61be995160",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "fc06c8a2-607b-4180-9c85-de61be995160",
+        "created": "2026-07-31T10:55:55.044Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:55:56.996Z",
+        "selector": [
+          {
+            "quote": "JeanPierreBessir",
+            "exact": "JeanPierreBessir",
+            "prefix": "",
+            "suffix": "",
+            "start": 1533,
+            "end": 1549
+          }
+        ]
+      }
+    },
+    {
+      "id": "ff410dc1-4355-4027-83b8-a487efac7aa0",
+      "bodies": [
+        {
+          "id": "05d9b5a1-62c1-4ed7-aad6-7b1093ca209f",
+          "annotation": "ff410dc1-4355-4027-83b8-a487efac7aa0",
+          "purpose": "tagging",
+          "value": "place"
+        }
+      ],
+      "target": {
+        "annotation": "ff410dc1-4355-4027-83b8-a487efac7aa0",
+        "created": "2026-07-31T10:56:01.614Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:01.856Z",
+        "selector": [
+          {
+            "quote": "Rochenette",
+            "exact": "Rochenette",
+            "prefix": "",
+            "suffix": "",
+            "start": 1563,
+            "end": 1573
+          }
+        ]
+      }
+    },
+    {
+      "id": "e417f62f-e467-4445-8de5-5c1693d9be97",
+      "bodies": [
+        {
+          "id": "66534ff8-3c8c-4bc8-b96b-b0f22f7be5db",
+          "annotation": "e417f62f-e467-4445-8de5-5c1693d9be97",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "e417f62f-e467-4445-8de5-5c1693d9be97",
+        "created": "2026-07-31T10:56:17.769Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:18.432Z",
+        "selector": [
+          {
+            "quote": "Marie Magd",
+            "exact": "Marie Magd",
+            "prefix": "",
+            "suffix": "",
+            "start": 1875,
+            "end": 1885
+          }
+        ]
+      }
+    },
+    {
+      "id": "b4223f87-5ae3-4db3-b1e6-02dfce134a6b",
+      "bodies": [
+        {
+          "id": "453dc8dd-03e7-4d83-80bb-4ce18c10eacf",
+          "annotation": "b4223f87-5ae3-4db3-b1e6-02dfce134a6b",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "b4223f87-5ae3-4db3-b1e6-02dfce134a6b",
+        "created": "2026-07-31T10:56:21.771Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:22.998Z",
+        "selector": [
+          {
+            "quote": "Mʳ Blöche",
+            "exact": "Mʳ Blöche",
+            "prefix": "",
+            "suffix": "",
+            "start": 1908,
+            "end": 1917
+          }
+        ]
+      }
+    },
+    {
+      "id": "f77c5269-3cdf-4738-9b28-adb9c60561ac",
+      "bodies": [
+        {
+          "id": "6e4efc22-fa8d-413b-a82c-d4151e716d43",
+          "annotation": "f77c5269-3cdf-4738-9b28-adb9c60561ac",
+          "purpose": "tagging",
+          "value": "place"
+        },
+        {
+          "id": "5b906db1-7399-4abd-b55e-bb0702defd59",
+          "annotation": "f77c5269-3cdf-4738-9b28-adb9c60561ac",
+          "purpose": "linking",
+          "value": "https://www.wikidata.org/wiki/Q1034"
+        }
+      ],
+      "target": {
+        "annotation": "f77c5269-3cdf-4738-9b28-adb9c60561ac",
+        "created": "2026-07-31T10:56:25.712Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:26.144Z",
+        "selector": [
+          {
+            "quote": "Bieñe",
+            "exact": "Bieñe",
+            "prefix": "",
+            "suffix": "",
+            "start": 1920,
+            "end": 1925
+          }
+        ]
+      }
+    },
+    {
+      "id": "0a9c4b4f-5e6b-4d11-a994-a5ad664bb60a",
+      "bodies": [
+        {
+          "id": "ed8cb3e9-03f1-4a44-9771-94c334aa0dcc",
+          "annotation": "0a9c4b4f-5e6b-4d11-a994-a5ad664bb60a",
+          "purpose": "tagging",
+          "value": "place"
+        },
+        {
+          "id": "488b2d0b-8890-4883-9944-27786d78df62",
+          "annotation": "0a9c4b4f-5e6b-4d11-a994-a5ad664bb60a",
+          "purpose": "linking",
+          "value": "https://www.wikidata.org/wiki/Q67249"
+        }
+      ],
+      "target": {
+        "annotation": "0a9c4b4f-5e6b-4d11-a994-a5ad664bb60a",
+        "created": "2026-07-31T10:56:35.014Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:35.326Z",
+        "selector": [
+          {
+            "quote": "Re¬¬convillier",
+            "exact": "Re¬¬convillier",
+            "prefix": "",
+            "suffix": "",
+            "start": 2139,
+            "end": 2153
+          }
+        ]
+      }
+    },
+    {
+      "id": "8b9900d7-5b80-4c0d-a545-eb35e1e357e9",
+      "bodies": [
+        {
+          "id": "dc1a258e-4a34-4660-bd4e-9d360a474a2a",
+          "annotation": "8b9900d7-5b80-4c0d-a545-eb35e1e357e9",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "8b9900d7-5b80-4c0d-a545-eb35e1e357e9",
+        "created": "2026-07-31T10:56:40.356Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:41.235Z",
+        "selector": [
+          {
+            "quote": "Marion",
+            "exact": "Marion",
+            "prefix": "",
+            "suffix": "",
+            "start": 2055,
+            "end": 2061
+          }
+        ]
+      }
+    },
+    {
+      "id": "264193d8-983b-4749-adf1-aa701f82b5ef",
+      "bodies": [
+        {
+          "id": "5221b5b0-3007-46c1-bd83-77f9951c6ead",
+          "annotation": "264193d8-983b-4749-adf1-aa701f82b5ef",
+          "purpose": "tagging",
+          "value": "place"
+        }
+      ],
+      "target": {
+        "annotation": "264193d8-983b-4749-adf1-aa701f82b5ef",
+        "created": "2026-07-31T10:56:46.607Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:47.094Z",
+        "selector": [
+          {
+            "quote": "Rouvet",
+            "exact": "Rouvet",
+            "prefix": "",
+            "suffix": "",
+            "start": 2342,
+            "end": 2348
+          }
+        ]
+      }
+    },
+    {
+      "id": "a70f83bf-0d56-4f41-b36f-5f7229cc5471",
+      "bodies": [
+        {
+          "id": "2330b2ac-11e0-4df3-965d-594a49fc7ca8",
+          "annotation": "a70f83bf-0d56-4f41-b36f-5f7229cc5471",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "a70f83bf-0d56-4f41-b36f-5f7229cc5471",
+        "created": "2026-07-31T10:56:50.938Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:51.330Z",
+        "selector": [
+          {
+            "quote": "Marion",
+            "exact": "Marion",
+            "prefix": "",
+            "suffix": "",
+            "start": 2279,
+            "end": 2285
+          }
+        ]
+      }
+    },
+    {
+      "id": "5fca44ba-1a61-4341-b8b2-93f4755dce15",
+      "bodies": [
+        {
+          "id": "e50a72fe-c54d-40f9-a2cc-afcb3156e6a4",
+          "annotation": "5fca44ba-1a61-4341-b8b2-93f4755dce15",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "5fca44ba-1a61-4341-b8b2-93f4755dce15",
+        "created": "2026-07-31T10:56:57.620Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:56:58.874Z",
+        "selector": [
+          {
+            "quote": "JPierre",
+            "exact": "JPierre",
+            "prefix": "",
+            "suffix": "",
+            "start": 2411,
+            "end": 2418
+          }
+        ]
+      }
+    },
+    {
+      "id": "1ecf57fd-9e34-45fb-9b59-7c9ba9a64fcb",
+      "bodies": [
+        {
+          "id": "3ad2bf1d-c029-45da-8b03-338ed5dde2e9",
+          "annotation": "1ecf57fd-9e34-45fb-9b59-7c9ba9a64fcb",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "1ecf57fd-9e34-45fb-9b59-7c9ba9a64fcb",
+        "created": "2026-07-31T10:57:07.823Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:08.983Z",
+        "selector": [
+          {
+            "quote": "m[ai]rie Magd:",
+            "exact": "m[ai]rie Magd:",
+            "prefix": "",
+            "suffix": "",
+            "start": 2433,
+            "end": 2447
+          }
+        ]
+      }
+    },
+    {
+      "id": "145fc834-c356-4900-aae1-0b69e2893472",
+      "bodies": [
+        {
+          "id": "e5b66b4f-fbe1-44dc-9c07-2fffcb876ca8",
+          "annotation": "145fc834-c356-4900-aae1-0b69e2893472",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "145fc834-c356-4900-aae1-0b69e2893472",
+        "created": "2026-07-31T10:57:13.504Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:13.953Z",
+        "selector": [
+          {
+            "quote": "Pierre",
+            "exact": "Pierre",
+            "prefix": "",
+            "suffix": "",
+            "start": 2448,
+            "end": 2454
+          }
+        ]
+      }
+    },
+    {
+      "id": "b1ace877-07cf-4ff2-bc4a-cb83086fe9f2",
+      "bodies": [
+        {
+          "id": "7fd13266-446c-440b-9b1e-f3d7d24a8e2b",
+          "annotation": "b1ace877-07cf-4ff2-bc4a-cb83086fe9f2",
+          "purpose": "tagging",
+          "value": "place"
+        },
+        {
+          "id": "4d465cc0-19ec-40e9-bbff-9b3d4a081e82",
+          "annotation": "b1ace877-07cf-4ff2-bc4a-cb83086fe9f2",
+          "purpose": "linking",
+          "value": "https://www.wikidata.org/wiki/Q67249"
+        }
+      ],
+      "target": {
+        "annotation": "b1ace877-07cf-4ff2-bc4a-cb83086fe9f2",
+        "created": "2026-07-31T10:57:18.826Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:19.337Z",
+        "selector": [
+          {
+            "quote": "Reconvillier",
+            "exact": "Reconvillier",
+            "prefix": "",
+            "suffix": "",
+            "start": 2468,
+            "end": 2480
+          }
+        ]
+      }
+    },
+    {
+      "id": "49bad405-07f5-4bc2-b3b9-09087cb76973",
+      "bodies": [
+        {
+          "id": "d2acbe8b-aa77-49ac-83b4-e4172f453a44",
+          "annotation": "49bad405-07f5-4bc2-b3b9-09087cb76973",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "49bad405-07f5-4bc2-b3b9-09087cb76973",
+        "created": "2026-07-31T10:57:24.608Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:25.141Z",
+        "selector": [
+          {
+            "quote": "Marion",
+            "exact": "Marion",
+            "prefix": "",
+            "suffix": "",
+            "start": 2512,
+            "end": 2518
+          }
+        ]
+      }
+    },
+    {
+      "id": "06c376e1-7c85-4c9a-a017-82ec35282577",
+      "bodies": [
+        {
+          "id": "6f70fcc5-700c-4b80-952d-c52f327bfabd",
+          "annotation": "06c376e1-7c85-4c9a-a017-82ec35282577",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "06c376e1-7c85-4c9a-a017-82ec35282577",
+        "created": "2026-07-31T10:57:35.090Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:35.962Z",
+        "selector": [
+          {
+            "quote": "1733 et34",
+            "exact": "1733 et34",
+            "prefix": "",
+            "suffix": "",
+            "start": 2759,
+            "end": 2768
+          }
+        ]
+      }
+    },
+    {
+      "id": "d912783f-5d0f-4c51-869a-276ab454b278",
+      "bodies": [
+        {
+          "id": "19f9c5c2-2cf7-4057-bf76-d91fa225fa4a",
+          "annotation": "d912783f-5d0f-4c51-869a-276ab454b278",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "d912783f-5d0f-4c51-869a-276ab454b278",
+        "created": "2026-07-31T10:57:49.154Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:49.852Z",
+        "selector": [
+          {
+            "quote": "1733et 34",
+            "exact": "1733et 34",
+            "prefix": "",
+            "suffix": "",
+            "start": 2846,
+            "end": 2855
+          }
+        ]
+      }
+    },
+    {
+      "id": "b3719075-4717-44e8-ba8f-e3a335a9fad0",
+      "bodies": [
+        {
+          "id": "ae45aa20-c3a8-4946-abdf-60ded1fc1d38",
+          "annotation": "b3719075-4717-44e8-ba8f-e3a335a9fad0",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "b3719075-4717-44e8-ba8f-e3a335a9fad0",
+        "created": "2026-07-31T10:57:53.736Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:57:54.068Z",
+        "selector": [
+          {
+            "quote": "1735",
+            "exact": "1735",
+            "prefix": "",
+            "suffix": "",
+            "start": 2856,
+            "end": 2860
+          }
+        ]
+      }
+    },
+    {
+      "id": "99e277ac-ebc3-4139-ae2c-8866ce16ae58",
+      "bodies": [
+        {
+          "id": "6a1977ac-6555-4f9f-843c-68fad1921448",
+          "annotation": "99e277ac-ebc3-4139-ae2c-8866ce16ae58",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "99e277ac-ebc3-4139-ae2c-8866ce16ae58",
+        "created": "2026-07-31T10:58:00.416Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:01.008Z",
+        "selector": [
+          {
+            "quote": "Marie Magr:",
+            "exact": "Marie Magr:",
+            "prefix": "",
+            "suffix": "",
+            "start": 2992,
+            "end": 3003
+          }
+        ]
+      }
+    },
+    {
+      "id": "3d86071e-8d79-41f1-b765-5d0df5783a9c",
+      "bodies": [
+        {
+          "id": "ab929319-6667-4898-bca0-77ab6edff5ff",
+          "annotation": "3d86071e-8d79-41f1-b765-5d0df5783a9c",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "3d86071e-8d79-41f1-b765-5d0df5783a9c",
+        "created": "2026-07-31T10:58:07.319Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:09.642Z",
+        "selector": [
+          {
+            "quote": "abram Lovis",
+            "exact": "abram Lovis",
+            "prefix": "",
+            "suffix": "",
+            "start": 2964,
+            "end": 2975
+          }
+        ]
+      }
+    },
+    {
+      "id": "7fc37fef-c125-40d5-9742-f1238bbbe4d5",
+      "bodies": [
+        {
+          "id": "f287c47f-b9c9-4cf4-a73c-fcd0a7f5d1c4",
+          "annotation": "7fc37fef-c125-40d5-9742-f1238bbbe4d5",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "7fc37fef-c125-40d5-9742-f1238bbbe4d5",
+        "created": "2026-07-31T10:58:15.301Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:16.181Z",
+        "selector": [
+          {
+            "quote": "Jacob Witz",
+            "exact": "Jacob Witz",
+            "prefix": "",
+            "suffix": "",
+            "start": 3069,
+            "end": 3079
+          }
+        ]
+      }
+    },
+    {
+      "id": "cdad12ed-fec7-469d-a11c-bd5630cc04d0",
+      "bodies": [
+        {
+          "id": "21b7cf98-f36d-4b39-978d-48581894b843",
+          "annotation": "cdad12ed-fec7-469d-a11c-bd5630cc04d0",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "cdad12ed-fec7-469d-a11c-bd5630cc04d0",
+        "created": "2026-07-31T10:58:24.763Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:25.205Z",
+        "selector": [
+          {
+            "quote": "Witz",
+            "exact": "Witz",
+            "prefix": "",
+            "suffix": "",
+            "start": 3276,
+            "end": 3280
+          }
+        ]
+      }
+    },
+    {
+      "id": "9a783b5f-610f-49d6-9817-a23e14930acb",
+      "bodies": [
+        {
+          "id": "a0920891-5e04-4707-95b7-1bdd06b5faa5",
+          "annotation": "9a783b5f-610f-49d6-9817-a23e14930acb",
+          "purpose": "tagging",
+          "value": "place"
+        }
+      ],
+      "target": {
+        "annotation": "9a783b5f-610f-49d6-9817-a23e14930acb",
+        "created": "2026-07-31T10:58:29.044Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:29.418Z",
+        "selector": [
+          {
+            "quote": "Boujen",
+            "exact": "Boujen",
+            "prefix": "",
+            "suffix": "",
+            "start": 3256,
+            "end": 3262
+          }
+        ]
+      }
+    },
+    {
+      "id": "3da3c97b-436d-46fc-8337-cfdc5e6ba8bf",
+      "bodies": [
+        {
+          "id": "6b27df06-f86f-4fe0-9c87-99457f4830bb",
+          "annotation": "3da3c97b-436d-46fc-8337-cfdc5e6ba8bf",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "3da3c97b-436d-46fc-8337-cfdc5e6ba8bf",
+        "created": "2026-07-31T10:58:34.026Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:34.601Z",
+        "selector": [
+          {
+            "quote": "suson",
+            "exact": "suson",
+            "prefix": "",
+            "suffix": "",
+            "start": 3302,
+            "end": 3307
+          }
+        ]
+      }
+    },
+    {
+      "id": "2df1e1b6-fa40-470c-aa1b-824822dc7185",
+      "bodies": [
+        {
+          "id": "73b46a06-98f8-4ec0-a1f9-f2d80c3afa2a",
+          "annotation": "2df1e1b6-fa40-470c-aa1b-824822dc7185",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "2df1e1b6-fa40-470c-aa1b-824822dc7185",
+        "created": "2026-07-31T10:58:37.362Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:58:38.359Z",
+        "selector": [
+          {
+            "quote": "Abramelet",
+            "exact": "Abramelet",
+            "prefix": "",
+            "suffix": "",
+            "start": 3320,
+            "end": 3329
+          }
+        ]
+      }
+    },
+    {
+      "id": "1f503e30-30ba-4a2e-b44c-f4c4e3977003",
+      "bodies": [
+        {
+          "id": "dbe68960-091d-4fa7-9ad5-89901db2c485",
+          "annotation": "1f503e30-30ba-4a2e-b44c-f4c4e3977003",
+          "purpose": "tagging",
+          "value": "place"
+        }
+      ],
+      "target": {
+        "annotation": "1f503e30-30ba-4a2e-b44c-f4c4e3977003",
+        "created": "2026-07-31T10:59:01.232Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:01.906Z",
+        "selector": [
+          {
+            "quote": "Berne",
+            "exact": "Berne",
+            "prefix": "",
+            "suffix": "",
+            "start": 3596,
+            "end": 3601
+          }
+        ]
+      }
+    },
+    {
+      "id": "70f5f76b-f532-4a7b-9745-bf758f358146",
+      "bodies": [
+        {
+          "id": "7a41f3c5-fcee-4898-98ab-3444fcf5c28f",
+          "annotation": "70f5f76b-f532-4a7b-9745-bf758f358146",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "70f5f76b-f532-4a7b-9745-bf758f358146",
+        "created": "2026-07-31T10:59:19.278Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:19.689Z",
+        "selector": [
+          {
+            "quote": "Abramelet",
+            "exact": "Abramelet",
+            "prefix": "",
+            "suffix": "",
+            "start": 3936,
+            "end": 3945
+          }
+        ]
+      }
+    },
+    {
+      "id": "dc377046-48b3-45d6-80bf-6f8e8bd1a679",
+      "bodies": [
+        {
+          "id": "584e2841-1d1e-4841-9601-2554405a7a97",
+          "annotation": "dc377046-48b3-45d6-80bf-6f8e8bd1a679",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "dc377046-48b3-45d6-80bf-6f8e8bd1a679",
+        "created": "2026-07-31T10:59:23.619Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:24.067Z",
+        "selector": [
+          {
+            "quote": "Etieñe",
+            "exact": "Etieñe",
+            "prefix": "",
+            "suffix": "",
+            "start": 3950,
+            "end": 3956
+          }
+        ]
+      }
+    },
+    {
+      "id": "57bebd13-129b-4164-9d8d-f5ae195e1b28",
+      "bodies": [
+        {
+          "id": "8027ff48-6991-4ee4-880c-3fe4272fc296",
+          "annotation": "57bebd13-129b-4164-9d8d-f5ae195e1b28",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "57bebd13-129b-4164-9d8d-f5ae195e1b28",
+        "created": "2026-07-31T10:59:28.340Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:28.719Z",
+        "selector": [
+          {
+            "quote": "Suson",
+            "exact": "Suson",
+            "prefix": "",
+            "suffix": "",
+            "start": 4059,
+            "end": 4064
+          }
+        ]
+      }
+    },
+    {
+      "id": "4eca88d1-c319-45ed-80d5-9dd0803c8038",
+      "bodies": [
+        {
+          "id": "00478724-d994-461a-90bf-42abba8ec8f7",
+          "annotation": "4eca88d1-c319-45ed-80d5-9dd0803c8038",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "4eca88d1-c319-45ed-80d5-9dd0803c8038",
+        "created": "2026-07-31T10:59:36.802Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:38.139Z",
+        "selector": [
+          {
+            "quote": "Margerite",
+            "exact": "Margerite",
+            "prefix": "",
+            "suffix": "",
+            "start": 4124,
+            "end": 4133
+          }
+        ]
+      }
+    },
+    {
+      "id": "31c1ad1c-77c8-49fb-9be8-e4836a23fd16",
+      "bodies": [
+        {
+          "id": "adba2a0a-0542-4f1f-92ab-df2a7f17da9a",
+          "annotation": "31c1ad1c-77c8-49fb-9be8-e4836a23fd16",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "31c1ad1c-77c8-49fb-9be8-e4836a23fd16",
+        "created": "2026-07-31T10:59:41.680Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:41.995Z",
+        "selector": [
+          {
+            "quote": "Greusillon",
+            "exact": "Greusillon",
+            "prefix": "",
+            "suffix": "",
+            "start": 4139,
+            "end": 4149
+          }
+        ]
+      }
+    },
+    {
+      "id": "6f1c07ec-b37c-4c03-9656-e395988cbe9a",
+      "bodies": [
+        {
+          "id": "fb80b9ce-887a-4b21-8555-865ebee4e5d0",
+          "annotation": "6f1c07ec-b37c-4c03-9656-e395988cbe9a",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "6f1c07ec-b37c-4c03-9656-e395988cbe9a",
+        "created": "2026-07-31T10:59:46.985Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:47.638Z",
+        "selector": [
+          {
+            "quote": "Jacob de Plagne",
+            "exact": "Jacob de Plagne",
+            "prefix": "",
+            "suffix": "",
+            "start": 4166,
+            "end": 4181
+          }
+        ]
+      }
+    },
+    {
+      "id": "b63f1bd4-2464-4551-8f78-043ba3b87e74",
+      "bodies": [
+        {
+          "id": "32e47228-3a8d-4084-a550-2bec475e3535",
+          "annotation": "b63f1bd4-2464-4551-8f78-043ba3b87e74",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "b63f1bd4-2464-4551-8f78-043ba3b87e74",
+        "created": "2026-07-31T10:59:55.567Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T10:59:58.233Z",
+        "selector": [
+          {
+            "quote": "Mʳ Le BaillifChemilleret",
+            "exact": "Mʳ Le BaillifChemilleret",
+            "prefix": "",
+            "suffix": "",
+            "start": 4239,
+            "end": 4263
+          }
+        ]
+      }
+    },
+    {
+      "id": "dc05a94f-78f7-4b1c-a1b8-45e566467086",
+      "bodies": [
+        {
+          "id": "06003e9c-bb22-4982-892c-2916b98c0c87",
+          "annotation": "dc05a94f-78f7-4b1c-a1b8-45e566467086",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "dc05a94f-78f7-4b1c-a1b8-45e566467086",
+        "created": "2026-07-31T11:00:05.630Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:06.703Z",
+        "selector": [
+          {
+            "quote": "Suson",
+            "exact": "Suson",
+            "prefix": "",
+            "suffix": "",
+            "start": 4329,
+            "end": 4334
+          }
+        ]
+      }
+    },
+    {
+      "id": "0cacc1e8-eb17-4246-816f-4811ff8312ce",
+      "bodies": [
+        {
+          "id": "08d8f9ef-b162-47f5-9d5a-6e5558ccf265",
+          "annotation": "0cacc1e8-eb17-4246-816f-4811ff8312ce",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "0cacc1e8-eb17-4246-816f-4811ff8312ce",
+        "created": "2026-07-31T11:00:09.351Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:09.925Z",
+        "selector": [
+          {
+            "quote": "Marg:",
+            "exact": "Marg:",
+            "prefix": "",
+            "suffix": "",
+            "start": 4341,
+            "end": 4346
+          }
+        ]
+      }
+    },
+    {
+      "id": "7da2d5b8-cc54-47de-b102-e4a9c6e50115",
+      "bodies": [
+        {
+          "id": "3ba42e21-7db2-4bdc-92f7-c1ee3c421097",
+          "annotation": "7da2d5b8-cc54-47de-b102-e4a9c6e50115",
+          "purpose": "tagging",
+          "value": "place"
+        }
+      ],
+      "target": {
+        "annotation": "7da2d5b8-cc54-47de-b102-e4a9c6e50115",
+        "created": "2026-07-31T11:00:16.592Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:16.844Z",
+        "selector": [
+          {
+            "quote": "Rochenette",
+            "exact": "Rochenette",
+            "prefix": "",
+            "suffix": "",
+            "start": 4521,
+            "end": 4531
+          }
+        ]
+      }
+    },
+    {
+      "id": "b86137c0-5134-4b9c-86b3-2d93026640b3",
+      "bodies": [
+        {
+          "id": "45247b81-f096-4fb8-8a7e-5399864a7f4b",
+          "annotation": "b86137c0-5134-4b9c-86b3-2d93026640b3",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "b86137c0-5134-4b9c-86b3-2d93026640b3",
+        "created": "2026-07-31T11:00:21.134Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:21.801Z",
+        "selector": [
+          {
+            "quote": "Mr Chemilleret",
+            "exact": "Mr Chemilleret",
+            "prefix": "",
+            "suffix": "",
+            "start": 4611,
+            "end": 4625
+          }
+        ]
+      }
+    },
+    {
+      "id": "9813aecd-ebcb-4193-bab1-f73453ff5b8e",
+      "bodies": [
+        {
+          "id": "54acc185-3e9e-464b-86c6-409b15a18da7",
+          "annotation": "9813aecd-ebcb-4193-bab1-f73453ff5b8e",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "9813aecd-ebcb-4193-bab1-f73453ff5b8e",
+        "created": "2026-07-31T11:00:49.241Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:49.768Z",
+        "selector": [
+          {
+            "quote": "J Jagues",
+            "exact": "J Jagues",
+            "prefix": "",
+            "suffix": "",
+            "start": 4702,
+            "end": 4710
+          }
+        ]
+      }
+    },
+    {
+      "id": "20c0c65b-478d-4fee-ad9f-b6aa1a0bd82b",
+      "bodies": [
+        {
+          "id": "3aaf6a39-b5f7-4ee4-9d78-10323ff2f0cd",
+          "annotation": "20c0c65b-478d-4fee-ad9f-b6aa1a0bd82b",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "20c0c65b-478d-4fee-ad9f-b6aa1a0bd82b",
+        "created": "2026-07-31T11:00:53.062Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:53.394Z",
+        "selector": [
+          {
+            "quote": "Danion",
+            "exact": "Danion",
+            "prefix": "",
+            "suffix": "",
+            "start": 4716,
+            "end": 4722
+          }
+        ]
+      }
+    },
+    {
+      "id": "f7dc0f5e-a029-44ef-9838-e47c7302a7c0",
+      "bodies": [
+        {
+          "id": "3f0c8396-bdce-4f4e-b176-7d2423a738e3",
+          "annotation": "f7dc0f5e-a029-44ef-9838-e47c7302a7c0",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "f7dc0f5e-a029-44ef-9838-e47c7302a7c0",
+        "created": "2026-07-31T11:00:57.223Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:00:57.795Z",
+        "selector": [
+          {
+            "quote": "Marguerite",
+            "exact": "Marguerite",
+            "prefix": "",
+            "suffix": "",
+            "start": 4755,
+            "end": 4765
+          }
+        ]
+      }
+    },
+    {
+      "id": "feba824a-a875-40c8-86f3-f305e9689c7f",
+      "bodies": [
+        {
+          "id": "ebc1b219-d002-47bf-9140-b595e572a62b",
+          "annotation": "feba824a-a875-40c8-86f3-f305e9689c7f",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "feba824a-a875-40c8-86f3-f305e9689c7f",
+        "created": "2026-07-31T11:01:07.104Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:07.114Z",
+        "selector": [
+          {
+            "quote": "Conrad ",
+            "exact": "Conrad ",
+            "prefix": "",
+            "suffix": "",
+            "start": 4848,
+            "end": 4855
+          }
+        ]
+      }
+    },
+    {
+      "id": "57b48f0d-0173-4f71-89f0-e542190c622f",
+      "bodies": [
+        {
+          "id": "bc9ce50c-0ff9-49b4-901a-ce2f033fad35",
+          "annotation": "57b48f0d-0173-4f71-89f0-e542190c622f",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "57b48f0d-0173-4f71-89f0-e542190c622f",
+        "created": "2026-07-31T11:01:23.830Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:24.303Z",
+        "selector": [
+          {
+            "quote": "Marguerite",
+            "exact": "Marguerite",
+            "prefix": "",
+            "suffix": "",
+            "start": 4892,
+            "end": 4902
+          }
+        ]
+      }
+    },
+    {
+      "id": "d7927bd8-2ed2-46f0-9134-e1329e67e31d",
+      "bodies": [
+        {
+          "id": "efec870e-97d8-4581-8d3d-fd38417ed0e0",
+          "annotation": "d7927bd8-2ed2-46f0-9134-e1329e67e31d",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "d7927bd8-2ed2-46f0-9134-e1329e67e31d",
+        "created": "2026-07-31T11:01:28.511Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:28.874Z",
+        "selector": [
+          {
+            "quote": "Suson",
+            "exact": "Suson",
+            "prefix": "",
+            "suffix": "",
+            "start": 4942,
+            "end": 4947
+          }
+        ]
+      }
+    },
+    {
+      "id": "ec4c0b6d-7350-40a8-ab84-0ca0c26e5a99",
+      "bodies": [
+        {
+          "id": "9bb7e1be-fc7d-4e8e-9c05-afbd357e25f6",
+          "annotation": "ec4c0b6d-7350-40a8-ab84-0ca0c26e5a99",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "ec4c0b6d-7350-40a8-ab84-0ca0c26e5a99",
+        "created": "2026-07-31T11:01:32.605Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:33.956Z",
+        "selector": [
+          {
+            "quote": "26ⁱᵉᵐᵉ de Mars",
+            "exact": "26ⁱᵉᵐᵉ de Mars",
+            "prefix": "",
+            "suffix": "",
+            "start": 4969,
+            "end": 4983
+          }
+        ]
+      }
+    },
+    {
+      "id": "76ee96e2-e48b-465a-8505-5ebe18ea021e",
+      "bodies": [
+        {
+          "id": "16973500-e7bf-4375-b216-8009109327d7",
+          "annotation": "76ee96e2-e48b-465a-8505-5ebe18ea021e",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "76ee96e2-e48b-465a-8505-5ebe18ea021e",
+        "created": "2026-07-31T11:01:45.458Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:46.289Z",
+        "selector": [
+          {
+            "quote": "Marion Criblez",
+            "exact": "Marion Criblez",
+            "prefix": "",
+            "suffix": "",
+            "start": 5076,
+            "end": 5090
+          }
+        ]
+      }
+    },
+    {
+      "id": "2fb21b3b-176a-4e91-bb1d-e6da96b66e46",
+      "bodies": [
+        {
+          "id": "f8dc5ba6-e7d7-44ef-8c51-6a7d53c270c0",
+          "annotation": "2fb21b3b-176a-4e91-bb1d-e6da96b66e46",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "2fb21b3b-176a-4e91-bb1d-e6da96b66e46",
+        "created": "2026-07-31T11:01:52.478Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:01:52.910Z",
+        "selector": [
+          {
+            "quote": "Mʳ [.] Chamilleret",
+            "exact": "Mʳ [.] Chamilleret",
+            "prefix": "",
+            "suffix": "",
+            "start": 5174,
+            "end": 5192
+          }
+        ]
+      }
+    },
+    {
+      "id": "53d99132-ddaf-431b-a216-cbb5af8605b1",
+      "bodies": [
+        {
+          "id": "ddc8dd84-e360-4211-9f5d-4aace0f233ac",
+          "annotation": "53d99132-ddaf-431b-a216-cbb5af8605b1",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "53d99132-ddaf-431b-a216-cbb5af8605b1",
+        "created": "2026-07-31T11:02:01.881Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:02:02.212Z",
+        "selector": [
+          {
+            "quote": "Jacob",
+            "exact": "Jacob",
+            "prefix": "",
+            "suffix": "",
+            "start": 5219,
+            "end": 5224
+          }
+        ]
+      }
+    },
+    {
+      "id": "57c01966-01ae-4c51-bbb7-a015becda5fb",
+      "bodies": [
+        {
+          "id": "ae62a097-028e-4a7f-9fda-4c551c76c891",
+          "annotation": "57c01966-01ae-4c51-bbb7-a015becda5fb",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "57c01966-01ae-4c51-bbb7-a015becda5fb",
+        "created": "2026-07-31T11:02:46.810Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:02:48.109Z",
+        "selector": [
+          {
+            "quote": "14. Avril",
+            "exact": "14. Avril",
+            "prefix": "",
+            "suffix": "",
+            "start": 800,
+            "end": 809
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1f31100-8de1-444a-b54c-6964ca7d6d1b",
+      "bodies": [
+        {
+          "id": "038c1594-dc06-46f7-bb0a-64b611079eb6",
+          "annotation": "e1f31100-8de1-444a-b54c-6964ca7d6d1b",
+          "purpose": "tagging",
+          "value": "date"
+        }
+      ],
+      "target": {
+        "annotation": "e1f31100-8de1-444a-b54c-6964ca7d6d1b",
+        "created": "2026-07-31T11:03:05.898Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:03:07.118Z",
+        "selector": [
+          {
+            "quote": "6ⁱᵉᵐᵉ du mois de Juillet",
+            "exact": "6ⁱᵉᵐᵉ du mois de Juillet",
+            "prefix": "",
+            "suffix": "",
+            "start": 1508,
+            "end": 1532
+          }
+        ]
+      }
+    },
+    {
+      "id": "423fb5bd-2d0c-4f45-aca1-c18370bd7163",
+      "bodies": [
+        {
+          "id": "e64fd15e-c04c-4e65-892b-4b68757a47f8",
+          "annotation": "423fb5bd-2d0c-4f45-aca1-c18370bd7163",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "423fb5bd-2d0c-4f45-aca1-c18370bd7163",
+        "created": "2026-07-31T11:03:20.800Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:03:20.812Z",
+        "selector": [
+          {
+            "quote": "Christophe ",
+            "exact": "Christophe ",
+            "prefix": "",
+            "suffix": "",
+            "start": 1984,
+            "end": 1995
+          }
+        ]
+      }
+    },
+    {
+      "id": "2e6d8ca4-36f5-4b31-8034-7fca5ed4e060",
+      "bodies": [
+        {
+          "id": "03a2547c-dfe4-4950-9e32-9e0235c547f7",
+          "annotation": "2e6d8ca4-36f5-4b31-8034-7fca5ed4e060",
+          "purpose": "tagging",
+          "value": "person"
+        }
+      ],
+      "target": {
+        "annotation": "2e6d8ca4-36f5-4b31-8034-7fca5ed4e060",
+        "created": "2026-07-31T11:03:36.190Z",
+        "creator": {
+          "isGuest": true,
+          "id": "CwFhkgfGu1dZ6f0D7AA3"
+        },
+        "updated": "2026-07-31T11:03:36.203Z",
+        "selector": [
+          {
+            "quote": "suson",
+            "exact": "suson",
+            "prefix": "",
+            "suffix": "",
+            "start": 4415,
+            "end": 4420
+          }
+        ]
+      }
+    }
+  ]
+}
