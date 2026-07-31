@@ -10,7 +10,7 @@ app.innerHTML = `
     <header class="site-header">
       <div class="site-title">
         <h1 id="application-title">Projet Frêne</h1>
-        <p id="document-title">Chargement de la TEI…</p>
+        <p>Annotation App</p>
       </div>
 
       <div class="app-menu-container">
@@ -32,13 +32,24 @@ app.innerHTML = `
     </header>
 
     <section class="document-status">
-      <span>Fichier : <strong id="document-file">—</strong></span>
-      <span>Portée : <strong>text/body</strong></span>
-      <span>SHA-256 : <code id="document-sha">—</code></span>
+      <span>
+        Fichier : <strong id="document-file">—</strong>
+      </span>
+
+      <span
+        id="document-ready-status"
+        class="ready-badge"
+        hidden>Prêt à être annoté
+      </span>
     </section>
 
-    <div id="application-message" class="application-message"
-      role="status" aria-live="polite" hidden></div>
+      <div
+        id="application-message"
+        class="application-message"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
 
     <main id="transcription" class="transcription"
       aria-label="Transcription à annoter" aria-busy="true">
@@ -61,6 +72,15 @@ app.innerHTML = `
     ${menuItem('date', 'Date')}
     ${menuItem('normalization', 'Normalisation')}
     ${menuItem('correction', 'Correction libre')}
+    <button
+      id="edit-authority-uri"
+      class="authority-menu-button"
+      type="button"
+      role="menuitem"
+      hidden
+    >
+      Ajouter une URI Wikidata
+    </button>
     <div id="context-menu-separator" class="context-menu-separator" hidden></div>
     <button id="delete-annotation" class="delete-annotation"
       type="button" role="menuitem" hidden>Supprimer l’annotation</button>
@@ -82,6 +102,45 @@ app.innerHTML = `
       </div>
     </form>
   </dialog>
+
+  <dialog id="authority-dialog" class="correction-dialog">
+    <form id="authority-form">
+      <h2 id="authority-dialog-title">Identifier l’entité</h2>
+
+      <p>
+        Texte sélectionné :
+        <strong id="authority-original-text"></strong>
+      </p>
+
+      <label for="authority-uri">
+        URI Wikidata facultatif
+      </label>
+
+      <input
+        id="authority-uri"
+        name="authority-uri"
+        type="url"
+        inputmode="url"
+        autocomplete="off"
+        placeholder="https://www.wikidata.org/wiki/Q…"
+      >
+
+      <p class="field-help">
+        Laisse ce champ vide lorsque l’entité n’est pas identifiée.
+      </p>
+
+      <div class="dialog-actions">
+        <button
+          id="cancel-authority"
+          type="button"
+          class="secondary-button"
+        >
+          Annuler
+        </button>
+        <button type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
 `;
 
 start();
@@ -97,12 +156,8 @@ async function start() {
 
     document.querySelector('#application-title').textContent =
       data.config.application?.name ?? 'Projet Frêne';
-    document.querySelector('#document-title').textContent =
-      data.config.document.title;
     document.querySelector('#document-file').textContent =
       data.config.document.file ?? data.config.document.url.split('/').pop();
-    document.querySelector('#document-sha').textContent =
-      `${data.sha256.slice(0, 12)}…`;
 
     // Attend un cycle de rendu complet avant Recogito.
     await new Promise(resolve =>
@@ -118,8 +173,13 @@ async function start() {
     }
 
     initAnnotationsIO(api);
-    document.querySelector('#app-menu-button').disabled = false;
-    showMessage('TEI chargée : le véritable <text><body> est prêt à être annoté.');
+      document.querySelector(
+        '#app-menu-button'
+      ).disabled = false;
+
+      document.querySelector(
+        '#document-ready-status'
+      ).hidden = false;
   } catch (error) {
     console.error(error);
     transcription.setAttribute('aria-busy', 'false');

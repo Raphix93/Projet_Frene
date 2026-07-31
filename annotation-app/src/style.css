@@ -68,11 +68,26 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 .document-status {
   display: flex;
   flex-wrap: wrap;
-  gap: .55rem 1.5rem;
-  padding: .75rem 2rem;
+  align-items: center;
+  gap: 0.55rem 1.25rem;
+  padding: 0.75rem 2rem;
   background: #f5f7fa;
   border-block: 1px solid #d8dee8;
-  font-size: .9rem;
+  font-size: 0.9rem;
+}
+
+.ready-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid #9fcfaf;
+  border-radius: 999px;
+  background: #eaf7ee;
+  color: #23633a;
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .application-message {
@@ -204,4 +219,11 @@ kbd, code { font-family: Consolas, monospace; }
   }
 
   .transcription { font-size: 1rem; }
+}
+
+
+.field-help {
+  margin: .45rem 0 0;
+  color: #667085;
+  font: .82rem system-ui, sans-serif;
 }

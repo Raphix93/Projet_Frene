@@ -22,17 +22,20 @@ let activeAnnotation = null;
 let isNewAnnotation = false;
 let lastPointerPosition = null;
 let activeTextActionType = null;
+let activeAuthorityType = null;
 
 export function initAnnotator() {
   const transcription = document.querySelector('#transcription');
   const contextMenu = document.querySelector('#context-menu');
   const deleteButton = document.querySelector('#delete-annotation');
+  const authorityButton = document.querySelector('#edit-authority-uri');
 
-  if (!transcription || !contextMenu || !deleteButton) {
+  if (!transcription || !contextMenu || !deleteButton || !authorityButton) {
     console.error('Éléments requis absents.', {
       transcription: Boolean(transcription),
       contextMenu: Boolean(contextMenu),
-      deleteButton: Boolean(deleteButton)
+      deleteButton: Boolean(deleteButton),
+      authorityButton: Boolean(authorityButton)
     });
     return null;
   }
@@ -99,12 +102,14 @@ export function initAnnotator() {
 
   contextMenu.addEventListener('click', handleContextMenuClick);
   deleteButton.addEventListener('click', deleteActiveAnnotation);
+  authorityButton.addEventListener('click', editActiveAuthorityUri);
   document.addEventListener('pointerdown', handleDocumentPointerDown);
   document.addEventListener('keydown', handleKeyboardNavigation);
   window.addEventListener('resize', closeContextMenu);
   window.addEventListener('scroll', closeContextMenu, { passive: true });
 
   setupCorrectionDialog();
+  setupAuthorityDialog();
   updateCounters();
 
   return {
@@ -169,7 +174,7 @@ function handleContextMenuClick(event) {
   saveAnnotationType(type);
 }
 
-function saveAnnotationType(type, replacementText = '') {
+function saveAnnotationType(type, replacementText = '', authorityUri = '') {
   if (!activeAnnotation || !annotator) return;
 
   const preservedBodies = (activeAnnotation.bodies ?? []).filter(body =>
@@ -206,9 +211,33 @@ function saveAnnotationType(type, replacementText = '') {
     });
   }
 
+  if ((type === 'person' || type === 'place') && authorityUri) {
+    newBodies.push({
+      id: crypto.randomUUID(),
+      annotation: activeAnnotation.id,
+      purpose: 'linking',
+      value: authorityUri
+    });
+  }
+
   annotator.updateAnnotation({ ...activeAnnotation, bodies: newBodies });
   activeTextActionType = null;
+  activeAuthorityType = null;
   finishCurrentAction();
+}
+
+function editActiveAuthorityUri() {
+  if (!activeAnnotation) return;
+
+  const type = getAnnotationType(activeAnnotation);
+
+  if (type !== 'person' && type !== 'place') {
+    return;
+  }
+
+  activeAuthorityType = type;
+  closeContextMenu();
+  openAuthorityDialog(type);
 }
 
 function deleteActiveAnnotation() {
@@ -235,16 +264,32 @@ function openContextMenu(anchorRectangle) {
   const menu = document.querySelector('#context-menu');
   const title = document.querySelector('#context-menu-title');
   const deleteButton = document.querySelector('#delete-annotation');
+  const authorityButton = document.querySelector('#edit-authority-uri');
   const separator = document.querySelector('#context-menu-separator');
 
-  if (!menu || !title || !deleteButton || !separator || !activeAnnotation) return;
+  if (
+    !menu ||
+    !title ||
+    !deleteButton ||
+    !authorityButton ||
+    !separator ||
+    !activeAnnotation
+  ) return;
 
   const currentType = getAnnotationType(activeAnnotation);
   const existing = !isNewAnnotation && Boolean(currentType);
+  const supportsAuthority =
+    existing && (currentType === 'person' || currentType === 'place');
+  const currentUri = getLinkingUri(activeAnnotation);
 
   title.textContent = existing
     ? `Annotation : ${LABELS[currentType] ?? 'Type inconnu'}`
     : 'Annoter comme';
+
+  authorityButton.hidden = !supportsAuthority;
+  authorityButton.textContent = currentUri
+    ? 'Modifier l’URI Wikidata'
+    : 'Ajouter une URI Wikidata';
 
   deleteButton.hidden = !existing;
   separator.hidden = !existing;
@@ -393,6 +438,144 @@ function cancelCorrection() {
   finishCurrentAction();
 }
 
+
+function setupAuthorityDialog() {
+  const dialog = document.querySelector('#authority-dialog');
+  const form = document.querySelector('#authority-form');
+  const cancelButton = document.querySelector('#cancel-authority');
+
+  if (!dialog || !form || !cancelButton) {
+    console.error('La fenêtre Wikidata est introuvable.');
+    return;
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const input = document.querySelector('#authority-uri');
+
+    if (!input || !activeAuthorityType) {
+      return;
+    }
+
+    const authorityUri = normalizeWikidataUri(input.value);
+
+    if (input.value.trim() && !authorityUri) {
+      input.setCustomValidity(
+        'Saisis une URI Wikidata valide, par exemple ' +
+        'https://www.wikidata.org/wiki/Q123.'
+      );
+      input.reportValidity();
+      return;
+    }
+
+    input.setCustomValidity('');
+    dialog.close();
+    saveAnnotationType(
+      activeAuthorityType,
+      '',
+      authorityUri
+    );
+  });
+
+  cancelButton.addEventListener(
+    'click',
+    cancelAuthority
+  );
+
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    cancelAuthority();
+  });
+}
+
+function openAuthorityDialog(type) {
+  const dialog =
+    document.querySelector('#authority-dialog');
+  const title =
+    document.querySelector('#authority-dialog-title');
+  const original =
+    document.querySelector('#authority-original-text');
+  const input =
+    document.querySelector('#authority-uri');
+
+  if (
+    !dialog ||
+    !title ||
+    !original ||
+    !input ||
+    !activeAnnotation
+  ) {
+    return;
+  }
+
+  title.textContent =
+    type === 'person'
+      ? 'Identifier la personne'
+      : 'Identifier le lieu';
+
+  original.textContent =
+    getSelectedAnnotationText(activeAnnotation);
+
+  input.value =
+    getLinkingUri(activeAnnotation);
+
+  input.setCustomValidity('');
+  dialog.showModal();
+
+  requestAnimationFrame(() => {
+    input.focus();
+    input.select();
+  });
+}
+
+function cancelAuthority() {
+  const dialog =
+    document.querySelector('#authority-dialog');
+
+  if (dialog?.open) {
+    dialog.close();
+  }
+
+  activeAuthorityType = null;
+
+  if (isNewAnnotation && activeAnnotation) {
+    removeAbandonedNewAnnotation();
+    return;
+  }
+
+  finishCurrentAction();
+}
+
+function getLinkingUri(annotation) {
+  return (
+    annotation?.bodies?.find(
+      body => body.purpose === 'linking'
+    )?.value ?? ''
+  );
+}
+
+function normalizeWikidataUri(value) {
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return '';
+  }
+
+  const qidMatch = trimmed.match(
+    /(?:https?:\/\/(?:www\.)?wikidata\.org\/wiki\/)?(Q\d+)$/i
+  );
+
+  if (!qidMatch) {
+    return null;
+  }
+
+  return (
+    'https://www.wikidata.org/wiki/' +
+    qidMatch[1].toUpperCase()
+  );
+}
+
 function getSelectedAnnotationText(annotation) {
   const selectors = annotation?.target?.selector;
 
@@ -429,9 +612,15 @@ function handleKeyboardNavigation(event) {
   if (event.key !== 'Escape') return;
 
   const dialog = document.querySelector('#correction-dialog');
+  const authorityDialog = document.querySelector('#authority-dialog');
   const menu = document.querySelector('#context-menu');
 
-  if (dialog?.open || !menu || menu.hidden) return;
+  if (
+    dialog?.open ||
+    authorityDialog?.open ||
+    !menu ||
+    menu.hidden
+  ) return;
 
   if (isNewAnnotation && activeAnnotation) {
     removeAbandonedNewAnnotation();
