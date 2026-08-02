@@ -593,3 +593,39 @@ a {
     background: #EDE9FE;
     color: #1F2937;
 }
+
+.warning-box {
+    margin: 2rem 0;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #f39c12;
+    border-left: 8px solid #f39c12;
+    border-radius: 8px;
+    background-color: #fff8ec;
+    color: #333;
+}
+
+.warning-box h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: #c56b00;
+    font-size: 1.2rem;
+}
+
+.warning-box p {
+    margin: 0.7rem 0;
+    line-height: 1.6;
+}
+
+.warning-link {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.warning-link a {
+    color: #d35400;
+    text-decoration: none;
+}
+
+.warning-link a:hover {
+    text-decoration: underline;
+}

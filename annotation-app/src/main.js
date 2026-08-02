@@ -126,7 +126,7 @@ app.innerHTML = `
       >
 
       <p class="field-help">
-        Laisse ce champ vide lorsque l’entité n’est pas identifiée.
+        Laissez ce champ vide lorsque l’entité n’est pas identifiée.
       </p>
 
       <div class="dialog-actions">
