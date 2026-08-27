@@ -1,14 +1,6 @@
 name: Deploy GitHub Pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "site/**"
-      - "annotation-app/**"
-      - "data/Frene_volume_1/exports/TEI/Frene_volume_1.xml"
-      - ".github/workflows/pages.yml"
-      - "data/Frene_volume_1/exports/TEI/**"
   workflow_dispatch:
 
 permissions:
