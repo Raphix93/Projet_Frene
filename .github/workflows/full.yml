@@ -55,7 +55,7 @@ jobs:
           find . -type f | sort
 
       - name: Commit generated TEI files
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -75,7 +75,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh repository after ALTO2TEI commit
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git pull --ff-only
 
       - name: Set up Python
@@ -93,7 +93,7 @@ jobs:
           python text-extraction.py ./data/*
 
       - name: Commit generated TXT files
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' 
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -103,7 +103,7 @@ jobs:
           git push || echo "Nothing to push"
 
       - name: Create GitHub release on push
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' 
         uses: rymndhng/release-on-push-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -125,7 +125,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh repository after MainZone commit
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git pull --ff-only
 
       - name: Set up Python
@@ -190,7 +190,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh repository after MainZone commit
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git pull --ff-only
 
       - name: Set up Python
@@ -229,7 +229,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh repository after JPG commit
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git pull --ff-only
 
       - name: Download JPEG derivatives artifact
@@ -306,7 +306,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh repository after PDF_A2U commit
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         run: git pull --ff-only
 
       - name: Download JPEG derivatives artifact
@@ -354,7 +354,7 @@ jobs:
       - HTR_United_Metadata_Generator
       - IIIF
 
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout repository
