@@ -28,8 +28,6 @@
                    ID="eSc_textblock_a08cbdbe"
                    TAGREFS="BT12">
           <Shape><Polygon POINTS="229 224 241 3189 2118 3208 2195 225"/></Shape>
-        </TextBlock>
-        <TextBlock ID="eSc_dummyblock_">
           <TextLine ID="eSc_line_0a585f5d"
                     TAGREFS="LT8"
                     BASELINE="895 800 1780 842" 
