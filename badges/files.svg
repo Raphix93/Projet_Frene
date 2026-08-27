@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="84" height="20"  role="img" aria-label="XML Files: 6">
-  <title>XML Files: 6</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="20"  role="img" aria-label="XML Files: 9">
+  <title>XML Files: 9</title>
     <mask id="anybadge_1">
         <rect width="84" height="20" fill="#fff"/>
     </mask>
@@ -12,6 +12,6 @@
         <text x="33.5" y="14">XML Files</text>
     </g>
     <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="75.5" y="14">6</text>
+        <text x="75.5" y="14">9</text>
     </g>
 </svg>
