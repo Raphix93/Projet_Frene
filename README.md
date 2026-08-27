@@ -1,7 +1,7 @@
 # Projet Frene
 Projet de transcription automatique ATR d'un journal Manuscrit du Pasteur Théophile Remy Frene, effectué dans le cadre de mon mémoire de Master en Patrimoine régional et Humanités numériques à l'Université de Neuchâtel.
 
-![characters badge](badges/characters.svg) ![regions badge](badges/regions.svg) ![lines badge](badges/lines.svg) ![files badge](badges/files.svg) 
+
 
 
 ## Présentation
@@ -35,6 +35,8 @@ Le projet vise notamment à expérimenter :
 - la validation et l’enrichissement des données grâce à une application reposant sur les sciences participatives.
 
 ## Corpus 
+
+![characters badge](badges/characters.svg) ![regions badge](badges/regions.svg) ![lines badge](badges/lines.svg) ![files badge](badges/files.svg) 
 
 Le corpus est constitué d'un extrait du journal manuscrit de Théophile-Rémy Frêne, pasteur et érudit jurassien du XVIIIe siècle.
 
