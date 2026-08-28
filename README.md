@@ -1,9 +1,6 @@
 # Projet Frene
 Projet de transcription automatique ATR d'un journal Manuscrit du Pasteur Théophile Remy Frene, effectué dans le cadre de mon mémoire de Master en Patrimoine régional et Humanités numériques à l'Université de Neuchâtel.
 
-
-
-
 ## Présentation
 
 Projet Frêne est un proof of concept consacré à la numérisation, à la transcription automatique, à la structuration et à la diffusion numérique d'un corpus archivistique.
@@ -108,15 +105,7 @@ alto2tei/run.py
 
 Cette étape permet de transformer la transcription issue de la reconnaissance automatique en données textuelles structurées susceptibles d'être enrichies et réutilisées dans un environnement d'humanités numériques.
 
-2. Extraction du texte
-
-Le script :
-
-text-extraction.py
-
-extrait les zones textuelles pertinentes des fichiers XML et produit une version textuelle agrégée du corpus.
-
-3. Contrôle des données HTR
+2. Contrôle des données HTR
 
 Le projet utilise les outils associés à HTR-United afin de produire des métriques relatives au corpus.
 
@@ -127,7 +116,7 @@ le nombre de régions ;
 le nombre de lignes ;
 le nombre de fichiers XML.
 
-4. Validation ALTO et SegmOnto
+3. Validation ALTO
 
 Les fichiers sont contrôlés automatiquement afin de vérifier notamment :
 
@@ -136,7 +125,7 @@ leur conformité au schéma ALTO ;
 leur structure de segmentation ;
 leur compatibilité avec les conventions SegmOnto.
 
-5. Génération des JPEG
+4. Génération des JPEG
 
 Des dérivés JPEG sont automatiquement générés à partir des images du corpus.
 
@@ -146,7 +135,7 @@ JPG/generate_jpg.py
 
 Ces dérivés sont notamment destinés à la consultation et à la diffusion web.
 
-6. Production PDF/A-2u
+5. Production PDF/A-2u
 
 Le script :
 
@@ -158,7 +147,7 @@ La conformité du document produit est contrôlée automatiquement avec veraPDF.
 
 Un rapport de validation est également généré.
 
-7. Génération IIIF
+6. Génération manifest IIIF
 
 Le script :
 
@@ -172,7 +161,7 @@ metadata/flora_metadata.py
 
 Le manifeste associe ainsi les images numérisées, leurs métadonnées et les ressources dérivées nécessaires à leur diffusion.
 
-8. Diffusion
+7. Diffusion
 
 Les ressources nécessaires à la consultation sont regroupées dans :
 
